@@ -1,0 +1,20 @@
+{
+  "name": "kognise-website",
+  "version": "1.0.0",
+  "description": "My personal website and portfolio.",
+  "scripts": {
+    "dev": "next"
+  },
+  "main": "pages/index.js",
+  "repository": "https://github.com/kognise/website",
+  "author": "Kognise",
+  "license": "UNLICENSE",
+  "private": false,
+  "dependencies": {
+    "next": "^8.0.3",
+    "next-page-transitions": "^1.0.0-alpha.6",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-ionicons": "^3.0.1"
+  }
+}
