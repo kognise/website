@@ -17,13 +17,13 @@ export default () => (
       <Navbar />
       <Title>This Website</Title>
       <Text>
-        I'm currently working on designing and creating the website you're looking at right now. I want to showcase my work and give people an idea of who I am and what I do.
+        I'm currently working on designing and creating this website. It will showcase my work and give people an idea of who I am and what I do.
       </Text>
       <ProjectLinks>
         <Link href='/'><Icon Icon={GlobeIcon} /> Literally this site</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#ffffff'>
+    <Jumbo background='#f5f5f5'>
       <Title>Repl.it API</Title>
       <Text>
         I've fallen in love with the online programming platform <Link href='https://repl.it/' color='#da3fff' nom>Repl.it</Link>! It lets you run in over 40 programming languages quickly, and provides free web hosting. It's just missing one thing: automation. I wanted to fix that, so I used Chrome's network explorer tab to find all the API endpoints and websocket messages to send and built a Node module to abstract it all. I'm working with Repl.it's founder to make it official.
@@ -35,7 +35,7 @@ export default () => (
         <Link href='https://repl.it/talk/announcements/Replit-Node-API/11173'><Icon Icon={ChatIcon} /> Repl.it Talk</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#f5f5f5'>
+    <Jumbo background='#ffffff'>
       <Title>P2PSC</Title>
       <Text>
         I wanted to build a point to point chat program so I could chat with friends at a summer camp I go to. It needed to not rely on a central server because we don't have internet access there. Thus, P2PSC was born, standing for point to point secure chat. It's a super lightweight and easy to use decentralized chat platform that runs on the command-line.
@@ -46,7 +46,7 @@ export default () => (
         <Link href='https://www.npmjs.com/package/p2psc'><Icon Icon={NPMIcon} /> Package</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#ffffff'>
+    <Jumbo background='#f5f5f5'>
       <Title>RaaS</Title>
       <Text>
         This project began as a joke making fun of all the X as a Services out there. It turned into a project involving an API, a Node client, a CLI, a website, and multiple microservices. Although I never finished a lot of the documentation, the CLI, API, and Node client for said API have every intended feature except for custom domains. Oh, I forgot to mention &mdash; RaaS stands for Rickrolling as a Service.
@@ -54,6 +54,54 @@ export default () => (
       <ProjectLinks>
         <Link href='https://raas.now.sh/'><Icon Icon={GlobeIcon} /> Website</Link>
         <Link href='https://github.com/rickrolling-as-a-service'><Icon Icon={GithubIcon} /> GitHub Org</Link>
+      </ProjectLinks>
+    </Jumbo>
+    <Jumbo background='#ffffff'>
+      <Title>bootstrap-next</Title>
+      <Text>
+        Once I discovered Next.js, I started using it in almost every project of mine. Over time I found that I had to configure a lot of the same things over and over manually and popular bootstrappers didn't fit how I code, so I built my own bootstrapper that can generate a Next.js project with a file structure, linting rules, and a readme already set up.
+      </Text>
+      <ProjectLinks>
+        <Link href='https://github.com/kognise/bootstrap-next'><Icon Icon={GithubIcon} /> Source Code</Link>
+        <Link href='https://www.npmjs.com/package/bootstrap-next'><Icon Icon={NPMIcon} /> Package</Link>
+      </ProjectLinks>
+    </Jumbo>
+    <Jumbo background='#f5f5f5'>
+      <Title>NYT.cx</Title>
+      <Text>
+        NYT.cx is a fairly simple url shortener, with a twist: you can "mask" one url with another, which replaces the opengraph tags of the website you're redirecting to with the opengraph tags of a website of your choice. Although it isn't the most useful thing I've ever made I got more experience in building APIs with Express and got insight into how link shorteners work.
+      </Text>
+      <ProjectLinks>
+        <Link href='https://nyt.cx/'><Icon Icon={GlobeIcon} /> Website</Link>
+      </ProjectLinks>
+    </Jumbo>
+    <Jumbo background='#ffffff'>
+      <Title>Digital.gov Workflow React</Title>
+      <Text>
+        I was invited to help with the Digital.gov Workflow project by <Link href='https://jeremyzilar.com/' color='#da3fff' nom>Jeremy Zilar</Link>. It's a site for easily and openly managing their editorial workflows. I took this opportunity to learn React and build my first Next.js app, which is a full remake of the old Jekyll app focusing on speed, future-proofing, and accessibility. I also learned GraphQL to build a backend with it, which drasticaly improves loading times.
+      </Text>
+      <ProjectLinks>
+        <Link href='https://digitalgov-workflow.netlify.com/'><Icon Icon={GlobeIcon} /> Website</Link>
+        <Link href='https://github.com/kognise/digitalgov-workflow-react'><Icon Icon={GithubIcon} /> Frontend Code</Link>
+        <Link href='https://github.com/kognise/digitalgov-workflow-graphql'><Icon Icon={GithubIcon} /> Backend Code</Link>
+      </ProjectLinks>
+    </Jumbo>
+    <Jumbo background='#f5f5f5'>
+      <Title>Sherlock</Title>
+      <Text>
+        Once upon a time, I was offline and wanted to find a file with a certain content on my computer. I wrote a Python script to search through everything, but it was taking ages. I gradually expanded upon it and added multithreading and such. Although it isn't <em>that</em> performant, it was a pretty good learning experience.
+      </Text>
+      <ProjectLinks>
+        <Link href='https://github.com/kognise/sherlock'><Icon Icon={GithubIcon} /> Source Code</Link>
+      </ProjectLinks>
+    </Jumbo>
+    <Jumbo background='#ffffff'>
+      <Title>Encryptico</Title>
+      <Text>
+        I discovered <Link href='https://www.emberjs.com/' color='#da3fff' nom>Ember</Link> and at the same time was trying to find a simple tool to encrypt and decrypt strings. I decided to build one and teach myself Ember in the process. I now realize I didn't take advantage of a lot, but still learned a ton. This knowledge also helped me progress to React later on.
+      </Text>
+      <ProjectLinks>
+        <Link href='https://github.com/kognise/encryptico'><Icon Icon={GithubIcon} /> Source Code</Link>
       </ProjectLinks>
     </Jumbo>
   </>
