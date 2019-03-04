@@ -13,9 +13,13 @@ export default class extends Document {
           <style>{`
             body {
               margin: 0;
-              overflow-y: scroll;
             }
-        `}</style>
+
+            html {
+              scroll-behavior: smooth;
+            }
+          `}</style>
+          <link rel='stylesheet' href='https://highlightjs.org/static/demo/styles/ocean.css' />
         </Head>
         <body>
           <Main />

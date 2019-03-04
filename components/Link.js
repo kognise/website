@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 
-export default withRouter(({ router, href = '#', children, color, nom }) => (
+export default withRouter(({ router, href = '#', children, color, nom, className }) => (
   <Link href={href}>
-    <a>
+    <a className={className}>
       {children}
       <style jsx>{`
         color: ${color || 'inherit'};

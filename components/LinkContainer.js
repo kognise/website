@@ -1,5 +1,5 @@
-export default ({ children }) => (
-  <nav>
+export default ({ children, className }) => (
+  <nav className={className}>
     {children}
     <style jsx>{`
       position: absolute;

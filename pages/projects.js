@@ -5,6 +5,7 @@ import Link from '../components/Link'
 import ProjectLinks from '../components/ProjectLinks'
 import Navbar from '../components/layout/Navbar'
 import Icon from '../components/Icon'
+import DownButton from '../components/DownButton'
 import GlobeIcon from 'react-ionicons/lib/MdGlobe'
 import GithubIcon from 'react-ionicons/lib/LogoGithub'
 import TwitterIcon from 'react-ionicons/lib/LogoTwitter'
@@ -22,11 +23,12 @@ export default () => (
       <ProjectLinks>
         <Link href='/'><Icon Icon={GlobeIcon} /> Literally this site</Link>
       </ProjectLinks>
+      <DownButton />
     </Jumbo>
     <Jumbo background='#f5f5f5'>
       <Title>Repl.it API</Title>
       <Text>
-        I've fallen in love with the online programming platform <Link href='https://repl.it/' color='#da3fff' nom>Repl.it</Link>! It lets you run in over 40 programming languages quickly, and provides free web hosting. It's just missing one thing: automation. I wanted to fix that, so I used Chrome's network explorer tab to find all the API endpoints and websocket messages to send and built a Node module to abstract it all. I'm working with Repl.it's founder to make it official.
+        I've fallen in love with the online programming platform <Link href='https://repl.it/' color='#da3fff' nom>Repl.it</Link>! It lets you run code in over 40 programming languages quickly, and provides free web hosting. It's just missing one thing: automation. I wanted to fix that, so I used Chrome's network explorer tab to find all the API endpoints and websocket messages to send and built a Node module to abstract it all. I'm working with Repl.it's founder to make it official.
       </Text>
       <ProjectLinks>
         <Link href='https://github.com/kognise/repl.it-api'><Icon Icon={GithubIcon} /> Source Code</Link>

@@ -15,6 +15,7 @@
     "next-page-transitions": "^1.0.0-alpha.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-highlight.js": "^1.0.7",
     "react-ionicons": "^3.0.1"
   }
 }
