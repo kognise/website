@@ -37,7 +37,6 @@ export default () => (
       <DownButton />
     </Jumbo>
     <Jumbo background='#ffffff'>
-      <Navbar />
       <Title>This Website</Title>
       <Text>
         I needed a website to showcase my work and give people an idea of who I am and what I do, so I built it from scratch with React and Next.js. Hint: you're looking at it right now.
