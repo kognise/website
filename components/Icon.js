@@ -7,10 +7,10 @@ export default ({ Icon, color = '#ffffff' }) => (
       svg {
         width: 1em;
         height: 1em;
-        transform: scale(1.3);
+        transform: scale(1.2);
         margin-right: 2px;
         position: relative;
-        top: 1px;
+        top: 2px;
       }
     `}</style>
   </div>
