@@ -11,9 +11,18 @@ import GithubIcon from 'react-ionicons/lib/LogoGithub'
 import TwitterIcon from 'react-ionicons/lib/LogoTwitter'
 import ChatIcon from 'react-ionicons/lib/MdChatboxes'
 import NPMIcon from '../components/svgs/NPM'
+import NextSEO from 'next-seo'
 
 export default () => (
   <>
+    <NextSEO config={{
+      title: 'Kognise: Projects',
+      canonical: 'https://kognise.dev/projects',
+      openGraph: {
+        url: 'https://kognise.dev/projects',
+        title: 'Projects',
+      }
+    }} />
     <Jumbo>
       <Navbar />
       <Title>This Website</Title>

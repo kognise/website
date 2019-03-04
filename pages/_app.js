@@ -1,6 +1,8 @@
 import App, { Container } from 'next/app'
 import React from 'react'
 import { PageTransition } from 'next-page-transitions'
+import NextSEO from 'next-seo'
+import seo from '../shared/seo'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -17,7 +19,8 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
     return (
       <Container>
-        <PageTransition timeout={300} classNames="page-transition">
+        <NextSEO config={seo} />
+        <PageTransition timeout={300} classNames='page-transition'>
           <Component {...pageProps} />
         </PageTransition>
         <style jsx global>{`
