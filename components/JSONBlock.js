@@ -16,6 +16,12 @@ export default ({ children, className }) => (
         font-size: 0.86em;
         cursor: default;
         background: #000000;
+        opacity: 0.8;
+        transition: all 0.2s ease;
+      }
+
+      .hljs:hover {
+        opacity: 1;
       }
     `}</style>
   </div>

@@ -15,6 +15,12 @@ export default () => (
       position: absolute;
       bottom: 0;
       cursor: pointer;
+      opacity: 0.8;
+      transition: all 0.2s ease;
+
+      :hover {
+        opacity: 1;
+      }
     `}</style>
   </div>
 )
