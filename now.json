@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": 2,
-  "alias": [ "kognise" ],
+  "alias": [ "kognise", "kognise.dev" ],
   "builds": [
     { "src": "next.config.js", "use": "@now/next" }
   ]
