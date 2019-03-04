@@ -20,7 +20,7 @@ export default class extends Document {
           `}</style>
           <link rel='stylesheet' href='https://highlightjs.org/static/demo/styles/ocean.css' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Mono' />
-          <link rel='shortcut icon' href='https://kognise-branding.now.sh/logos/pfp.png' />
+          <link rel='shortcut icon' href='https://branding.kognise.dev/logos/pfp.png' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta name='theme-color' content='#000000' />
         </Head>
