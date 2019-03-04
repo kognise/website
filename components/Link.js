@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 
-export default withRouter(({ router, href = '#', children, color }) => (
+export default withRouter(({ router, href = '#', children, color, nom }) => (
   <Link href={href}>
     <a>
       {children}
@@ -12,7 +12,7 @@ export default withRouter(({ router, href = '#', children, color }) => (
         text-decoration: none;
         display: inline-block;
         border-bottom: 1px solid transparent;
-        margin-bottom: 10px;
+        margin-bottom: ${nom ? '0' : '10px'};
 
         :hover {
           opacity: 1;

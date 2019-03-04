@@ -8,6 +8,7 @@ import Icon from '../components/Icon'
 import GlobeIcon from 'react-ionicons/lib/MdGlobe'
 import GithubIcon from 'react-ionicons/lib/LogoGithub'
 import TwitterIcon from 'react-ionicons/lib/LogoTwitter'
+import ChatIcon from 'react-ionicons/lib/MdChatboxes'
 import NPMIcon from '../components/svgs/NPM'
 
 export default () => (
@@ -16,7 +17,7 @@ export default () => (
       <Navbar />
       <Title>This Website</Title>
       <Text>
-        I'm currently working on designing and creating the website you're looking at right now. I want to showcase my good work and give people an idea of who I am and what I do.
+        I'm currently working on designing and creating the website you're looking at right now. I want to showcase my work and give people an idea of who I am and what I do.
       </Text>
       <ProjectLinks>
         <Link href='/'><Icon Icon={GlobeIcon} /> Literally this site</Link>
@@ -25,12 +26,13 @@ export default () => (
     <Jumbo background='#ffffff'>
       <Title>Repl.it API</Title>
       <Text>
-        I've fallen in love with the online programming platform <Link href='https://repl.it/' color='#da3fff'>Repl.it</Link>! It lets you create a project in over 40 programming languages in less than 10 seconds.
+        I've fallen in love with the online programming platform <Link href='https://repl.it/' color='#da3fff' nom>Repl.it</Link>! It lets you run in over 40 programming languages quickly, and provides free web hosting. It's just missing one thing: automation. I wanted to fix that, so I used Chrome's network explorer tab to find all the API endpoints and websocket messages to send and built a Node module to abstract it all. I'm working with Repl.it's founder to make it official.
       </Text>
       <ProjectLinks>
+        <Link href='https://github.com/kognise/repl.it-api'><Icon Icon={GithubIcon} /> Source Code</Link>
+        <Link href='https://www.npmjs.com/package/repl.it-api'><Icon Icon={NPMIcon} /> Package</Link>
         <Link href='https://twitter.com/amasad/status/1100610559748202496'><Icon Icon={TwitterIcon} /> Twitter Thread</Link>
-        <Link href='https://github.com/kognise/p2psc'><Icon Icon={GithubIcon} /> Source Code</Link>
-        <Link href='https://www.npmjs.com/package/p2psc'><Icon Icon={NPMIcon} /> Package</Link>
+        <Link href='https://repl.it/talk/announcements/Replit-Node-API/11173'><Icon Icon={ChatIcon} /> Repl.it Talk</Link>
       </ProjectLinks>
     </Jumbo>
     <Jumbo background='#f5f5f5'>
