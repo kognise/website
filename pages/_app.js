@@ -2,7 +2,7 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import { PageTransition } from 'next-page-transitions'
 import NextSEO from 'next-seo'
-import seo from '../shared/seo'
+import seo from '../lib/seo'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {

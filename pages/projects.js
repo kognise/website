@@ -5,6 +5,7 @@ import Link from '../components/Link'
 import ProjectLinks from '../components/ProjectLinks'
 import Navbar from '../components/layout/Navbar'
 import Icon from '../components/Icon'
+import Subtitle from '../components/Subtitle'
 import DownButton from '../components/DownButton'
 import GlobeIcon from 'react-ionicons/lib/MdGlobe'
 import GithubIcon from 'react-ionicons/lib/LogoGithub'
@@ -25,14 +26,26 @@ export default () => (
     }} />
     <Jumbo>
       <Navbar />
-      <Title>This Website</Title>
+      <Subtitle>Current Project</Subtitle>
+      <Title>Project Liam</Title>
       <Text>
-        I'm currently working on designing and creating this website. It will showcase my work and give people an idea of who I am and what I do.
+        You may have heard that Google has discontinued their much-loved Inbox service that a lot of people (including me) rely on to organize their email. A few friends and I decided to take it upon ourselves to build an email service with the best features of Inbox included.
       </Text>
       <ProjectLinks>
-        <Link href='/'><Icon Icon={GlobeIcon} /> Literally this site</Link>
+        <Link href='https://liam.now.sh/'><Icon Icon={GlobeIcon} /> Preview</Link>
       </ProjectLinks>
       <DownButton />
+    </Jumbo>
+    <Jumbo background='#ffffff'>
+      <Navbar />
+      <Title>This Website</Title>
+      <Text>
+        I needed a website to showcase my work and give people an idea of who I am and what I do, so I built it from scratch with React and Next.js. Hint: you're looking at it right now.
+      </Text>
+      <ProjectLinks>
+        <Link href='/'><Icon Icon={GlobeIcon} /> This Site</Link>
+        <Link href='https://github.com/kognise/website'><Icon Icon={GithubIcon} /> Source Code</Link>
+      </ProjectLinks>
     </Jumbo>
     <Jumbo background='#f5f5f5'>
       <Title>Repl.it API</Title>
