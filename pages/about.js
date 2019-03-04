@@ -2,6 +2,8 @@ import Title from '../components/Title'
 import JSONBlock from '../components/JSONBlock'
 import Jumbo from '../components/Jumbo'
 import Navbar from '../components/layout/Navbar'
+import Text from '../components/Text'
+import Link from '../components/Link'
 import { useState, useEffect } from 'react'
 
 function getAge() {
@@ -20,7 +22,7 @@ const Page = ({ initialAge }) => {
       <Jumbo>
         <Navbar />
         <Title>About Me</Title>
-        <JSONBlock>{`
+        <JSONBlock className='block'>{`
 {
   "title": "Kognise",
   "name": "Felix Mattick",
@@ -37,8 +39,10 @@ const Page = ({ initialAge }) => {
   "languageKnowledgeOutOf10": {
     "javascript": 10,
     "css": 9,
+    "html": 9,
     "python": 7,
     "java": 6,
+    "go": 2,
     "c": 2
   },
   "technologyKnowledgeOutOf10": {
@@ -50,10 +54,29 @@ const Page = ({ initialAge }) => {
   "codeStyle": {
     "quotes": "single",
     "semicolons": false,
-    "es6": true
+    "es6": true,
+    "accessible": true
   }
 }
         `.trim()}</JSONBlock>
+        <Text className='fallback'>
+          Hi! If you were wondering, my full name is Felix Mattick, and you can contact me at <Link href='mailto:felix.mattick@gmail.com' color='#da3fff' nom>felix.mattick@gmail.com</Link>. I'm super familiar with languages like JavaScript, CSS, and HTML as well as technologies such as Node, React, and Sass. By the way, you'll be able to see a lot more about me on a bigger screen!
+        </Text>
+        <style jsx global>{`
+          .fallback {
+            display: none;
+          }
+
+          @media only screen and (max-height: 750px) {
+            .block {
+              display: none;
+            }
+
+            .fallback {
+              display: block;
+            }
+          }
+        `}</style>
       </Jumbo>
     </>
   )

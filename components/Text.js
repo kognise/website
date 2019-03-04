@@ -1,5 +1,5 @@
-export default ({ children }) => (
-  <p>
+export default ({ children, className }) => (
+  <p className={className}>
     {children}
     <style jsx>{`
       font-size: 1.2em;

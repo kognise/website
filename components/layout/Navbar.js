@@ -18,26 +18,32 @@ export default () => (
       <Link href='https://twitter.com/kognise'><Icon Icon={TwitterIcon} /> Twitter</Link>
       <Link href='https://github.com/kognise'><Icon Icon={GitHubIcon} /> GitHub</Link>
     </EndLinks>
-    <style jax global>{`
-      .container > div > .home-alt {
+    <style jsx global>{`
+      .home-alt {
         display: none;
       }
 
       @media only screen and (max-width: 440px) {
         .container {
-          flex-direction: column;
+          flex-direction: column !important;
         }
 
-        .container > div > a:not(.home) {
-          display: block !important;
+        .container > div {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .container > div > a {
+          flex: 1;
           margin-left: 0;
+          text-align: center;
         }
 
-        .container > div > .home {
-          display: none;
+        .home {
+          display: none !important;
         }
 
-        .container > div > .home-alt {
+        .home-alt {
           display: block;
         }
       }

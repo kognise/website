@@ -8,18 +8,19 @@ export default class extends Document {
 
   render() {
     return (
-      <html>
+      <html lang='en'>
         <Head>
           <style>{`
             body {
               margin: 0;
             }
-
             html {
               scroll-behavior: smooth;
             }
           `}</style>
           <link rel='stylesheet' href='https://highlightjs.org/static/demo/styles/ocean.css' />
+          <link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
         </Head>
         <body>
           <Main />
