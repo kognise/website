@@ -11,7 +11,7 @@ export default ({ children, className }) => (
       flex-direction: row;
       text-align: left;
 
-      @media only screen and (max-width: 686px) {
+      @media only screen and (max-width: 732px) {
         padding: 10px;
       }
     `}</style>
