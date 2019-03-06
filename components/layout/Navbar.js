@@ -16,12 +16,16 @@ export default () => (
       <Link href='/about'>About</Link>
     </StartLinks>
     <EndLinks>
-      <Link href='https://dribbble.com/kognise'><Icon Icon={DribbbleIcon} /> Dribbble</Link>
-      <Link href='https://twitter.com/kognise'><Icon Icon={TwitterIcon} /> Twitter</Link>
-      <Link href='https://github.com/kognise'><Icon Icon={GitHubIcon} /> GitHub</Link>
+      <Link href='https://dribbble.com/kognise'><Icon Icon={DribbbleIcon} /><span className='mbt'> Dribbble</span></Link>
+      <Link href='https://twitter.com/kognise'><Icon Icon={TwitterIcon} /><span className='mbt'> Twitter</span></Link>
+      <Link href='https://github.com/kognise'><Icon Icon={GitHubIcon} /><span className='mbt'> GitHub</span></Link>
     </EndLinks>
     <style jsx global>{`
       .home-alt {
+        display: none;
+      }
+
+      .mbt {
         display: none;
       }
 
@@ -47,6 +51,10 @@ export default () => (
 
         .home-alt {
           display: block;
+        }
+
+        .mbt {
+          display: inline;
         }
       }
     `}</style>

@@ -14,9 +14,6 @@ export default class extends Document {
             body {
               margin: 0;
             }
-            html {
-              scroll-behavior: smooth;
-            }
           `}</style>
           <link rel='stylesheet' href='https://highlightjs.org/static/demo/styles/ocean.css' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Mono' />
