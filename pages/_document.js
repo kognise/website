@@ -20,6 +20,7 @@ export default class extends Document {
           <link rel='shortcut icon' href='https://branding.kognise.dev/logos/pfp.png' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta name='theme-color' content='#000000' />
+          <meta name='keywords' content='kognise,website,personal,portfolio,projects,about,contact,info,developer,designer' />
         </Head>
         <body>
           <Main />
