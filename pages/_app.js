@@ -3,8 +3,10 @@ import React from 'react'
 import { PageTransition } from 'next-page-transitions'
 import NextSEO from 'next-seo'
 import seo from '../lib/seo'
+import router from 'next/router'
+import withGA from 'next-ga'
 
-export default class MyApp extends App {
+export default withGA('UA-116663597-5', router)(class extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
 
@@ -42,4 +44,4 @@ export default class MyApp extends App {
       </Container>
     )
   }
-}
+})
