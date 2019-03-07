@@ -16,9 +16,9 @@ export default ({ initialAge }) => {
 {
   "title": "Kognise",
   "name": "Felix Mattick",
-  "age": ${age},
-  "email": "felix.mattick@gmail.com",
+  "email": "hi@kognise.dev",
   "discord": "Kognise#6356",
+  "age": ${age},
   "interests": [
     "web development",
     "ui/ux design",
