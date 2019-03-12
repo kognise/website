@@ -8,7 +8,7 @@ export default ({ initialAge }) => {
   useEffect(() => {
     const interval = setInterval(() => setAge((Date.now() - 1114056000000) / 365 / 24 / 60 / 60 / 1000), 100)
     return () => window.clearInterval(interval)
-  })
+  }, [])
 
   return (
     <div>
