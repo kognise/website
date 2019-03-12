@@ -1,7 +1,11 @@
 import DownIcon from 'react-ionicons/lib/IosArrowDown'
 
 function scroll() {
-  window.scrollTo(0, window.innerHeight)
+  window.scroll({
+    top: window.innerHeight,
+    left: 0,
+    behavior: 'smooth'
+  })
 }
 
 export default () => (
