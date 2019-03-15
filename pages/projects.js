@@ -108,7 +108,7 @@ export default () => (
       <Subtitle>January 2019</Subtitle>
       <Title>Digital.gov Workflow React</Title>
       <Text>
-        I was invited to help with the Digital.gov Workflow project by <Link href='https://jeremyzilar.com/' color='#da3fff' nom>Jeremy Zilar</Link>. It's a site for easily and openly managing their editorial workflows. I took this opportunity to learn React and build my first Next.js app, which is a full remake of the old Jekyll app focusing on speed, future-proofing, and accessibility. I also learned GraphQL to build a backend with it, which drasticaly improves loading times.
+        I was invited to help with the Digital.gov Workflow project by <Link href='https://jeremyzilar.com/' color='#da3fff' nom>Jeremy Zilar</Link>. It's a site for openly managing their editorial workflows. I took this opportunity to learn React and build my first Next.js app, which is a full remake of the old Jekyll app focusing on speed, future-proofing, and accessibility. I also learned GraphQL to build a backend with it, which drasticaly improves loading times.
       </Text>
       <ProjectLinks>
         <Link href='https://digitalgov-workflow.netlify.com/'><Icon Icon={GlobeIcon} /> Website</Link>

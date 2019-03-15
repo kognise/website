@@ -7,6 +7,10 @@ export default ({ children }) => (
       margin: 0;
       opacity: 0.8;
       cursor: default;
+
+      @media only screen and (max-width: 400px) {
+        font-size: 1.05em;
+      }
     `}</style>
   </h2>
 )
