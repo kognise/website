@@ -44,7 +44,7 @@ export default ({ initialAge }) => {
 }
       `.trim()}</JSONBlock>
       <Text className='fallback'>
-        Hi! If you were wondering, my full name is Felix Mattick, and you can contact me at <Link href='mailto:felix.mattick@gmail.com' color='#da3fff' nom>felix.mattick@gmail.com</Link>. I'm super familiar with languages like JavaScript, CSS, and HTML as well as technologies such as Node, React, and Sass. By the way, you'll be able to see a lot more about me on a taller screen!
+        Hi! If you were wondering, my full name is Felix Mattick, and you can contact me at <Link href='mailto:hi@kognise.dev' color='#da3fff' nom>hi@kognise.dev</Link>. I'm super familiar with languages like JavaScript, CSS, and HTML as well as technologies such as Node, React, and Sass. By the way, you'll be able to see a lot more about me on a taller screen!
       </Text>
       <style jsx global>{`
         .fallback {
