@@ -4,5 +4,8 @@
   "alias": [ "kognise", "kognise.dev" ],
   "builds": [
     { "src": "next.config.js", "use": "@now/next" }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

@@ -11,7 +11,8 @@ export default class extends Document {
       <html lang='en'>
         <Head>
           <style>{`
-            body {
+            html, body {
+              background: #000000;
               margin: 0;
             }
           `}</style>
