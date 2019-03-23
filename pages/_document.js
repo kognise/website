@@ -11,9 +11,16 @@ export default class extends Document {
       <html lang='en'>
         <Head>
           <style>{`
-            html, body {
+            body {
               background: #000000;
               margin: 0;
+              padding: 0;
+            }
+
+            @media only screen and (max-height: 650px) {
+              body {
+                font-size: 0.84em;
+              }
             }
           `}</style>
           <link rel='stylesheet' href='https://highlightjs.org/static/demo/styles/ocean.css' />

@@ -1,10 +1,11 @@
-export default ({ height = 80 }) => (
+export default ({ height = 80, className }) => (
   <svg
     style={{
       isolation: 'isolate',
     }}
     viewBox='645.727 257.95 689.978 188.138'
     height={height}
+    className={className}
   >
     <title>Kognise</title>
     <defs>
