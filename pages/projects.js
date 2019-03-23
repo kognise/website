@@ -140,7 +140,7 @@ export default () => (
       <Subtitle>Before that...</Subtitle>
       <Title>... there was nothing</Title>
       <Text>
-        Once upon a time I was still learning the basics, and didn't know how magical Git truly is. In other words, basically nothing of the past is open source. It's a shame! I worked on an ebook program and various other fairly interesting things.
+        Once upon a time I was still learning the basics, and didn't know how magical Git is. In other words, basically nothing of the past is open source. It's a shame! I worked on an ebook program and various other fairly interesting things.
       </Text>
     </Jumbo>
   </>
