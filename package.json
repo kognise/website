@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "My personal website and portfolio.",
   "scripts": {
-    "dev": "next dev ."
+    "dev": "next dev .",
+    "build": "next build",
+    "start": "next start"
   },
   "main": "pages/index.js",
   "repository": "https://github.com/kognise/website",
