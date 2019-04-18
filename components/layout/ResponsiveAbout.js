@@ -45,15 +45,16 @@ export default ({ initialAge }) => {
     "css": 9,
     "html": 9,
     "python": 7,
-    "java": 6,
-    "go": 2,
+    "go": 6,
+    "java": 3,
     "c": 2
   },
   "technologyKnowledgeOutOf10": {
     "node": 10,
     "react": 9,
     "scssAndSass": 9,
-    "ember": 7
+    "svelte": 5,
+    "ember": 5
   }
 }
       `.trim()}</JSONBlock>
