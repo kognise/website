@@ -14,7 +14,7 @@ export default withGA('UA-116663597-5', router)(class extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps }
+    return { pageProps, router }
   }
 
   render() {
@@ -23,7 +23,7 @@ export default withGA('UA-116663597-5', router)(class extends App {
       <Container>
         <NextSEO config={seo} />
         <PageTransition timeout={300} classNames='page-transition'>
-          <Component {...pageProps} />
+          <Component {...pageProps} key={this.props.router.route} />
         </PageTransition>
         <style jsx global>{`
           .page-transition-enter > section > *:not(nav) {
