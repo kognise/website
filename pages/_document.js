@@ -17,6 +17,12 @@ export default class extends Document {
               padding: 0;
             }
 
+            ::selection {
+              background-color: #da3fff;
+              color: #ffffff;
+              opacity: 1;
+            }
+
             @media only screen and (max-height: 650px) {
               body {
                 font-size: 0.84em;
