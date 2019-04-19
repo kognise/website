@@ -10,6 +10,7 @@ import DownButton from '../components/DownButton'
 import GlobeIcon from 'react-ionicons/lib/MdGlobe'
 import GithubIcon from 'react-ionicons/lib/LogoGithub'
 import TwitterIcon from 'react-ionicons/lib/LogoTwitter'
+import PHIcon from 'react-ionicons/lib/MdMegaphone'
 import ChatIcon from 'react-ionicons/lib/MdChatboxes'
 import NPMIcon from '../components/svgs/NPM'
 import NextSEO from 'next-seo'
@@ -26,17 +27,18 @@ export default () => (
     }} />
     <Jumbo>
       <Navbar />
-      <Subtitle>Current Project</Subtitle>
-      <Title>Project Liam</Title>
+      <Subtitle>Primarily Maintaining</Subtitle>
+      <Title>Water.css</Title>
       <Text>
-        You may have heard that Google has discontinued their much-loved Inbox service that a lot of people (including me) rely on to organize their email. A few friends and I decided to take it upon ourselves to build an email service with the best features of Inbox included.
+      I commonly make static websites with important content and ideas that I don't want to spend time writing stylesheets for. Water.css is a css framework that doesn't require any classes. You just include it in your head and forget about it, while it silently makes everything nicer. This is my first successful project, making #3 product of the day on Product Hunt and over 3k stars on GitHub!
       </Text>
       <ProjectLinks>
-        <Link href='https://liam.now.sh/'><Icon Icon={GlobeIcon} /> Preview</Link>
+        <Link href='https://github.com/kognise/water.css'><Icon Icon={GithubIcon} /> Source Code</Link>
+        <Link href='https://www.producthunt.com/posts/water-css'><Icon Icon={PHIcon} /> Product Hunt</Link>
+        <Link href='https://watercss.netlify.com/'><Icon Icon={GlobeIcon} /> Demo</Link>
       </ProjectLinks>
-      <DownButton />
     </Jumbo>
-    <Jumbo background='#ffffff'>
+    <Jumbo background='#f5f5f5'>
       <Subtitle>March 2019</Subtitle>
       <Title>This Website</Title>
       <Text>
@@ -47,7 +49,7 @@ export default () => (
         <Link href='https://github.com/kognise/website'><Icon Icon={GithubIcon} /> Source Code</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#f5f5f5'>
+    <Jumbo background='#ffffff'>
       <Subtitle>February 2019</Subtitle>
       <Title>Repl.it API</Title>
       <Text>
@@ -60,7 +62,7 @@ export default () => (
         <Link href='https://repl.it/talk/announcements/Replit-Node-API/11173'><Icon Icon={ChatIcon} /> Repl.it Talk</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#ffffff'>
+    <Jumbo background='#f5f5f5'>
       <Subtitle>February 2019</Subtitle>
       <Title>P2PSC</Title>
       <Text>
@@ -72,7 +74,7 @@ export default () => (
         <Link href='https://www.npmjs.com/package/p2psc'><Icon Icon={NPMIcon} /> Package</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#f5f5f5'>
+    <Jumbo background='#ffffff'>
       <Subtitle>February 2019</Subtitle>
       <Title>RaaS</Title>
       <Text>
@@ -83,7 +85,7 @@ export default () => (
         <Link href='https://github.com/rickrolling-as-a-service'><Icon Icon={GithubIcon} /> GitHub Org</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#ffffff'>
+    <Jumbo background='#f5f5f5'>
       <Subtitle>February 2019</Subtitle>
       <Title>bootstrap-next</Title>
       <Text>
@@ -94,7 +96,7 @@ export default () => (
         <Link href='https://www.npmjs.com/package/bootstrap-next'><Icon Icon={NPMIcon} /> Package</Link>
       </ProjectLinks>
     </Jumbo>
-    <Jumbo background='#f5f5f5'>
+    <Jumbo background='#ffffff'>
       <Subtitle>February 2019</Subtitle>
       <Title>NYT.cx</Title>
       <Text>
@@ -103,6 +105,17 @@ export default () => (
       <ProjectLinks>
         <Link href='https://nyt.cx/'><Icon Icon={GlobeIcon} /> Website</Link>
       </ProjectLinks>
+    </Jumbo>
+    <Jumbo background='#f5f5f5'>
+      <Subtitle>January 2019</Subtitle>
+      <Title>Project Liam</Title>
+      <Text>
+        You may have heard that Google has discontinued their much-loved Inbox service that a lot of people (including me) rely on to organize their email. A few friends and I decided to build an email service with the best features of Inbox included. Although a good idea, proved to be too ambitious.
+      </Text>
+      <ProjectLinks>
+        <Link href='https://liam.now.sh/'><Icon Icon={GlobeIcon} /> Preview</Link>
+      </ProjectLinks>
+      <DownButton />
     </Jumbo>
     <Jumbo background='#ffffff'>
       <Subtitle>January 2019</Subtitle>
