@@ -6,7 +6,7 @@ export default () => <header>
     <div><NavLogo /></div>
 
     <NavLinks>
-      <NavLink href='/blog'>Blog</NavLink>
+      {/* <NavLink href='/blog'>Blog</NavLink> */}
       <NavLink href='/projects'>Projects</NavLink>
       <NavLink href='/about'>About</NavLink>
     </NavLinks>
