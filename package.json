@@ -1,25 +1,30 @@
 {
-  "name": "kognise-website",
-  "version": "1.0.0",
-  "description": "My personal website and portfolio.",
   "scripts": {
-    "dev": "next dev .",
+    "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "static": "next export"
   },
-  "main": "pages/index.js",
-  "repository": "https://github.com/kognise/website",
-  "author": "Kognise",
-  "license": "UNLICENSE",
-  "private": false,
   "dependencies": {
-    "next": "^8.0.3",
-    "next-ga": "^2.3.4",
-    "next-page-transitions": "^1.0.0-alpha.6",
-    "next-seo": "^1.11.1",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-highlight.js": "^1.0.7",
-    "react-ionicons": "^3.0.1"
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/client": "^0.146.0",
+    "@sanity/image-url": "^0.140.15",
+    "faunadb": "^2.8.1",
+    "next": "^9.0.6",
+    "next-seo": "^2.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-ga": "^2.7.0",
+    "styled-jsx": "^3.2.2"
+  },
+  "devDependencies": {
+    "@sanity/base": "^0.146.3",
+    "@sanity/code-input": "^0.146.0",
+    "@sanity/components": "^0.146.3",
+    "@sanity/core": "^0.146.0",
+    "@sanity/default-layout": "^0.146.3",
+    "@sanity/default-login": "^0.146.0",
+    "@sanity/desk-tool": "^0.146.3",
+    "@sanity/vision": "^0.146.3"
   }
 }

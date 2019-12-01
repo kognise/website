@@ -1,10 +1,10 @@
-import Logo from '../components/Logo'
-import Jumbo from '../components/Jumbo'
-import Navbar from '../components/layout/Navbar'
+import HomeLayout from '../components/layouts/HomeLayout'
+import HomeLinks, { HomeLink } from '../components/sections/HomeLinks'
 
-export default () => (
-  <Jumbo>
-    <Navbar />
-    <Logo />
-  </Jumbo>
-)
+export default () => <HomeLayout>
+  <HomeLinks>
+    <HomeLink href='/blog'>Blog</HomeLink>
+    <HomeLink href='/projects'>Projects</HomeLink>
+    <HomeLink href='/about'>About</HomeLink>
+  </HomeLinks>
+</HomeLayout>
