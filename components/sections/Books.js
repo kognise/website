@@ -11,7 +11,7 @@ export const Book = ({ title, author, coverUrl, link }) => <a href={link} target
 
   <style jsx>{`
     a {
-      background: #f5f5f5;
+      background: #171717;
       color: #505050;
 
       text-decoration: none;
@@ -23,7 +23,7 @@ export const Book = ({ title, author, coverUrl, link }) => <a href={link} target
     }
 
     a:hover {
-      color: #000000;
+      color: #fff;
       text-decoration: underline;
     }
 
@@ -38,7 +38,7 @@ export const Book = ({ title, author, coverUrl, link }) => <a href={link} target
     }
 
     h3 {
-      color: #000000;
+      color: #fff;
       font-size: 1em;
       margin-bottom: 4px;
     }

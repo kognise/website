@@ -9,7 +9,7 @@ export default ({ children }) => <div>
 
     div :global(pre), div :global(code) {
       font-family: 'IBM Plex Mono', monospace;
-      background: #ececec;
+      background: #171717;
       padding: 4px;
     }
   `}</style>

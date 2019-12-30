@@ -11,7 +11,7 @@ export const NavLink = ({ href, target, children }) => <Link href={href}>
       }
 
       a:hover {
-        color: #000000;
+        color: #fff;
         text-decoration: underline;
       }
     `}</style>

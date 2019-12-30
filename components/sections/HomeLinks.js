@@ -11,7 +11,7 @@ export const HomeLink = ({ href, target, children }) => <Link href={href}>
       }
 
       a:hover {
-        color: #ffffff;
+        color: #fff;
         text-decoration: underline;
       }
     `}</style>

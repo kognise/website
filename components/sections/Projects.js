@@ -11,7 +11,7 @@ export const Project = ({ title, link, description }) => <a href={link} target='
 
     a {
       color: #505050;
-      background: #f5f5f5;
+      background: #171717;
       text-decoration: none;
       
       padding: 20px;
@@ -19,12 +19,12 @@ export const Project = ({ title, link, description }) => <a href={link} target='
     }
 
     a:hover {
-      color: #000000;
+      color: #fff;
       text-decoration: underline;
     }
 
     h2 {
-      color: #000000;
+      color: #fff;
       font-size: 1.25em;
       margin-bottom: 12px;
     }

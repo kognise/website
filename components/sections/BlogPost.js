@@ -24,12 +24,12 @@ export default ({ title, description, slug }) => <Link href={`/blog/${slug.curre
       }
 
       a:hover {
-        color: #000000;
+        color: #fff;
         text-decoration: underline;
       }
 
       h2 {
-        color: #000000;
+        color: #fff;
         font-size: 1.25em;
         margin-bottom: 12px;
       }

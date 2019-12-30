@@ -81,7 +81,7 @@ export default ({ title, description, children }) => {
 
       .main :global(pre), .main :global(code) {
         font-family: 'IBM Plex Mono', monospace;
-        background: #ececec;
+        background: #171717;
         padding: 4px;
       }
     `}</style>

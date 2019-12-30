@@ -7,8 +7,8 @@ export default css.global`
     font-family: 'Overpass', sans-serif;
     line-height: 1.53;
 
-    background: #ffffff;
-    color: #000000;
+    background: #000;
+    color: #fff;
     
     margin: 0;
     padding: 10px;
@@ -16,7 +16,7 @@ export default css.global`
   }
 
   ::selection {
-    background: #000000;
-    color: #ffffff;
+    background: #fff;
+    color: #000;
   }
 `

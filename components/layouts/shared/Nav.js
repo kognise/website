@@ -18,7 +18,7 @@ export default () => <header>
     }
 
     header {
-      background: #ffffff;
+      background: #000;
       padding: 20px;
 
       position: fixed;
