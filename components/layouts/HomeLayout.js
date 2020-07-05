@@ -36,7 +36,7 @@ const Logo = () => <svg
 </svg>
 
 export default ({ children }) => <>
-  <Logo />
+  <h1><Logo /></h1>
   {children}
 
   <style jsx global>{sharedStyles}</style>
@@ -52,6 +52,10 @@ export default ({ children }) => <>
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+
+    h1 {
+      margin: 0;
     }
   `}</style>
 </>
