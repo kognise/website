@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "blanu.vscode-styled-jsx",
+    "andrewrazumovsky.vscode-styled-jsx-languageserver",
+    "wix.vscode-import-cost",
+    "visualstudioexptteam.vscodeintellicode",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig"
+  ],
+  "unwantedRecommendations": [
+    "amatiasq.sort-imports",
+    "esbenp.prettier-vscode"
+  ]
+}

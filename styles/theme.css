@@ -1,0 +1,29 @@
+:root {
+	--fg-very-light: #dadada;
+	--fg-light: #b9b9b9;
+	--fg-normal: #5b5b5b;
+	--fg-strong: #333333;
+	--fg-very-strong: #000000;
+	--fg-link: #0e7dde;
+	
+	--bg-primary: #ffffff;
+	--bg-secondary: #f6f6f6;
+	
+	--fg-selection: #ffffff;
+	--bg-selection: #ce22b7;
+}
+
+/* :root {
+	--fg-very-light: #535353;
+	--fg-light: #707070;
+	--fg-normal: #9b9b9b;
+	--fg-strong: #e7e7e7;
+	--fg-very-strong: #ffffff;
+	--fg-link: #3697eb;
+	
+	--bg-primary: #0f0f0f;
+	--bg-secondary: #202020;
+	
+	--fg-selection: #ffffff;
+	--bg-selection: #ce22b7;
+} */
