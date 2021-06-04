@@ -1,0 +1,20 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Open Sauce One', sans-serif;
+	line-height: 1.6;
+	background: var(--bg-primary);
+	color: var(--fg-normal);
+}
+
+#__next {
+	height: 100vh;
+}
+
+::selection {
+	background: var(--bg-selection);
+	color: var(--fg-selection);
+}

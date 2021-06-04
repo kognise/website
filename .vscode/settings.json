@@ -1,0 +1,5 @@
+{
+	"editor.formatOnSave": true,
+	"css.lint.unknownProperties": "ignore",
+	"css.lint.emptyRules": "ignore"
+}

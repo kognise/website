@@ -1,31 +1,32 @@
 {
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "static": "next export"
-  },
-  "dependencies": {
-    "@babel/runtime-corejs2": "^7.10.4",
-    "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/client": "^0.146.0",
-    "@sanity/image-url": "^0.140.15",
-    "faunadb": "^2.8.1",
-    "next": "^9.0.6",
-    "next-seo": "^2.1.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-ga": "^2.7.0",
-    "styled-jsx": "^3.2.2"
-  },
-  "devDependencies": {
-    "@sanity/base": "^0.146.3",
-    "@sanity/code-input": "^0.146.0",
-    "@sanity/components": "^0.146.3",
-    "@sanity/core": "^0.146.0",
-    "@sanity/default-layout": "^0.146.3",
-    "@sanity/default-login": "^0.146.0",
-    "@sanity/desk-tool": "^0.146.3",
-    "@sanity/vision": "^0.146.3"
-  }
+	"name": "website",
+	"version": "0.0.1",
+	"main": "pages/index.tsx",
+	"license": "Unlicense",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"lint:fix": "eslint . --fix",
+		"lint:check": "eslint .",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"next": "^10.2.0",
+		"next-seo": "^4.24.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-ga": "^3.3.0"
+	},
+	"devDependencies": {
+		"@types/node": "^15.0.2",
+		"@types/react": "^17.0.5",
+		"@types/styled-jsx": "^2.2.8",
+		"@typescript-eslint/eslint-plugin": "^4.23.0",
+		"@typescript-eslint/parser": "^4.23.0",
+		"eslint": "^7.26.0",
+		"eslint-plugin-react": "^7.23.2",
+		"eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+		"husky": "^6.0.0",
+		"typescript": "^4.2.4"
+	}
 }
