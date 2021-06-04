@@ -53,7 +53,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 					description,
 					images: [
 						{
-							url: 'https://branding.kognise.dev/logos/banner.png',
+							url: 'https://media.kognise.dev/logos/banner.png',
 							width: 1500,
 							height: 500,
 							alt: 'Kognise: Development and Design',
