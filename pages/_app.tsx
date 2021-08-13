@@ -9,6 +9,9 @@ import Head from 'next/head'
 import React, { FC, useEffect } from 'react'
 import ReactGA from 'react-ga'
 
+// This should not be needed but apparently it fixes types.
+import 'styled-jsx'
+
 const description = `
 I'm a young person who's interested in programming, aviation, and music. I'm currently working on several projects including Water.css, Punct, and Doggo.Ninja. 
 `.trim()
