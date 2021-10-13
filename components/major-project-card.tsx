@@ -1,18 +1,27 @@
 import { FC } from 'react'
+import Image from 'next/image'
 
 import Color from './color'
 import ExternalLinkIcon from './external-link-icon'
 
 interface MajorProjectCardProps {
-	iconName: string,
+	icon: StaticImageData,
 	name: string,
 	link: string,
 }
 
-const MajorProjectCard: FC<MajorProjectCardProps> = ({ children, iconName, name, link }) => (
+const MajorProjectCard: FC<MajorProjectCardProps> = ({ children, icon, name, link }) => (
 	<article>
 		<a href={link} target='_blank' rel='noreferrer'>
-			<img src={`/project-icons/${iconName}.png`} />
+			<div className='icon'>
+				<Image
+					src={icon}
+					sizes='140w, (max-width: 740px) 110w'
+					layout='fill'
+					alt={`${name} icon`}
+					priority
+				/>
+			</div>
 
 			<div className='content'>
 				<h3>{name} <Color color='light'><ExternalLinkIcon /></Color></h3>
@@ -36,12 +45,14 @@ const MajorProjectCard: FC<MajorProjectCardProps> = ({ children, iconName, name,
 					border: 2px solid var(--fg-normal);
 				}
 
-				img {
-					width: 140px;
-					height: 140px;
+				.icon {
+					min-width: 140px;
+					min-height: 140px;
 					border-radius: 30%;
 					margin-right: 34px;
 					user-select: none;
+					position: relative;
+					overflow: hidden;
 				}
 
 				.content h3 {
@@ -58,9 +69,9 @@ const MajorProjectCard: FC<MajorProjectCardProps> = ({ children, iconName, name,
 				}
 
 				@media (max-width: 740px) {
-					img {
-						width: 110px;
-						height: 110px;
+					.icon {
+						min-width: 110px;
+						min-height: 110px;
 						margin-right: 24px;
 					}
 				}
@@ -71,7 +82,7 @@ const MajorProjectCard: FC<MajorProjectCardProps> = ({ children, iconName, name,
 						align-items: flex-start;
 					}
 
-					img {
+					.icon {
 						margin-right: 0;
 						margin-bottom: 14px;
 					}

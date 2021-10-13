@@ -1,20 +1,25 @@
 import { FC } from 'react'
+import Image from 'next/image'
 
 import Color from './color'
 import ExternalLinkIcon from './external-link-icon'
 
 interface MajorProjectCardProps {
-	coverName: string,
+	cover: StaticImageData,
 	name: string,
 	author: string,
 	link: string,
 }
 
-const BookCard: FC<MajorProjectCardProps> = ({ coverName, name, author, link }) => (
+const BookCard: FC<MajorProjectCardProps> = ({ cover, name, author, link }) => (
 	<article>
 		<a href={link} target='_blank' rel='noreferrer'>
 			<div className='cover'>
-				<img src={`/book-covers/${coverName}.png`} />
+				<Image
+					src={cover}
+					alt={`${name} cover`}
+					layout='responsive'
+				/>
 			</div>
 
 			<div className='content'>
@@ -44,11 +49,12 @@ const BookCard: FC<MajorProjectCardProps> = ({ coverName, name, author, link }) 
 					border: 2px solid var(--fg-normal);
 				}
 
-				img {
-					width: 80px;
+				.cover {
+					min-width: 80px;
 					border-radius: 5px;
 					margin-right: 20px;
 					user-select: none;
+					overflow: hidden;
 				}
 
 				.content h3 {
@@ -65,7 +71,7 @@ const BookCard: FC<MajorProjectCardProps> = ({ coverName, name, author, link }) 
 				}
 
 				@media (max-width: 480px) {
-					img {
+					.cover {
 						display: none;
 					}
 				}

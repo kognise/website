@@ -11,70 +11,98 @@ import MajorProjectCard from 'components/major-project-card'
 import MinorProjectCard from 'components/minor-project-card'
 import PageSection from 'components/page-section'
 
+import doggoNinjaIcon from '../public/project-icons/doggo-ninja.png'
+import pwnsquadIcon from '../public/project-icons/pwnsquad.png'
+import watercssIcon from '../public/project-icons/watercss.png'
+import webjamIcon from '../public/project-icons/webjam.png'
+
+import atomicDesignCover from '../public/book-covers/atomic-design.png'
+import fallCover from '../public/book-covers/fall.png'
+import gameEngineBbCover from '../public/book-covers/game-engine-bb.png'
+import goingPostalCover from '../public/book-covers/going-postal.png'
+import lifeInCodeCover from '../public/book-covers/life-in-code.png'
+import rebelCodeCover from '../public/book-covers/rebel-code.png'
+
 const IndexPage: FC = () => {
 	const stuffRef = useRef<HTMLElement>(null)
 
 	return (
 		<main>
 			<IndexHero>
-				<h1>Hi. I&apos;m a young person and I make cool things.</h1>
-				<p>My main interests are <Color color='very-strong'>tech, music, and aviation</Color>.</p>
+				<h1>Hi. I&apos;m a programmer and side-project extraordinaire.</h1>
 				<p>
-					I&apos;m currently studying for my <Color color='very-strong'>Private Pilot License</Color> and building various projects.
-					My favorite programming technologies are <Color color='very-strong'>Rust, TypeScript, and Next.js</Color>.
+					Right now I&apos;m running a hackathon and preparing a product launch.
+					My favorite technologies are <Color color='very-strong'>TypeScript, Rust, and Next.js</Color>.
+				</p>
+				<p>
+					I spend a lot of time online. When I&apos;m not, you can find me <Color color='very-strong'>reading, flying planes, and making music</Color>. I&apos;ve played cello for 10 years!
 				</p>
 				<div className='button-group'>
 					<Button role='link' onClick={() => window.open('https://github.com/kognise')}>
 						GitHub{' '}
 						<Color color='light'><ExternalLinkIcon /></Color>
 					</Button>
-					<Button role='link' onClick={() => stuffRef.current?.scrollIntoView({ behavior: 'smooth' })}>
-						Stuff I Like
+					<Button role='link' onClick={() => window.open('https://polywork.com/kognise')}>
+						Polywork{' '}
+						<Color color='light'><ExternalLinkIcon /></Color>
 					</Button>
 				</div>
 			</IndexHero>
 
 			<PageSection bg='secondary'>
 				<Grid gap={50} rowGap={60} columnSize={600}>
-					<MajorProjectCard name='Doggo.Ninja' iconName='doggo-ninja' link='https://doggo.ninja/'>
-						A privacy-friendly Google Drive alternative for storing, uploading, and sharing files.
-						Currently a private alpha with around 100 invited users.
+					<MajorProjectCard name='Doggo.Ninja' icon={doggoNinjaIcon} link='https://doggo.ninja/'>
+						A privacy-friendly service for file sharing, computer backups, and more.
+						Currently a private alpha, ideally launching publicly in Q1 2022.
 					</MajorProjectCard>
-					<MajorProjectCard name='PwnSquad' iconName='pwnsquad' link='https://pwnsquad.net/'>
-						An inclusive Discord-based programming and pentesting community for anyone interested,
-						both experienced and inexperienced.
+					<MajorProjectCard name='WebJam NYC' icon={webjamIcon} link='https://webjam.nyc/'>
+						The first in-person hackathon in New York since the pandemic.
+						Our goal is to bring together students interested in building for the web.
 					</MajorProjectCard>
-					<MajorProjectCard name='Water.css' iconName='watercss' link='https://watercss.kognise.dev/'>
-						A tiny classless CSS framework for developing website prototypes, with over 6,000 stars
+					<MajorProjectCard name='Water.css' icon={watercssIcon} link='https://watercss.kognise.dev/'>
+						A tiny classless CSS framework for developing website prototypes, with over 6,500 stars
 						on GitHub and #3 product of the day on Product Hunt.
 					</MajorProjectCard>
-					<MajorProjectCard name='Punct' iconName='punct' link='https://punct.app/'>
-						An in-development novel email client built to have a beautiful and elegant design and
-						get email over with faster, without a compromising pricing plan.
+					<MajorProjectCard name='PwnSquad' icon={pwnsquadIcon} link='https://pwnsquad.net/'>
+						An inclusive Discord-based programming and pentesting community for anyone interested,
+						both experienced and inexperienced.
 					</MajorProjectCard>
 				</Grid>
 			</PageSection>
 
 			<PageSection bg='primary'>
 				<Grid gap={30} columnSize={340}>
+					<MinorProjectCard name='Punct'>
+						In-development novel email client built to prioritize UX and design.
+					</MinorProjectCard>
+					<MinorProjectCard name='ZephyrWave'>
+						Offline-first syncronized music streaming and radio web app I built on a train.
+					</MinorProjectCard>
+					<MinorProjectCard name='S1'>
+						A tiny hosted key-value store and dashboard used by many hobby projects.
+					</MinorProjectCard>
+					<MinorProjectCard name='Crypticat'>
+						Semi-decentralized encrypted chat platform as a progressive web app.
+					</MinorProjectCard>
+					
 					<MinorProjectCard name='Flight Plan Converter'>
 						Tool to convert between flight sim and IRL flight plans.
 					</MinorProjectCard>
 					<MinorProjectCard name='Yobmef'>
 						Toy chess engine built I built in one week with some friends.
 					</MinorProjectCard>
-					<MinorProjectCard name='Taut'>
-						Highly configurable selfbot for Slack with lots of commands.
+					<MinorProjectCard name='FontKey'>
+						Font discovery, pairing, and preview tool that won the Replit Space Jam.
 					</MinorProjectCard>
 					<MinorProjectCard name='Obsidian Aviation'>
 						FAA FAR/AIM and more as an automatically linked Obsidian fault.
 					</MinorProjectCard>
 					
-					<MinorProjectCard name='FontKey'>
-						Font discovery, pairing, and preview tool that won the Replit Space Jam.
+					<MinorProjectCard name='Taut'>
+						Highly configurable selfbot for Slack with lots of commands.
 					</MinorProjectCard>
-					<MinorProjectCard name='Crypticat'>
-						Semi-decentralized encrypted chat platform as a progressive web app.
+					<MinorProjectCard name='Coronabot'>
+						The first COVID-19 tracking Discord bot, and an early verified bot.
 					</MinorProjectCard>
 					<MinorProjectCard name='Volcano'>
 						Reverse-engineered plugin loader for the note taking program Obsidian.
@@ -96,8 +124,8 @@ const IndexPage: FC = () => {
 						Joke command-line tool to deploy web projects to Neocities.
 					</MinorProjectCard>
 
-					<MinorProjectCard name='Coronabot'>
-						The first COVID-19 tracking Discord bot, and an early verified bot.
+					<MinorProjectCard name='P2PSC'>
+						The predecessor to Crypticat, a slightly insecure point-to-point CLI chat tool.
 					</MinorProjectCard>
 					<MinorProjectCard name='VSCode UPM'>
 						The first and only Replit UPM plugin for Visual Studio Code.
@@ -121,6 +149,19 @@ const IndexPage: FC = () => {
 					<MinorProjectCard name='Replit Mobile'>
 						Prototype React Native mobile app for the Replit cloud IDE.
 					</MinorProjectCard>
+
+					<MinorProjectCard name='RaaS'>
+						&quot;Rickrolling as a Service,&quot; a joke service and toolsetfor generating links to memes.
+					</MinorProjectCard>
+					<MinorProjectCard name='Vidregator'>
+						A proof-of-concept video aggregation and searching platform for self-hosting.
+					</MinorProjectCard>
+					<MinorProjectCard name='Sherlock'>
+						A hacky Python script to efficiently perform multithreaded file searching.
+					</MinorProjectCard>
+					<MinorProjectCard name='Encryptico'>
+						My first foray into web development with an attempt to simplify encryption and signing.
+					</MinorProjectCard>
 				</Grid>
 			</PageSection>
 
@@ -139,60 +180,57 @@ const IndexPage: FC = () => {
 			</PageSection>
 
 			<PageSection bg='primary' ref={stuffRef}>
-				<DescribedData title='Here are some books I recommend'>
+				<DescribedData title='Here are some books I love'>
 					<Grid gap={20} columnSize={390}>
 						<BookCard
 							name='Going Postal'
 							author='Terry Pratchett'
-							coverName='going-postal'
+							cover={goingPostalCover}
 							link='https://www.amazon.com/Going-Postal-Discworld-Book-33-ebook/dp/B000W965QM/'
 						/>
 						<BookCard
 							name='Atomic Design'
 							author='Brad Frost'
-							coverName='atomic-design'
+							cover={atomicDesignCover}
 							link='https://shop.bradfrost.com/'
 						/>
 						<BookCard
 							name='Life in Code: A Personal History of Technology'
 							author='Ellen Ullman'
-							coverName='life-in-code'
+							cover={lifeInCodeCover}
 							link='https://www.amazon.com/Life-Code-Personal-History-Technology-ebook/dp/B01N4P12XJ/'
 						/>
 						<BookCard
 							name='Fall; or, Dodge in Hell'
 							author='Neal Stephenson'
-							coverName='fall'
+							cover={fallCover}
 							link='https://www.amazon.com/Fall-Dodge-Hell-Neal-Stephenson/dp/006245871X/'
-						/>
-						<BookCard
-							name='Writing An Interpreter In Go'
-							author='Thorsten Ball'
-							coverName='interpreter-book'
-							link='https://www.amazon.com/Writing-Interpreter-Go-Thorsten-Ball-ebook/dp/B01N2T1VD2/'
 						/>
 						<BookCard
 							name='Game Engine Black Book: Wolfenstein 3D'
 							author='Fabien Sanglard'
-							coverName='game-engine-bb'
+							cover={gameEngineBbCover}
 							link='https://www.amazon.com/Game-Engine-Black-Book-Wolfenstein-ebook/dp/B0768B3PWV/'
+						/>
+						<BookCard
+							name='Rebel Code: Linux And The Open Source Revolution'
+							author='Glyn Moody'
+							cover={rebelCodeCover}
+							link='https://www.amazon.com/Rebel-Code-Linux-Source-Revolution/dp/0738206709'
 						/>
 					</Grid>
 				</DescribedData>
 
-				<DescribedData title='Here are a few cool resources/tools I love'>
+				<DescribedData title='My links'>
 					<ul>
-						<li><a href='https://now.sh/' target='_blank' rel='noreferrer'>Vercel serverless deployment platform</a></li>
-						<li><a href='https://deta.sh/' target='_blank' rel='noreferrer'>Deta cloud database</a></li>
-						<li><a href='https://www.figma.com/' target='_blank' rel='noreferrer'>Figma for web design</a></li>
-						<li><a href='https://developer.mozilla.org/' target='_blank' rel='noreferrer'>MDN web documentation</a></li>
-						<li><a href='https://picular.co/' target='_blank' rel='noreferrer'>Picular image search engine</a></li>
-						<li><a href='https://repl.it/' target='_blank' rel='noreferrer'>Repl.it in-browser code execution IDE</a></li>
-						<li><a href='https://brave.com/' target='_blank' rel='noreferrer'>Brave web browser</a></li>
-						<li><a href='https://www.gitkraken.com/git-client' target='_blank' rel='noreferrer'>GitKraken Git GUI</a></li>
-						<li><a href='https://undraw.co/' target='_blank' rel='noreferrer'>Undraw illustrations</a></li>
-						<li><a href='https://tailwindcss.com/' target='_blank' rel='noreferrer'>Tailwind CSS framework</a></li>
-						<li><a href='https://webframe.xyz/' target='_blank' rel='noreferrer'>Webframe screenshot gallery</a></li>
+						<li><a href='https://kognise.instatus.com/' target='_blank' rel='noreferrer'>Status page</a></li>
+						<li><a href='https://github.com/kognise' target='_blank' rel='noreferrer'>GitHub</a></li>
+						<li><a href='https://polywork.com/kognise' target='_blank' rel='noreferrer'>Polywork</a></li>
+						<li><a href='https://twitter.com/kognise' target='_blank' rel='noreferrer'>Twitter</a> (currently suspended, working with support to fix)</li>
+						<li><a href='https://replit.com/@Kognise' target='_blank' rel='noreferrer'>Replit</a></li>
+						<li><a href='https://dash.s1.kognise.dev/' target='_blank' rel='noreferrer'>S1 dashboard</a></li>
+						<li><a href='https://fontkey.design/' target='_blank' rel='noreferrer'>FontKey</a></li>
+						<li><a href='https://mail.punct.app/' target='_blank' rel='noreferrer'>Punct</a></li>
 					</ul>
 				</DescribedData>
 			</PageSection>

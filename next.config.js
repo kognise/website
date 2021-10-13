@@ -22,7 +22,4 @@ module.exports = {
 			permanent: true,
 		},
 	],
-	future: {
-		webpack5: true,
-	},
 }
