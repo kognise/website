@@ -11,3 +11,10 @@
 	font-weight: 600;
 	src: url(/open-sauce/OpenSauceOne-SemiBold.ttf) format('truetype');
 }
+
+@font-face {
+	font-family: 'Open Sauce Sans';
+	font-style: normal;
+	font-weight: 900;
+	src: url(/open-sauce/OpenSauceSans-Black.ttf) format('truetype');
+}

@@ -27,8 +27,6 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 			<Head>
 				<title>Kognise</title>
 				<link rel='icon' href='https://media.kognise.dev/logos/pfp.png' />
-				<link rel='preconnect' href='https://fonts.gstatic.com' />
-				<link href='https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap' rel='stylesheet' />
 			</Head>
 
 			<DefaultSEO

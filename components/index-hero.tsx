@@ -65,15 +65,15 @@ const IndexHero: FC = ({ children }) => (
 
 			.container :global(h1) {
 				color: var(--fg-very-strong);
-				font-family: 'Syne';
-				font-weight: 800;
-				font-size: 2rem;
+				font-family: 'Open Sauce Sans', sans-serif;
+				font-weight: 900;
+				font-size: 2.4rem;
 				margin: 0;
 			}
 
 			.container :global(p) {
 				font-size: 1.5rem;
-				margin: 42px 0;
+				margin: 32px 0;
 			}
 
 			.container :global(.button-group) {
@@ -81,6 +81,7 @@ const IndexHero: FC = ({ children }) => (
 				flex-direction: row;
 				flex-wrap: wrap;
 				gap: 18px;
+				margin-top: 42px;
 			}
 		`}</style>
 	</section>

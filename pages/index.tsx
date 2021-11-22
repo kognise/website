@@ -16,8 +16,8 @@ import pwnsquadIcon from '../public/project-icons/pwnsquad.png'
 import watercssIcon from '../public/project-icons/watercss.png'
 import webjamIcon from '../public/project-icons/webjam.png'
 
-import atomicDesignCover from '../public/book-covers/atomic-design.png'
 import fallCover from '../public/book-covers/fall.png'
+import futuraCover from '../public/book-covers/futura.jpg'
 import gameEngineBbCover from '../public/book-covers/game-engine-bb.png'
 import goingPostalCover from '../public/book-covers/going-postal.png'
 import lifeInCodeCover from '../public/book-covers/life-in-code.png'
@@ -35,7 +35,7 @@ const IndexPage: FC = () => {
 					My favorite technologies are <Color color='very-strong'>TypeScript, Rust, and Next.js</Color>.
 				</p>
 				<p>
-					I spend a lot of time online. When I&apos;m not, you can find me <Color color='very-strong'>reading, flying planes, and making music</Color>. I&apos;ve played cello for 10 years!
+					I spend a lot of time online. When I&apos;m not, you can find me <Color color='very-strong'>reading, flying planes, and making music</Color>. I&apos;ve played cello for 10 years.
 				</p>
 				<div className='button-group'>
 					<Button role='link' onClick={() => window.open('https://github.com/kognise')}>
@@ -183,16 +183,10 @@ const IndexPage: FC = () => {
 				<DescribedData title='Here are some books I love'>
 					<Grid gap={20} columnSize={390}>
 						<BookCard
-							name='Going Postal'
-							author='Terry Pratchett'
-							cover={goingPostalCover}
-							link='https://www.amazon.com/Going-Postal-Discworld-Book-33-ebook/dp/B000W965QM/'
-						/>
-						<BookCard
-							name='Atomic Design'
-							author='Brad Frost'
-							cover={atomicDesignCover}
-							link='https://shop.bradfrost.com/'
+							name='Never Use Futura'
+							author='Douglas Thomas'
+							cover={futuraCover}
+							link='http://www.neverusefutura.com/'
 						/>
 						<BookCard
 							name='Life in Code: A Personal History of Technology'
@@ -207,16 +201,22 @@ const IndexPage: FC = () => {
 							link='https://www.amazon.com/Fall-Dodge-Hell-Neal-Stephenson/dp/006245871X/'
 						/>
 						<BookCard
+							name='Rebel Code: Linux And The Open Source Revolution'
+							author='Glyn Moody'
+							cover={rebelCodeCover}
+							link='https://www.amazon.com/Rebel-Code-Linux-Source-Revolution/dp/0738206709'
+						/>
+						<BookCard
 							name='Game Engine Black Book: Wolfenstein 3D'
 							author='Fabien Sanglard'
 							cover={gameEngineBbCover}
 							link='https://www.amazon.com/Game-Engine-Black-Book-Wolfenstein-ebook/dp/B0768B3PWV/'
 						/>
 						<BookCard
-							name='Rebel Code: Linux And The Open Source Revolution'
-							author='Glyn Moody'
-							cover={rebelCodeCover}
-							link='https://www.amazon.com/Rebel-Code-Linux-Source-Revolution/dp/0738206709'
+							name='Going Postal'
+							author='Terry Pratchett'
+							cover={goingPostalCover}
+							link='https://www.amazon.com/Going-Postal-Discworld-Book-33-ebook/dp/B000W965QM/'
 						/>
 					</Grid>
 				</DescribedData>
@@ -226,7 +226,7 @@ const IndexPage: FC = () => {
 						<li><a href='https://kognise.instatus.com/' target='_blank' rel='noreferrer'>Status page</a></li>
 						<li><a href='https://github.com/kognise' target='_blank' rel='noreferrer'>GitHub</a></li>
 						<li><a href='https://polywork.com/kognise' target='_blank' rel='noreferrer'>Polywork</a></li>
-						<li><a href='https://twitter.com/kognise' target='_blank' rel='noreferrer'>Twitter</a> (currently suspended, working with support to fix)</li>
+						<li><a href='https://twitter.com/kognise' target='_blank' rel='noreferrer'>Twitter</a></li>
 						<li><a href='https://replit.com/@Kognise' target='_blank' rel='noreferrer'>Replit</a></li>
 						<li><a href='https://dash.s1.kognise.dev/' target='_blank' rel='noreferrer'>S1 dashboard</a></li>
 						<li><a href='https://fontkey.design/' target='_blank' rel='noreferrer'>FontKey</a></li>
