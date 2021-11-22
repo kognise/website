@@ -4,7 +4,7 @@ import { fetcher } from 'lib/fetcher'
 import useSWR from 'swr'
 
 const SongBanner: FC = () => {
-	const { data } = useSWR<SongResponse>('/api/song', fetcher)
+	const { data } = useSWR<SongResponse>('/api/song', fetcher, { refreshInterval: 120000 })
 	
 	return (
 		<header style={{ opacity: data ? 1 : 0 }}>

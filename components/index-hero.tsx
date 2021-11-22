@@ -1,4 +1,7 @@
 import { FC } from 'react'
+import { StatusResponse } from 'pages/api/status'
+import { fetcher } from 'lib/fetcher'
+import useSWR from 'swr'
 
 const BackgroundLogo: FC = () => (
 	<svg
@@ -41,15 +44,24 @@ const BackgroundLogo: FC = () => (
 	</svg>
 )
 
-const IndexHero: FC = ({ children }) => (
-	<section>
-		<div className='container'>
-			{children}
-		</div>
+const IndexHero: FC = ({ children }) => {
+	const { data } = useSWR<StatusResponse>('/api/status', fetcher, { refreshInterval: 0 })
+	
+	return (
+		<section>
+			<div className='container'>
+				{data && !data.up && (
+					<a href='https://kognise.instatus.com/' target='_blank' rel='noopener noreferrer' className='downtime'>
+						Some of my projects are currently experiencing downtime.
+					</a>
+				)}
 
-		<BackgroundLogo />
+				{children}
+			</div>
 
-		<style jsx>{`
+			<BackgroundLogo />
+
+			<style jsx>{`
 			section {
 				position: relative;
 				display: flex;
@@ -83,8 +95,21 @@ const IndexHero: FC = ({ children }) => (
 				gap: 18px;
 				margin-top: 42px;
 			}
+
+			.downtime {
+				display: block;
+				text-decoration: none;
+				background: #2e2011;
+				border: 2px solid #7d5427;
+				border-radius: 10px;
+				padding: 16px 30px;
+				font-weight: 600;
+				color: #ffffff;
+				margin-bottom: 32px;
+			}
 		`}</style>
-	</section>
-)
+		</section>
+	)
+}
 
 export default IndexHero
