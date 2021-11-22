@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react'
+import React, { FC, useRef } from 'react'
 
 import BookCard from 'components/book-card'
 import Button from 'components/button'
@@ -10,6 +10,7 @@ import IndexHero from 'components/index-hero'
 import MajorProjectCard from 'components/major-project-card'
 import MinorProjectCard from 'components/minor-project-card'
 import PageSection from 'components/page-section'
+import SongBanner from 'components/song-banner'
 
 import doggoNinjaIcon from '../public/project-icons/doggo-ninja.png'
 import pwnsquadIcon from '../public/project-icons/pwnsquad.png'
@@ -26,7 +27,8 @@ import rebelCodeCover from '../public/book-covers/rebel-code.png'
 const IndexPage: FC = () => {
 	const stuffRef = useRef<HTMLElement>(null)
 
-	return (
+	return (<>
+		<SongBanner />
 		<main>
 			<IndexHero>
 				<h1>Hi. I&apos;m a programmer and side-project extraordinaire.</h1>
@@ -235,7 +237,7 @@ const IndexPage: FC = () => {
 				</DescribedData>
 			</PageSection>
 		</main>
-	)
+	</>)
 }
 
 export default IndexPage
