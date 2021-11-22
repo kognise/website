@@ -13,9 +13,11 @@ const SongBanner: FC = () => {
 					{data?.nowPlaying ? 'What am I currently listening to?' : 'What was the last song I listened to?'}
 				</div>
 			
-				<div className='song'>{data?.name}</div>
-				<div>{data?.artist} &middot; {data?.album}</div>
-				<img src={data?.images[1]} />
+				<div className='meta'>
+					<div className='song'>{data?.name}</div>
+					<div>{data?.artist}<span className='album'> &middot; {data?.album}</span></div>
+					<img src={data?.images[1]} />
+				</div>
 			</a>
 
 			<style jsx>{`
@@ -34,6 +36,9 @@ const SongBanner: FC = () => {
 					color: #adc5c7;
 					text-decoration: none;
 					padding: 10px 30px;
+				}
+
+				a, .meta {
 					display: flex;
 					flex-direction: row;
 					align-items: center;
@@ -56,6 +61,32 @@ const SongBanner: FC = () => {
 
 				.status {
 					flex: 1;
+				}
+
+				@media (max-width: 1300px) {
+					.album {
+						display: none;
+					}
+				}
+
+				@media (max-width: 900px) {
+					a {
+						flex-direction: column;
+						align-items: flex-start;
+						gap: 10px;
+					}
+
+					img {
+						display: none;
+					}
+				}
+
+				@media (max-width: 400px) {
+					.meta {
+						flex-direction: column;
+						align-items: flex-start;
+						gap: 10px;
+					}
 				}
 			`}</style>
 		</header>
