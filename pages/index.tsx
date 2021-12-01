@@ -28,7 +28,6 @@ const IndexPage: FC = () => {
 	const stuffRef = useRef<HTMLElement>(null)
 
 	return (<>
-		<SongBanner />
 		<main>
 			<IndexHero>
 				<h1>Hi. I&apos;m a programmer and side-project extraordinaire.</h1>
@@ -71,6 +70,8 @@ const IndexPage: FC = () => {
 					</MajorProjectCard>
 				</Grid>
 			</PageSection>
+
+			<SongBanner />
 
 			<PageSection bg='primary'>
 				<Grid gap={30} columnSize={340}>
@@ -221,19 +222,6 @@ const IndexPage: FC = () => {
 							link='https://www.amazon.com/Going-Postal-Discworld-Book-33-ebook/dp/B000W965QM/'
 						/>
 					</Grid>
-				</DescribedData>
-
-				<DescribedData title='My links'>
-					<ul>
-						<li><a href='https://kognise.instatus.com/' target='_blank' rel='noreferrer'>Status page</a></li>
-						<li><a href='https://github.com/kognise' target='_blank' rel='noreferrer'>GitHub</a></li>
-						<li><a href='https://polywork.com/kognise' target='_blank' rel='noreferrer'>Polywork</a></li>
-						<li><a href='https://twitter.com/kognise' target='_blank' rel='noreferrer'>Twitter</a></li>
-						<li><a href='https://replit.com/@Kognise' target='_blank' rel='noreferrer'>Replit</a></li>
-						<li><a href='https://dash.s1.kognise.dev/' target='_blank' rel='noreferrer'>S1 dashboard</a></li>
-						<li><a href='https://fontkey.design/' target='_blank' rel='noreferrer'>FontKey</a></li>
-						<li><a href='https://mail.punct.app/' target='_blank' rel='noreferrer'>Punct</a></li>
-					</ul>
 				</DescribedData>
 			</PageSection>
 		</main>

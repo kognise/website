@@ -22,12 +22,7 @@ const SongBanner: FC = () => {
 
 			<style jsx>{`
 				header {
-					position: fixed;
-					bottom: 0;
-					left: 0;
 					width: 100%;
-					z-index: 9;
-					transition: opacity 1s ease-in-out;
 					user-select: none;
 				}
 
