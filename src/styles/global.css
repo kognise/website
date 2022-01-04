@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	line-height: 1.8;
+	background: #f8f9fa;
+}
+
+img, video {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+	font-weight: 600;
+}
+
+h1 {
+	line-height: 1.5;
+}
+
+p, ul {
+	margin: 20px 0;
+}
+
+a {
+	color: #6741d9;
+	text-decoration: none;
+
+	&:hover {
+		background: #6741d9;
+		color: #ffffff;
+	}
+
+	&:not([href^=\#]):visited {
+		color: #9c36b5;
+
+		&:hover {
+			background: #9c36b5;
+			color: #ffffff;
+		}
+	}
+
+	&::before { content: '['; }
+	&::after { content: ']'; }
+}
+
+::selection {
+	background: #000000;
+	color: #ffffff;
+}

@@ -1,0 +1,37 @@
+---
+const { name, url } = Astro.props
+---
+
+<article>
+	<a href={url} target='_blank' rel='noopener noreferrer'>
+		<div class='bracket left' aria-hidden='true' />
+		<div className='content'>
+			<h3>{name}</h3>
+			<p><slot /></p>
+		</div>
+		<div class='bracket right' aria-hidden='true' />
+	</a>
+</article>
+
+<style>
+a {
+	padding: 10px;
+	gap: 14px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	& .bracket {
+		height: 100%;
+		border: 3px solid currentColor;
+		width: 40px;
+		opacity: 0.5;
+
+		&.left { border-right: none; }
+		&.right { border-left: none; }
+	}
+
+	&::before, &::after { display: none; content: ''; }
+}
+</style>

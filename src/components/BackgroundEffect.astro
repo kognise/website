@@ -1,0 +1,84 @@
+<div id='bg-grid' aria-hidden='true'>
+	{new Array(25).fill(<div />)}
+</div>
+
+<script>
+	const grid = document.getElementById('bg-grid')
+	const [ rows, columns ] = [ 5, 5 ]
+
+	let lastHovered = -1
+	let mouseDown = false
+	let lastHue = 0
+	const prevDown = {}
+
+	const render = (event) => {
+		const [ x, y ] = [ event.clientX, event.clientY ]
+		const row = Math.floor(y * rows / window.innerHeight)
+		const column = Math.floor(x * columns / window.innerWidth)
+
+		// I used ternary here but Astro doesn't like it for some reason :D
+		let cellIndex = row * rows + column
+		if (row > rows || column > columns) cellIndex = -1
+
+		const hovered = grid.children[cellIndex]
+
+		if (cellIndex >= 0) {
+			if (!prevDown[cellIndex] && (mouseDown || window.rainbowMode)) {
+				const hue = (lastHue + 12 + Math.floor(Math.random() * 16)) % 360
+				hovered.style.setProperty('--click-bg', `hsl(${hue}deg, 100%, 50%, 0.5)`)
+				lastHue = hue
+			}
+
+			hovered.classList.add('hovered')
+			hovered.classList.toggle('clicked', (mouseDown || window.rainbowMode))
+			hovered.classList.toggle('hovered-fast-trans', !prevDown[cellIndex] && !(mouseDown || window.rainbowMode))
+		}
+		
+		if (lastHovered >= 0 && lastHovered !== cellIndex) {
+			grid.children[lastHovered].classList.remove('hovered', 'hovered-fast-trans', 'clicked')
+			prevDown[lastHovered] = false
+		}
+		
+		lastHovered = cellIndex
+		prevDown[cellIndex] = mouseDown || window.rainbowMode
+	}
+
+	document.addEventListener('mousemove', render, { capture: true, passive: true })
+	document.addEventListener('mouseleave', () => render({ clientX: -1, clientY: -1 }), { capture: true, passive: true })
+	document.addEventListener('mousedown', (event) => { mouseDown = true; render(event) }, { capture: true, passive: true })
+	document.addEventListener('mouseup', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
+	document.addEventListener('dragend', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
+</script>
+
+<style>
+	#bg-grid {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		z-index: -1;
+		pointer-events: none;
+		filter: blur(10px);
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	#bg-grid div {
+		background: #f8f9fa;
+		transition: 800ms background linear;
+
+		&.hovered {
+			background: #e9ecef;
+		}
+
+		&.hovered-fast-trans {
+			transition: 100ms background linear;
+		}
+
+		&.clicked {
+			background: var(--click-bg);
+			transition: 10ms background linear;
+		}
+	}
+</style>

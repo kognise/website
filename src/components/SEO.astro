@@ -1,0 +1,31 @@
+---
+const { title, description } = Astro.props
+const { canonicalURL } = Astro.request
+---
+
+<title>{title ? `${title} | Kognise` : 'Kognise!'}</title>
+<meta property='og:title' content={title ?? 'Kognise'} />
+<meta property='og:site_name' content='Kognise' />
+
+<meta name='description' content={description} />
+<meta property='og:description' content={description}>
+
+<meta property='og:url' content={canonicalURL} />
+<link rel='canonical' href={canonicalURL} />
+
+<meta property='og:image' content='https://1fce-2600-1700-7b00-2370-a522-ddf4-c017-3b4d.ngrok.io/banner.gif' />
+<meta property='og:image:alt' content='An animated GIF of Nausicaä, an anime character, flying a glider over sand and into the sky.' />
+<meta property='og:image:width' content='433' />
+<meta property='og:image:height' content='173' />
+
+<meta name='robots' content='index,follow' />
+<meta name='googlebot' content='index,follow' />
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:site' content='@kognise' />
+<meta name='twitter:creator' content='@kognise' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='en_US' />
+
+<meta name='keywords' content='kognise,website,personal,portfolio,projects,about,contact,info,developer,designer,resume' />
+<meta name='theme-color' content='#0e7dde' />
+<link rel='icon' href='https://media.kognise.dev/logos/pfp.png' />

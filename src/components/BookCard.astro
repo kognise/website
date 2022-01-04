@@ -1,0 +1,55 @@
+---
+const { title, author, cover, coverWidth, coverHeight, url } = Astro.props
+---
+
+<article>
+	<a href={url} target='_blank' rel='noopener noreferrer'>
+		<img src={cover} alt={`${title} cover`} width={coverWidth} height={coverHeight} loading='lazy' />
+
+		<div>
+			<h3>{title}</h3>
+			<p>by {author}</p>
+		</div>
+	</a>
+</article>
+
+<style>
+	article a {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		text-decoration: none;
+		padding: 10px;
+		border: 1px solid #ced4da;
+		height: 100%;
+		color: inherit;
+
+		&:hover {
+			text-decoration: none;
+			background: #ced4da;
+		}
+
+		&::before, &::after { content: ''; }
+	}
+
+	img {
+		width: 80px;
+		margin-right: 20px;
+	}
+
+	div {
+		flex: 1;
+
+		& h3 {
+			color: var(--fg-strong);
+			margin: 0;
+			margin-bottom: 4px;
+			font-size: 1em;
+		}
+
+		& p {
+			color: var(--fg-normal);
+			margin: 0;
+		}
+	}
+</style>
