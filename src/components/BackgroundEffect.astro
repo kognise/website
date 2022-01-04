@@ -18,7 +18,7 @@
 
 		// I used ternary here but Astro doesn't like it for some reason :D
 		let cellIndex = row * rows + column
-		if (row > rows || column > columns) cellIndex = -1
+		if (row >= rows || column >= columns) cellIndex = -1
 
 		const hovered = grid.children[cellIndex]
 
