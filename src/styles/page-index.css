@@ -20,6 +20,7 @@ h2 {
 	margin: 0 auto;
 	pointer-events: none;
 	margin-top: -50px;
+	z-index: -1;
 
 	& video {
 		image-rendering: pixelated;
