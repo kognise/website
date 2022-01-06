@@ -234,8 +234,11 @@ import SEO from '../components/SEO.astro'
 		window.rainbowMode = rainbowToggle.checked
 		rainbowToggle.addEventListener('input', () => window.rainbowMode = rainbowToggle.checked)
 
+		let firstRequest = true
 		const updateActivity = async () => {
-			if (!document.hasFocus()) return
+			if (!firstRequest && !document.hasFocus()) return
+			if (!firstRequest && navigator.connections && navigator.connection.saveData) return
+			firstRequest = false
 
 			const res = await fetch('https://api.kognise.dev/')
 			const { activity, song } = await res.json()
@@ -250,7 +253,7 @@ import SEO from '../components/SEO.astro'
 			`
 		}
 		updateActivity()
-		if (!navigator.connection.saveData) setInterval(updateActivity, 10000)
+		setInterval(updateActivity, 10000)
 	</script>
 
 	<BackgroundEffect />
