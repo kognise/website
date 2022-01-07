@@ -57,8 +57,7 @@ h2 {
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-@media (max-width: 1400px) {
-	.projects-minor {
-		margin: 0;
-	}
+#ipa {
+	cursor: pointer;
+	color: #d9480f;
 }

@@ -33,7 +33,7 @@ import SEO from '../components/SEO.astro'
 
 			<LogoHeading />
 
-			Hello! I usually go by the moniker Kognise on the internet. Many things capture my interest, and this website features some of them.
+			Hello! I usually go by the moniker Kognise <span role='button' id='ipa'>/ˈkäg-ˌnīz/</span> on the internet. Many things capture my interest, and this website features some of them.
 
 			You're visiting the third or fourth iteration; this is significantly more stripped down, but feels more personable than the "marketing page" aesthetic of previous designs.
 
@@ -233,6 +233,12 @@ import SEO from '../components/SEO.astro'
 		const rainbowToggle = document.getElementById('rainbow-toggle')
 		window.rainbowMode = rainbowToggle.checked
 		rainbowToggle.addEventListener('input', () => window.rainbowMode = rainbowToggle.checked)
+		
+		const kognise = new Audio('/kognise.mp3')
+		document.getElementById('ipa').addEventListener('click', () => {
+			kognise.currentTime = 0
+			kognise.play()
+		})
 
 		let firstRequest = true
 		const updateActivity = async () => {
