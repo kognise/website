@@ -1,0 +1,135 @@
+---
+import { Markdown } from 'astro/components'
+import BrandingYesNo from '../components/BrandingYesNo.astro'
+import SEO from '../components/SEO.astro'
+---
+
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width' />
+
+	<link rel='preconnect' href='https://fonts.googleapis.com' />
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Red+Hat+Display:wght@900&display=swap' rel='stylesheet' />
+
+	<link rel='stylesheet' href={Astro.resolve('../styles/global.css')} />
+	<link rel='stylesheet' href={Astro.resolve('../styles/page-brand.css')} />
+
+	<SEO title='Brand Guidelines' description='We live in a universe in which having to refer to me may be an eventuality for some. If this is a necessity for you, here are some guidelines to follow.' />
+</head>
+<body>
+	<main>
+		<div class='meta'>
+			<h1>Kognise&rsquo;s Brand Guidelines</h1>
+
+			<p>We live in a universe in which having to refer to me may be an eventuality for some. If this is a necessity for you, please follow these guidelines and keep it tasteful.</p>
+
+			<p><a href='/'>Go to my homepage</a></p>
+		</div>
+
+		<Markdown>
+			<p>When speaking my name out loud, please pronounce it as <span role='button' id='ipa'>/ˈkäg-ˌnīz/</span>. You can click on the orange text to hear this synthesized.</p>
+
+			Don't use my logo or name in any way that implies affiliation or endorsement where such a relationship doesn't exist.
+			
+			## Naming
+
+			Don't put my name in your name. In fact, don't incorporate my name, logo, or other branding into any of your branding or naming.
+
+			<BrandingYesNo
+				yes='ultracoolgamer'
+				yesAlt='A blue logo that says UltraCoolGamer, with black text below reading I&apos;m UltraCoolGamer, and I&apos;m a big fan of Kognise!'
+				no='kognisefan420'
+				noAlt='A logo in the same font as my logo that says KogniseFan420.'
+				eagerLoad
+			/>
+
+			Please credit me if I've contributed to something. Do not imply affiliation if I didn't give you permission. Use phraseology such as “made with contributions by Kognise” or “with feedback from Kognise.”
+			
+			<BrandingYesNo
+				yes='connor'
+				yesAlt='A header saying Personal website with text below saying This website! Made with help from Kognise. The word Kognise is linked to my website.'
+				no='partnership'
+				noAlt='Text saying This app was made in partnership with Kognise, who definitely loves me.'
+				eagerLoad
+			/>
+
+			If my name appears in the context of textual content, apply capitalization consistently with the surrounding material. In most cases, capitalize the K and leave the rest lowercase, but exceptions may be made for entirely capitalized text or text featuring other fully-lowercase proper nouns.
+
+			<BrandingYesNo
+				yes='rockaway'
+				yesAlt='Text saying I remember meeting Kognise in New York before the pandemic struck, we really hit it off and had a lot of fun playing volleyball at Rockaway Beach.'
+				no='dislike'
+				noAlt='Text saying I really dislike Kognise, their so annoying. The word their is mispelled, and the word Kognise has capitalization alternating each letter. The text is colored pink and aligned to the bottom right.'
+			/>
+
+			## Logo usage
+
+			Use only my full and small logos available from media.kognise.dev. Don't modify, distort, or add additional elements to the logo. Only display it in monochrome, and make sure to use colors that meet the WCAG Level AAA contrast guidelines against the background. If you have to rotate it, use multiples of 45 degrees, and don't rotate it by exactly 180 degrees.
+
+			You may use the “PFP” form of my logo in the context of the profile picture on a website or when mocking up a screenshot of such a context.
+
+			<BrandingYesNo
+				yes='blue'
+				yesAlt='My logo set in dark blue.'
+				no='rainbow'
+				noAlt='My logo, rotated, which individual characters stretched and rotated on their own. The colors of each character in the logo are in rainbow order.'
+			/>
+
+			If my logo is used alongside other logos in a similar category, it should closely match their size and color contrast. Allow space around my logo to provide breathing room, especially when paired with other logos.
+
+			Don't use my logo as a primary element or in a way that's equal to your brand elements.
+
+			<BrandingYesNo
+				yes='sponsorship'
+				yesAlt='A header saying gold-tier individual sponsors. Below it is a grid of four equally sized logos with the same colors. The first is mine, the second says UltraCode, the third says Rich Person with a credit card icon, and the last says shp_dude.'
+				no='sponsorship'
+				noAlt='Gold text saying #SponsoredBy. Below it is dark gold text set in a cursive font that says Super Rich Person Who Gave Us Lots of Money, for which we are ETERNALLY THANKFUL. To the right, much smaller and in a lighter shade of gold, text saying and also Kognise, who&apos;s broke and uncharitable.'
+			/>
+
+			My branding can be downloaded from [media.kognise.dev/logos](https://media.kognise.dev/logos/).
+
+			## Portmanteaus
+
+			Transformations of my name must be portmanteaus, combining all or part of an English word with my name. You may combine my name with a non-English word if an English equivalent is provided as well. Feel free to use approved nicknames such as “koggy,” “kogs,” “koggers,” and “kog.”
+
+			Any portmanteaus must either begin with “kog” and not contain “nise,” or end with “nise” and not contain “kog.” Any portmanteaus must either begin with “kog” and not contain “nise,” or end with “nise” and not contain “kog.” Make it obvious what the source word is. Feel free to make puns, as long as you don't create humiliating portmanteaus or transformations of my name.
+
+			<BrandingYesNo
+				yes='names'
+				yesAlt='A list of allowed names including Dognise, Kognate, Momnise, Kogblog, Pognise, and Koggy.'
+				no='names'
+				noAlt='A list of disallowed names including Kogus, Kogernise, and Bognise.'
+			/>
+
+			## Press & media
+
+			You're welcome to refer to me in a book, article, blog post, or other similar piece of content, but please follow the guidelines to ensure proper use.
+
+			If the medium allows it, provide a link to my [website](https://kognise.dev/), [GitHub](https://github.com/kognise), or [Polywork](https://polywork.com/kognise). In addition or as a substitute you may provide my contact email, [hi@kognise.dev](mailto:hi@kognise.dev). When using my name inline in textual content, especially in banners or posters, please write it out instead of using the logo.
+
+			Do not use my name, logo, or a portmanteau of my name on any website containing adult content, promoting gambling, or prominently featuring material related to the sale of alcohol or tobacco.
+
+			<BrandingYesNo
+				yes='times'
+				yesAlt='A snippet from an article set in Times New Roman that says: At The Time Times, we love reporting on the latest updates in the computing world. For a while we&apos;ve been watching the humongous impact a developer who goes by Kognise (https://kognise.dev/ btw) has made on the world. Now the time has come for everyone to act.'
+				no='naughtyplace'
+				noAlt='A black, white, and orange logo saying Naughtyplace Dev Blog. Below it is the start of an article, reading: Here at Naughtyplace, we love innovating. Our technical decision-makers have always looked towards modern geniuses such as Kognise and Linus Torvalds to make their decisions.'
+			/>
+
+			If you have any questions, don't hesitate to reach out at [branding@kognise.dev](mailto:branding@kognise.dev). You will typically receive a reply within 1 business day.
+
+			In case it wasn't obvious, this page is humorous. Probably. You better stay on the safe side :)
+		</Markdown>
+	</main>
+
+	<script>
+		const kognise = new Audio('/kognise.mp3')
+		document.getElementById('ipa').addEventListener('click', () => {
+			kognise.currentTime = 0
+			kognise.play()
+		})
+	</script>
+</body>
+</html>

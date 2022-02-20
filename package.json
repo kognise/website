@@ -9,8 +9,8 @@
 		"preview": "astro preview"
 	},
 	"devDependencies": {
-		"astro": "^0.22.3",
-		"postcss-nesting": "^10.1.1",
+		"astro": "^0.23.0",
+		"postcss-nesting": "^10.1.2",
 		"rehype-external-links": "^1.0.1"
 	}
 }

@@ -25,7 +25,16 @@ h2 {
 	margin-top: 40px;
 }
 
-p {
+p:not(.meta p) {
 	margin: 16px 0;
 	text-align: justify;
+}
+
+.meta p {
+	margin: 10px 0;
+}
+
+#ipa {
+	cursor: pointer;
+	color: #d9480f;
 }

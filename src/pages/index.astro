@@ -19,7 +19,7 @@ import SEO from '../components/SEO.astro'
 	<link rel='stylesheet' href={Astro.resolve('../styles/global.css')} />
 	<link rel='stylesheet' href={Astro.resolve('../styles/page-index.css')} />
 
-	<SEO description={`Hello, I’m Kognise! I do lots of things, but I’m usually working with computers, flying, or creating music. I’m currently working on way too many projects, including Doggo.Ninja and Water.css.`} />
+	<SEO description='Hello, I&rsquo;m Kognise! I do lots of things, but I&rsquo;m usually working with computers, flying, or creating music. I&rsquo;m currently working on way too many projects, including Doggo.Ninja and Water.css.' />
 </head>
 <body>
 	<main>
@@ -45,7 +45,7 @@ import SEO from '../components/SEO.astro'
 			- [Other things &amp; where to find me!](#other-things--where-to-find-me)
 			- [Projects!](#projects)
 
-			<p>I currently work at <a href='https://hackclub.com/' target='_blank' rel='noopener noreferrer'>Hack Club</a>. Right now, I’m busy <span id='activity'>[activity loading...]</span></p>
+			<p>I currently work at <a href='https://hackclub.com/' target='_blank' rel='noopener noreferrer'>Hack Club</a>. Right now, I&rsquo;m busy <span id='activity'>[activity loading...]</span></p>
 			
 			<label>
 				<input type='checkbox' id='rainbow-toggle'>
@@ -222,6 +222,8 @@ import SEO from '../components/SEO.astro'
 			- **Vidregator:** A proof-of-concept video aggregation and searching platform for self-hosting.
 			- **Sherlock:** A hacky Python script to efficiently perform multithreaded file searching.
 			- **Encryptico:** My first foray into web development with an attempt to simplify encryption and signing.
+
+			I also thought it would be amusing to make a [personal brand guidelines page](/brand).
 		</Markdown>
 
 		<img src='/photos/me.jpg' alt='A light-skinned person with wavy shoulder-length brown hair and wearing a flower-printed mask sitting in a plane.' width='600' height='891' loading='lazy' style='width: min(300px, 100%); margin-top: 60px;' />
@@ -256,7 +258,7 @@ import SEO from '../components/SEO.astro'
 
 			document.getElementById('activity').innerText = `${activity.label} ${activity.emoji}`
 			document.getElementById('song').innerHTML = song.nowPlaying ? `
-				In fact, I’m currently (this is updated live!) listening to
+				In fact, I&rsquo;m currently (this is updated live!) listening to
 				<a href='${song.url}' target='_blank' rel='noopener noreferrer'>${song.name} by ${song.artist}</a>.
 			` : `
 				The last song I listened to (this is updated live!) was
