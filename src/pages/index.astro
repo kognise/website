@@ -37,13 +37,16 @@ import SEO from '../components/SEO.astro'
 
 			You're visiting the third or fourth iteration; this is significantly more stripped down, but feels more personable than the "marketing page" aesthetic of previous designs.
 
-			<p class='before-quick-links'>Jump to:</p>
+			<p>Jump to:</p>
 			
-			- [Computers!](#computers)
-			- [Airplanes!](#airplanes)
-			- [Music!](#music)
-			- [Other things &amp; where to find me!](#other-things--where-to-find-me)
-			- [Projects!](#projects)
+			<nav class='quick-links'>
+				<ul>
+					<li><a href='#airplanes'>Airplanes!</a></li>
+					<li><a href='#music'>Music!</a></li>
+					<li><a href='#other-things--where-to-find-me'>Other things &amp; where to find me!</a></li>
+					<li><a href='#projects'>Projects!</a></li>
+				</ul>
+			</nav>
 
 			<p>I currently work at <a href='https://hackclub.com/' target='_blank' rel='noopener noreferrer'>Hack Club</a>. Right now, I&rsquo;m busy <span id='activity'>[activity loading...]</span></p>
 			
@@ -168,7 +171,7 @@ import SEO from '../components/SEO.astro'
 
 			These are the main four projects I'm currently spending most of my time on:
 
-			<div class='grid-twos'>
+			<div class='grid-twos' role='list'>
 				<MajorProjectCard name='Doggo.Ninja' url='https://doggo.ninja/'>
 					A privacy-friendly service for file sharing, computer backups, and more.
 					Currently a private alpha, ideally launching publicly in mid-2022.
@@ -186,16 +189,18 @@ import SEO from '../components/SEO.astro'
 				</MajorProjectCard>
 			</div>
 
-			And here's a semi-complete list of the more minor things I created:
+			And here's a semi-complete list of the more minor things I've worked on:
 
 			- **overengineeRING:** A modern-day webring of people who make cool stuff.
 			- **api.kognise.dev:** A tool that tracks everything i do, and publicizes it alongside historical data.
+			- **Obsidian Atom:** A minimal and beautiful theme for Obsidian based on Atom One Dark.
 			- **notes.kognise.dev:** Tiny note-taking program where people can see the creator writing in realtime, created for a friend of mine.
 			- **Sky Safety Weight & Balance:** PWA built for iPad to automate aircraft weight & balance checks.
 			- **Punct:** In-development novel email client built to prioritize UX and design.
 			- **Sirtet:** Tetris, but upside-down and with double the tetrominos to deal with.
 			- **ZephyrWave:** Offline-first syncrhonized music streaming and radio web app I built on a train.
 			- **S1:** A tiny hosted key-value store and dashboard used by many hobby projects.
+			- **Amtrak.cc:** An Amtrak tracker that I helped design initial versions of.
 			- **Crypticat:** Semi-decentralized encrypted chat platform as a progressive web app.
 			- **Flight Plan Converter:** Tool to convert between flight sim and IRL flight plans.
 			- **Yobmef:** Toy chess engine built I built in one week with some friends.
@@ -207,6 +212,7 @@ import SEO from '../components/SEO.astro'
 			- **Volcano:** Reverse-engineered plugin loader for the note taking program Obsidian.
 			- **Digital.gov Workflow:** Prototype modernized React open editing site for Digital.gov.  
 			- **Stacc Analytics:** Lightweight privacy-first analytics service that won best design at BridgeHacks.
+			- **Next Barebones Template:** An opinionated template for React and Next.js apps.
 			- **NYU VIP Smart Cities Sensors:** Sensors, data infrastructure, and display dashboards built for NYU.
 			- **Pot:** Small SSH honeypot designed to trick bots with a realistic Bash clone.
 			- **Neocel:** Joke command-line tool to deploy web projects to Neocities.
@@ -219,6 +225,7 @@ import SEO from '../components/SEO.astro'
 			- **MPLighting:** Beat Saber mod that enables varied lighting effects in multiplayer. 
 			- **Replit Mobile:** Prototype React Native mobile app for the Replit cloud IDE.
 			- **RaaS:** &ldquo;Rickrolling as a Service,&rdquo; a joke service and toolsetfor generating links to memes.
+			- **IsoCenter:** An aggregator for downloading operating system installer images.
 			- **Vidregator:** A proof-of-concept video aggregation and searching platform for self-hosting.
 			- **Sherlock:** A hacky Python script to efficiently perform multithreaded file searching.
 			- **Encryptico:** My first foray into web development with an attempt to simplify encryption and signing.

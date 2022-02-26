@@ -1,8 +1,8 @@
 ---
-const { name, url } = Astro.props
+const { name, url, role } = Astro.props
 ---
 
-<article>
+<article role='listitem'>
 	<a href={url} target='_blank' rel='noopener noreferrer'>
 		<div class='bracket left' aria-hidden='true' />
 		<div className='content'>

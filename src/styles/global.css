@@ -44,8 +44,8 @@ a {
 		}
 	}
 
-	&::before { content: '['; }
-	&::after { content: ']'; }
+	&::before { content: '[' / ''; }
+	&::after { content: ']' / ''; }
 }
 
 ::selection {

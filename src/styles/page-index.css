@@ -37,13 +37,9 @@ h2 {
 	}
 }
 
-.before-quick-links {
-	margin-bottom: 0;
-}
-
-.before-quick-links + ul {
+.quick-links ul {
 	padding: 0;
-	margin-top: 0;
+	margin-top: -20px;
 	margin-left: 4ch;
 	list-style-type: none;
 
