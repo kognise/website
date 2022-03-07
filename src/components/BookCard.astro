@@ -3,14 +3,14 @@ const { title, author, cover, coverWidth, coverHeight, url } = Astro.props
 ---
 
 <article>
-	<a href={url} target='_blank' rel='noopener noreferrer'>
-		<img src={cover} alt={`${title} cover`} width={coverWidth} height={coverHeight} loading='lazy' />
+<a href={url} target='_blank' rel='noopener noreferrer'>
+<img src={cover} alt={`${title} cover`} width={coverWidth} height={coverHeight} loading='lazy' />
 
-		<div>
-			<h3>{title}</h3>
-			<p>by {author}</p>
-		</div>
-	</a>
+<div>
+	<h3>{title}</h3>
+	<p>by {author}</p>
+</div>
+</a>
 </article>
 
 <style>
