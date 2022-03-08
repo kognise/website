@@ -1,5 +1,7 @@
 main {
 	font-family: 'IBM Plex Serif', serif;
+	font-size: 1.125rem;
+	line-height: 1.6;
 	margin: 0 auto;
 	padding: 80px 20px;
 	max-width: 800px;
@@ -8,7 +10,7 @@ main {
 h1 {
 	font-family: 'Red Hat Display', sans-serif;
 	font-weight: 900;
-	font-size: 2.2em;
+	font-size: 2.2rem;
 	margin: 0;
 	margin-bottom: 16px;
 	text-align: center;
@@ -26,6 +28,5 @@ h2 {
 }
 
 p {
-	margin: 16px 0;
-	text-align: justify;
+	margin: 20px 0;
 }
