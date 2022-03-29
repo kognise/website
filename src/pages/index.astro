@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css'
+import '../styles/page-index.css'
+
 import { Markdown } from 'astro/components'
 import BackgroundEffect from '../components/BackgroundEffect.astro'
 import BookCard from '../components/BookCard.astro'
@@ -15,9 +18,6 @@ import SEO from '../components/SEO.astro'
 	<link rel='preconnect' href='https://fonts.googleapis.com' />
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap' rel='stylesheet' />
-
-	<link rel='stylesheet' href={Astro.resolve('../styles/global.css')} />
-	<link rel='stylesheet' href={Astro.resolve('../styles/page-index.css')} />
 
 	<SEO description='Hello, I&rsquo;m Kognise! I do lots of things, but I&rsquo;m usually working with computers, flying, or creating music. I&rsquo;m currently working on way too many projects, including Doggo.Ninja and Water.css.' />
 </head>
@@ -242,10 +242,10 @@ I also thought it would be amusing to make a [personal brand guidelines page](/b
 			<span style='transform-origin: top left; transform: rotate(20deg); display: inline-block; margin-left: 1ch;'>Byeeeeeeeeeee.</span>
 		</p>
 
-		<iframe src='https://overengineering.kognise.dev/embed/kognise' width='100%' height='100' style='user-select: none; margin-top: 60px;' title='overengineeRING embed' frameBorder='0' />
+		<iframe src='https://overengineering.kognise.dev/embed/kognise' width='100%' height='100' style='user-select: none; margin-top: 60px;' title='overengineeRING embed' frameborder='0' />
 	</main>
 
-	<script>
+	<script hoist type='module'>
 		const rainbowToggle = document.getElementById('rainbow-toggle')
 		window.rainbowMode = rainbowToggle.checked
 		rainbowToggle.addEventListener('input', () => window.rainbowMode = rainbowToggle.checked)

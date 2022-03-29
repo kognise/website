@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css'
+import '../styles/layout-writing.css'
+
 import SEO from '../components/SEO.astro'
 const { content } = Astro.props
 ---
@@ -11,9 +14,6 @@ const { content } = Astro.props
 	<link rel='preconnect' href='https://fonts.googleapis.com' />
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Red+Hat+Display:wght@900&display=swap' rel='stylesheet' />
-
-	<link rel='stylesheet' href={Astro.resolve('../styles/global.css')} />
-	<link rel='stylesheet' href={Astro.resolve('../styles/layout-writing.css')} />
 
 	<SEO
 		title={content.title}

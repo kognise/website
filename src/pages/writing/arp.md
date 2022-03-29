@@ -22,11 +22,11 @@ Computer-to-computer communication is *tremendously* complicated; you can get a 
 
 Historically, computer scientists have organized all these "layers" of communication using a system known as the *[OSI model](https://en.wikipedia.org/wiki/OSI_model#Layer_architecture)*:
 
-- At the lowest level is the *physical layer*; computers need to transmit binary data in the real world somehow! Typically, a chip in your computer will send electricity over an ethernet cable or transmit radio waves through the air.
-- Above this is the *data link layer*, which makes sure that the signals that network cards send to each other will reach the right physical destination.
+1. At the lowest level is the *physical layer*; computers need to transmit binary data in the real world somehow! Typically, a chip in your computer will send electricity over an ethernet cable or transmit radio waves through the air.
+2. Above this is the *data link layer*, which makes sure that the signals that network cards send to each other will reach the right physical destination.
 	- On wired connections, [ethernet switches](https://en.wikipedia.org/wiki/Network_switch) work on the data link layer to retransmit incoming signals on the right output cable. If you have a home router, it probably has a built-in switch.
 	- [Wireless access points](https://en.wikipedia.org/wiki/Wireless_access_point) serve to allow devices to connect to a wired network through radio waves.
-- One abstraction up from the data link layer is the *network layer*. This creates a conceptual "network" of nodes (devices) by providing a convenient way to route messages. *IP*, the internet protocol, is by far the most common standard for the network layer.
+3. One abstraction up from the data link layer is the *network layer*. This creates a conceptual "network" of nodes (devices) by providing a convenient way to route messages. *IP*, the internet protocol, is by far the most common standard for the network layer.
 
 The main identifier for nodes on the network layer is an *IP address*. IP addresses can change, and aren't assigned to any specific piece of hardware— if you switch the network your computer is on, your IP address will probably change as well. Meanwhile, *[MAC addresses](https://en.wikipedia.org/wiki/MAC_address)* are the main identifier on the data link layer. They're assigned to a specific network chip in a computer and don't change.
 
@@ -120,10 +120,3 @@ Two minor self-nitpicks: I claimed you're using HTTP on top of TCP to access thi
 Feel free to [email hi@kognise.dev](mailto:hi@kognise.dev) with any questions or corrections, and you're welcome to [check out ArpChat's Rust networking code](https://github.com/kognise/arpchat/blob/main/src/net.rs)!
 
 <img src='https://doggo.ninja/fH9GKt.png' alt='ArpChat&apos;s banner image, drawn in a cartoonish style. In the center is large text saying ArpChat, and in the bottom right is text set in Comic Sans reading "routers love him!" In the top left is a scrawled ARP packet diagram.' width='1280' height='640' />
-
-<style>
-	.pdiag {
-		max-width: 500px;
-		margin: 0 auto;
-	}
-</style>

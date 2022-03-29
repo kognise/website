@@ -22,7 +22,7 @@ h1 {
 	line-height: 1.5;
 }
 
-p, ul {
+p, ul:not(li ul), ol:not(li ol) {
 	margin: 20px 0;
 }
 
