@@ -15,7 +15,11 @@ const { content } = Astro.props
 	<link rel='stylesheet' href={Astro.resolve('../styles/global.css')} />
 	<link rel='stylesheet' href={Astro.resolve('../styles/layout-writing.css')} />
 
-	<SEO title={content.title} description={content.abstract} />
+	<SEO
+		title={content.title}
+		description={content.abstract}
+		banner={content.banner}
+	/>
 </head>
 <body>
 	<main>

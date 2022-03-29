@@ -1,7 +1,7 @@
 ---
 title: 'Familiarity in Electroacoustic Music: A Comparative Analysis of Two Approaches'
 abstract: 'By comparing two pieces of contemporary electroacoustic music, “a glass is not a glass” by Adam Basanta and “Phonurgie” by Francis Dhomont, I explore the how each uses psychological familiarity and how that can be applied to other music.'
-date: '2020-12-19'
+date: '2021-12-19'
 familiarity-hardcode: true
 layout: ../../layouts/writing.astro
 ---

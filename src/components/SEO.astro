@@ -1,5 +1,11 @@
 ---
-const { title, description } = Astro.props
+const { title, description, banner } = Astro.props
+const {
+	url: bannerUrl = 'https://kognise.dev/banner.gif',
+	alt: bannerAlt = 'An animated GIF of Nausicaä, an anime character, flying a glider over sand and into the sky.',
+	width: bannerWidth = 433,
+	height: bannerHeight = 173
+} = banner || {};
 const { canonicalURL } = Astro.request
 ---
 
@@ -13,10 +19,10 @@ const { canonicalURL } = Astro.request
 <meta property='og:url' content={canonicalURL} />
 <link rel='canonical' href={canonicalURL} />
 
-<meta property='og:image' content='https://kognise.dev/banner.gif' />
-<meta property='og:image:alt' content='An animated GIF of Nausicaä, an anime character, flying a glider over sand and into the sky.' />
-<meta property='og:image:width' content='433' />
-<meta property='og:image:height' content='173' />
+<meta property='og:image' content={bannerUrl} />
+<meta property='og:image:alt' content={bannerAlt} />
+<meta property='og:image:width' content={bannerWidth} />
+<meta property='og:image:height' content={bannerHeight} />
 
 <meta name='robots' content='index,follow' />
 <meta name='googlebot' content='index,follow' />
