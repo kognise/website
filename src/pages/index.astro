@@ -263,15 +263,15 @@ I also thought it would be amusing to make a [personal brand guidelines page](/b
 			firstRequest = false
 
 			const res = await fetch('https://api.kognise.dev/')
-			const { activity, song } = await res.json()
+			const { activity, lastfm } = await res.json()
 
 			document.getElementById('activity').innerText = `${activity.label} ${activity.emoji}`
-			document.getElementById('song').innerHTML = song.nowPlaying ? `
+			document.getElementById('song').innerHTML = lastfm.nowPlaying ? `
 				In fact, I&rsquo;m currently (this is updated live!) listening to
-				<a href='${song.url}' target='_blank' rel='noopener noreferrer'>${song.name} by ${song.artist}</a>.
+				<a href='${lastfm.track.url}' target='_blank' rel='noopener noreferrer'>${lastfm.track.name} by ${lastfm.track.artist}</a>.
 			` : `
 				The last song I listened to (this is updated live!) was
-				<a href='${song.url}' target='_blank' rel='noopener noreferrer'>${song.name} by ${song.artist}</a>.
+				<a href='${lastfm.track.url}' target='_blank' rel='noopener noreferrer'>${lastfm.track.name} by ${lastfm.track.artist}</a>.
 			`
 		}
 		updateActivity()
