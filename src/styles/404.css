@@ -1,0 +1,15 @@
+main {
+	font-family: 'IBM Plex Serif', serif;
+	font-size: 1.1rem;
+	text-align: center;
+	padding: 100px 10px;
+}
+
+h1 {
+	font-weight: normal;
+}
+
+img {
+	margin: 0 auto;
+	max-width: 498px;
+}
