@@ -34,7 +34,7 @@ posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
 			<p><a href='/'>Visit my homepage</a></p>
 		</section>
 
-		<section class='posts'>
+		<section class='posts' role='list'>
 			{posts.map(post => (
 				<article role='listitem'>
 					<a href={`/writing/${post.slug}`}>
