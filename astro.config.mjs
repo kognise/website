@@ -13,6 +13,7 @@ const rehypeExternalLinksConfig = [
 
 export default defineConfig({
 	site: 'https://kognise.dev/',
+	trailingSlash: 'never',
 	output: 'static',
 	adapter: vercelStatic(),
 	server: {
