@@ -4,9 +4,9 @@ import '../../styles/writing-index.css'
 
 import { getCollection } from 'astro:content'
 import SEO from '../../components/SEO.astro'
-import LogoHeading from '../../components/LogoHeading.astro'
 
-const posts = await getCollection('writing')
+const posts = await getCollection('writing', post => import.meta.env.DEV || !post.data.draft)
+posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
 ---
 
 <html lang='en'>
@@ -38,7 +38,10 @@ const posts = await getCollection('writing')
 			{posts.map(post => (
 				<article role='listitem'>
 					<a href={`/writing/${post.slug}`}>
-						<h2>{post.data.title}</h3>
+						<h2>
+							{post.data.draft ? '[DRAFT]' : ''}
+							{post.data.title}
+						</h3>
 						<p>{post.data.abstract}</p>
 						<p class='date'>{post.data.date}</p>
 					</a>

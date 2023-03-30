@@ -11,7 +11,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-	const posts = await getCollection('writing')
+	const posts = await getCollection('writing', post => import.meta.env.DEV || !post.data.draft)
 	return posts.map(post => ({
 		params: { slug: post.slug },
 		props: { post }
@@ -45,8 +45,9 @@ const { Content } = await post.render()
 			By Kognise
 			&middot;
 			{post.data.date}
+			{post.data.draft && <>&middot; Draft</>}
 			&middot;
-			<a href='/writing/'>All posts</a>
+			<a href='/writing'>All posts</a>
 		</div>
 
 		<Content />

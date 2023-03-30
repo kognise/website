@@ -11,7 +11,8 @@ export const collections = {
 				alt: z.string(),
 				width: z.number(),
 				height: z.number()
-			}).optional()
+			}).optional(),
+			draft: z.boolean().optional()
 		})
 	})
 }
