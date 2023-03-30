@@ -7,7 +7,6 @@ banner:
   width: 1000
   height: 420
 date: '2022-03-29'
-layout: ../../layouts/writing.astro
 ---
 
 The other day I was sick and bored. With nothing better to do, I spent a day building [ArpChat](https://github.com/kognise/arpchat), a slightly-cursed chat app entirely running on ARP.
@@ -46,7 +45,7 @@ Our ethernet packet will be super simple. First, we include the destination MAC 
 
 For the remaining fields, we include our source MAC address and specify that the packet contained is of the ARP [EtherType](https://en.wikipedia.org/wiki/EtherType). At the end, we append our ARP data. We can leave the remaining optional fields empty.
 
-<img class='pdiag' src='https://doggo.ninja/iCwber.png' alt='Ethernet packet diagram' width='688' height='635' />
+<img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/iCwber.png' alt='Ethernet packet diagram' width='688' height='635' />
 
 ### ARP Packet
 
@@ -63,7 +62,7 @@ The standard requires that ARP packets have the following fields:
 
 Now we can pull out the good ol' Rust compiler and write [a bit of networking code](https://github.com/kognise/arpchat/blob/main/src/net.rs#L215-L238) to send arbitrary data over ARP!
 
-<img class='pdiag' src='https://doggo.ninja/HPvMK4.png' alt='ARP packet diagram' width='688' height='831' />
+<img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/HPvMK4.png' alt='ARP packet diagram' width='688' height='831' />
 
 ## Building a Layer on Top of ARP
 
@@ -83,7 +82,7 @@ To enable sending messages longer than 255 bytes, we can split them up into smal
 
 Right before passing the chunk data, we include a unique identifier that varies between each message. The first of two purposes is for deduplication: we ignore a packet if it's received twice by maintaining a [ringbuffer](https://en.wikipedia.org/wiki/Circular_buffer#Overview) of recently received identifiers. The second purpose is to provide a simple key for identifying message chunks as part of a group.
 
-<img class='pdiag' src='https://doggo.ninja/rpG07u.png' alt='ArpChat packet diagram' width='688' height='397' />
+<img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/rpG07u.png' alt='ArpChat packet diagram' width='688' height='397' />
 
 ### Internet Fame™
 

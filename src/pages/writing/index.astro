@@ -1,0 +1,50 @@
+---
+import '../../styles/global.css'
+import '../../styles/writing-index.css'
+
+import { getCollection } from 'astro:content'
+import SEO from '../../components/SEO.astro'
+import LogoHeading from '../../components/LogoHeading.astro'
+
+const posts = await getCollection('writing')
+---
+
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+
+	<link rel='preconnect' href='https://fonts.googleapis.com' />
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Red+Hat+Display:wght@900&display=swap' rel='stylesheet' />
+
+	<SEO title='My Writing' description={`I can't quite call it a blog due to no expectation of frequency, but sometimes I write things, and sometimes I do a good job! You may find enjoyment in one of these posts.`} />
+</head>
+<body>
+	<main>
+		<section>
+			<h1>My Writing</h1>
+
+			<p>
+				I can't quite call it a blog due to no expectation of frequency, but sometimes I write things, and sometimes I do a good job! You may find enjoyment in one of these posts.
+				<br />
+				&ndash; Lexi
+			</p>
+
+			<p><a href='/'>Visit my homepage</a></p>
+		</section>
+
+		<section class='posts'>
+			{posts.map(post => (
+				<article role='listitem'>
+					<a href={`/writing/${post.slug}`}>
+						<h2>{post.data.title}</h3>
+						<p>{post.data.abstract}</p>
+						<p class='date'>{post.data.date}</p>
+					</a>
+				</article>
+			))}
+		</section>
+	</main>
+</body>
+</html>

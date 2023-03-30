@@ -1,0 +1,56 @@
+main {
+	font-family: 'IBM Plex Serif', serif;
+	font-size: 1.1rem;
+	margin: 0 auto;
+	padding: 80px 20px;
+	max-width: 800px;
+	overflow-wrap: break-word;
+}
+
+h1 {
+	font-family: 'Red Hat Display', sans-serif;
+	font-weight: 900;
+	font-size: 2.5rem;
+	margin: 0;
+	margin-bottom: 12px;
+}
+
+.posts {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-top: 60px;
+}
+
+article a {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	gap: 10px;
+	font-size: 1rem;
+	border: 3px solid #dee2e6;
+
+	&, &:not([href^=\#]):visited {
+		color: inherit;
+
+		&:hover {
+			background: #dee2e6;
+			color: inherit;
+		}
+	}
+
+	&::before, &::after { display: none; content: ''; }
+
+	& h2 {
+		font-size: 1.4rem;
+		margin: 0;
+	}
+
+	& p {
+		margin: 0;
+	}
+
+	& .date {
+		color: #868e96;
+	}
+}

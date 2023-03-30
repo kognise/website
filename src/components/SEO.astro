@@ -1,12 +1,23 @@
 ---
+interface Props {
+	title?: string
+	description: string
+	banner?: {
+		url?: string
+		alt?: string
+		width?: number
+		height?: number
+	}
+}
+
 const { title, description, banner } = Astro.props
 const {
 	url: bannerUrl = 'https://kognise.dev/banner.gif',
 	alt: bannerAlt = 'An animated GIF of Nausicaä, an anime character, flying a glider over sand and into the sky.',
 	width: bannerWidth = 433,
 	height: bannerHeight = 173
-} = banner || {};
-const { canonicalURL } = Astro.request
+} = banner || {}
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <title>{title ? `${title} | Kognise` : 'Kognise!'}</title>
@@ -21,8 +32,8 @@ const { canonicalURL } = Astro.request
 
 <meta property='og:image' content={bannerUrl} />
 <meta property='og:image:alt' content={bannerAlt} />
-<meta property='og:image:width' content={bannerWidth} />
-<meta property='og:image:height' content={bannerHeight} />
+<meta property='og:image:width' content={bannerWidth.toString()} />
+<meta property='og:image:height' content={bannerHeight.toString()} />
 
 <meta name='robots' content='index,follow' />
 <meta name='googlebot' content='index,follow' />

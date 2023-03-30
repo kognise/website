@@ -24,9 +24,10 @@ const { title, author, cover, coverWidth, coverHeight, url } = Astro.props
 		height: 100%;
 		color: inherit;
 
-		&:hover {
+		&:hover, &:not([href^=\#]):visited:hover {
 			text-decoration: none;
 			background: #ced4da;
+			color: inherit;
 		}
 
 		&::before, &::after { content: ''; }

@@ -1,21 +1,30 @@
-export default {
-	devOptions: {
+import { defineConfig } from 'astro/config'
+import mdx from '@astrojs/mdx'
+import sitemap from '@astrojs/sitemap'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypePresetMinify from 'rehype-preset-minify'
+import react from '@astrojs/react'
+
+const rehypeExternalLinksConfig = [
+	rehypeExternalLinks,
+	{ target: '_blank', rel: ['noopener', 'noreferrer'] }
+]
+
+export default defineConfig({
+	site: 'https://kognise.dev/',
+	server: {
 		port: parseInt(process.env.PORT || '3000')
 	},
-	buildOptions: {
-		site: 'https://kognise.dev/',
-		sitemap: true
-	},
-	markdownOptions: {
-		render: [
-			'@astrojs/markdown-remark',
-			{
-				remarkPlugins: [ 'remark-smartypants' ],
-				rehypePlugins: [
-					[ 'rehype-external-links', { rel: [ 'noopener', 'noreferrer' ] } ],
-					'rehype-slug'
-				]
-			}
-		]
+	integrations: [
+		mdx({
+			smartypants: true,
+			rehypePlugins: [ rehypeExternalLinksConfig, rehypePresetMinify ]
+		}),
+		sitemap(),
+		react()
+	],
+	markdown: {
+		smartypants: true,
+		rehypePlugins: [ rehypeExternalLinksConfig ]
 	}
-}
+});

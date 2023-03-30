@@ -1,8 +1,7 @@
 ---
 import '../styles/global.css'
-import '../styles/page-brand.css'
+import '../styles/brand.css'
 
-import { Markdown } from 'astro/components'
 import BrandingYesNo from '../components/BrandingYesNo.astro'
 import SEO from '../components/SEO.astro'
 ---
@@ -134,7 +133,15 @@ import SEO from '../components/SEO.astro'
 
 			<p>You're welcome to refer to me in a book, article, blog post, or other similar piece of content, but please follow the guidelines to ensure proper use.</p>
 
-			<p><Markdown>If the medium allows it, provide a link to my [website](https://kognise.dev/), [GitHub](https://github.com/kognise), or [Polywork](https://polywork.com/kognise). In addition or as a substitute you may provide my contact email, [hi@kognise.dev](mailto:hi@kognise.dev). When using my name inline in textual content, especially in banners or posters, please write it out instead of using the logo.</Markdown></p>
+			<p>
+				If the medium allows it, provide a link to my
+				<a href='https://kognise.dev/' target='blank' rel='noopener noreferrer'>website</a>,
+				<a href='https://github.com/kognise' target='blank' rel='noopener noreferrer'>GitHub</a>,
+				or <a href='https://polywork.com/kognise' target='blank' rel='noopener noreferrer'>Polywork</a>.
+				In addition or as a substitute you may provide my contact email,
+				<a href='mailto:hi@kognise.dev' target='blank' rel='noopener noreferrer'>hi@kognise.dev</a>.
+				When using my name inline in textual content, especially in banners or posters, please write it out instead of using the logo.
+			</p>
 
 			<p>Do not use my name, logo, or a portmanteau of my name on any website containing adult content, promoting gambling, or prominently featuring material related to the sale of alcohol or tobacco.</p>
 
@@ -155,7 +162,7 @@ import SEO from '../components/SEO.astro'
 		</section>
 	</main>
 
-	<script hoist type='module'>
+	<script lang='javascript'>
 		const kognise = new Audio('/kognise.mp3')
 		document.getElementById('ipa').addEventListener('click', () => {
 			kognise.currentTime = 0

@@ -1,0 +1,55 @@
+---
+import '../../styles/global.css'
+import '../../styles/writing-post.css'
+
+import { CollectionEntry, getCollection } from 'astro:content'
+import SEO from '../../components/SEO.astro'
+import Balancer from 'react-wrap-balancer'
+
+interface Props {
+	post: CollectionEntry<'writing'>
+}
+
+export async function getStaticPaths() {
+	const posts = await getCollection('writing')
+	return posts.map(post => ({
+		params: { slug: post.slug },
+		props: { post }
+	}))
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+
+	<link rel='preconnect' href='https://fonts.googleapis.com' />
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Red+Hat+Display:wght@900&display=swap' rel='stylesheet' />
+
+	<SEO
+		title={post.data.title}
+		description={post.data.abstract}
+		banner={post.data.banner}
+	/>
+</head>
+<body>
+	<main>
+		<h1><Balancer client:only>{post.data.title}</Balancer></h1>
+			
+		<div class='meta'>
+			By Kognise
+			&middot;
+			{post.data.date}
+			&middot;
+			<a href='/writing/'>All posts</a>
+		</div>
+
+		<Content />
+	</main>
+</body>
+</html>

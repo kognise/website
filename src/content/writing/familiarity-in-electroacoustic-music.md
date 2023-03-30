@@ -1,10 +1,13 @@
 ---
 title: 'Familiarity in Electroacoustic Music: A Comparative Analysis of Two Approaches'
-abstract: 'By comparing two pieces of contemporary electroacoustic music, “a glass is not a glass” by Adam Basanta and “Phonurgie” by Francis Dhomont, I explore the how each uses psychological familiarity and how that can be applied to other music.'
+abstract: 'By comparing two pieces of contemporary electroacoustic music, “a glass is not a glass” by Adam Basanta and “Phonurgie” by Francis Dhomont, I explore how each uses psychological familiarity and how this can be applied to other music.'
 date: '2021-12-19'
-familiarity-hardcode: true
-layout: ../../layouts/writing.astro
 ---
+
+> You may wish to listen to the covered pieces before reading this article:
+> 
+> - [Listen to *a glass is not a glass*](https://soundcloud.com/adam-basanta/a-glass-is-not-a-glass)
+> - [Listen to *Phonurgie*](https://soundcloud.com/user-833777101/phonurgie-aiff-2448) 
 
 Electroacoustic music is a compositional practice using technology to supplement or replace traditional compositional methods. It can be dated back to the 1940s when musique concrète, pioneered by Pierre Schaeffer in Paris, first used recorded audio as a resource to create contemporary music compositions. French composers experimented with shellac discs, and later with magnetic tape in the 1950s, manipulating the support medium physically (e.g. changing playback speed, physically cutting and gluing tape) to edit and arrange sound into new figures and textures. In parallel, the practice of using purely electronic methods rather than organic sources or traditional instruments to generate sound was developing in Germany.
 
@@ -71,6 +74,3 @@ Electroacoustic music label with information on over 150 artists, including Fran
 Adam Basanta's personal website detailing many of his works: [https://adambasanta.com/](https://adambasanta.com/)
 
 Groupe de Recherches Musicales has a lot of information on electroacoustic composition: [https://inagrm.com/en](https://inagrm.com/en)
-
-Listen to *a glass is not a glass*: [https://soundcloud.com/adam-basanta/a-glass-is-not-a-glass](https://soundcloud.com/adam-basanta/a-glass-is-not-a-glass)  
-Listen to *Phonurgie*: [https://soundcloud.com/user-833777101/phonurgie-aiff-2448](https://soundcloud.com/user-833777101/phonurgie-aiff-2448) 
