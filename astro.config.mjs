@@ -15,7 +15,7 @@ export default defineConfig({
 	site: 'https://kognise.dev/',
 	trailingSlash: 'never',
 	output: 'static',
-	adapter: vercelStatic(),
+	adapter: vercelStatic({ analytics: true }),
 	server: {
 		port: parseInt(process.env.PORT || '3000')
 	},
