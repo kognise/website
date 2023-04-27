@@ -11,7 +11,7 @@ body {
 
 .toc {
 	font-family: 'IBM Plex Sans', sans-serif;
-	background: #f1f3f5;
+	background: #f1f3f5cc;
 	overflow: auto;
 	line-height: 1.4;
 	scroll-behavior: smooth;
@@ -96,6 +96,7 @@ body {
 	right: 0;
 	transform: translateX(0);
 	top: 20px;
+	opacity: 0.8;
 	transition:
 		transform 300ms ease-out,
 		width 100ms ease-out,
@@ -226,7 +227,6 @@ code {
 		padding: 0;
 		justify-content: center;
 		-webkit-tap-highlight-color: transparent;
-		opacity: 0.8;
 
 		& svg {
 			--size: 24px;
