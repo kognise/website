@@ -6,7 +6,7 @@ html, body {
 body {
 	display: flex;
 	flex-direction: row;
-	--toc-width: 340px;
+	--toc-width: 320px;
 }
 
 .toc {
