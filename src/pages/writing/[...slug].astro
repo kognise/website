@@ -5,7 +5,6 @@ import '../../styles/writing-post.css'
 import { CollectionEntry, getCollection } from 'astro:content'
 import { Icon } from 'astro-icon'
 import SEO from '../../components/SEO.astro'
-import Balancer from 'react-wrap-balancer'
 import TOCList from '../../components/TOCList.astro'
 
 interface Props {
@@ -31,7 +30,7 @@ const { Content, headings } = await post.render()
 
 	<link rel='preconnect' href='https://fonts.googleapis.com' />
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap' rel='stylesheet' />
+	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Red+Hat+Display:wght@900&display=swap' rel='stylesheet' />
 
 	{post.data.draft && <meta name='robots' content='noindex' />}
 
@@ -46,7 +45,7 @@ const { Content, headings } = await post.render()
 		<main>
 			<div id='__top__' />
 			
-			<h1><Balancer client:load>{post.data.title}</Balancer></h1>
+			<h1>{post.data.title}</h1>
 				
 			<div class='meta'>
 				By Lexi Mattick
