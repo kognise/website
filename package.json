@@ -21,6 +21,7 @@
 		"rehype-preset-minify": "^6.0.0"
 	},
 	"dependencies": {
+		"astro-icon": "^0.8.0",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"react-wrap-balancer": "^0.4.0"

@@ -2,7 +2,7 @@
 	{new Array(25).fill(<div />)}
 </div>
 
-<script hoist type='module'>
+<script lang='javascript'>
 	const grid = document.getElementById('bg-grid')
 	const [ rows, columns ] = [ 5, 5 ]
 
@@ -16,10 +16,9 @@
 		const row = Math.floor(y * rows / window.innerHeight)
 		const column = Math.floor(x * columns / window.innerWidth)
 
-		// I used ternary here but Astro doesn't like it for some reason :D
-		let cellIndex = row * rows + column
-		if (row >= rows || column >= columns) cellIndex = -1
-
+		const cellIndex = row < rows || column > columns
+			? row * rows + column
+			: -1
 		const hovered = grid.children[cellIndex]
 
 		if (cellIndex >= 0) {
@@ -44,7 +43,7 @@
 	}
 
 	document.addEventListener('mousemove', render, { capture: true, passive: true })
-	document.addEventListener('mouseleave', () => render({ clientX: -1, clientY: -1 }), { capture: true, passive: true })
+	document.addEventListener('mouseleave', () => render({ clientX: -1, clientY: -1 }), { passive: true })
 	document.addEventListener('mousedown', (event) => { mouseDown = true; render(event) }, { capture: true, passive: true })
 	document.addEventListener('mouseup', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
 	document.addEventListener('dragend', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })

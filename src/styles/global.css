@@ -2,10 +2,13 @@
 	box-sizing: border-box;
 }
 
+html {
+	background: #f8f9fa;
+}
+
 body {
 	margin: 0;
 	line-height: 1.8;
-	background: #f8f9fa;
 }
 
 img, video {
@@ -34,11 +37,11 @@ blockquote {
 	background: #e9ecef;
     border-left: 4px solid #868e96;
 	margin: 30px 0;
-	padding: 6px 10px;
+	padding: 10px 10px;
     padding-left: 30px;
 
 	& p, & ul:not(li ul), & ol:not(li ol) {
-		margin: 10px 0;
+		margin: 14px 0;
 	}
 }
 
@@ -46,7 +49,7 @@ a {
 	color: #6741d9;
 	text-decoration: none;
 
-	&:hover {
+	&:hover, &.scrollspy-active {
 		background: #6741d9;
 		color: #ffffff;
 	}
@@ -60,8 +63,16 @@ a {
 		}
 	}
 
-	&::before { content: '[' / ''; }
-	&::after { content: ']' / ''; }
+	&::before { content: '['; }
+	&::after { content: ']'; }
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background: #ced4da;
+	border: none;
+	margin: 40px 0;
 }
 
 .sr-only {

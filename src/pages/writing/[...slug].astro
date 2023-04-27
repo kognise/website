@@ -3,15 +3,17 @@ import '../../styles/global.css'
 import '../../styles/writing-post.css'
 
 import { CollectionEntry, getCollection } from 'astro:content'
+import { Icon } from 'astro-icon'
 import SEO from '../../components/SEO.astro'
 import Balancer from 'react-wrap-balancer'
+import TOCList from '../../components/TOCList.astro'
 
 interface Props {
 	post: CollectionEntry<'writing'>
 }
 
 export async function getStaticPaths() {
-	const posts = await getCollection('writing', post => import.meta.env.DEV || !post.data.draft)
+	const posts = await getCollection('writing')
 	return posts.map(post => ({
 		params: { slug: post.slug },
 		props: { post }
@@ -19,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
-const { Content } = await post.render()
+const { Content, headings } = await post.render()
 ---
 
 <html lang='en'>
@@ -29,7 +31,9 @@ const { Content } = await post.render()
 
 	<link rel='preconnect' href='https://fonts.googleapis.com' />
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Red+Hat+Display:wght@900&display=swap' rel='stylesheet' />
+	<link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap' rel='stylesheet' />
+
+	{post.data.draft && <meta name='robots' content='noindex' />}
 
 	<SEO
 		title={post.data.title}
@@ -37,20 +41,98 @@ const { Content } = await post.render()
 		banner={post.data.banner}
 	/>
 </head>
-<body>
-	<main>
-		<h1><Balancer client:only>{post.data.title}</Balancer></h1>
+<body class='toc-activated'>
+	<div class='container'>
+		<main>
+			<div id='__top__' />
 			
-		<div class='meta'>
-			By Lexi Mattick
-			&middot;
-			{post.data.date}
-			{post.data.draft && <>&middot; Draft</>}
-			&middot;
-			<a href='/writing'>All posts</a>
-		</div>
+			<h1><Balancer client:load>{post.data.title}</Balancer></h1>
+				
+			<div class='meta'>
+				By Lexi Mattick
+				&middot;
+				{post.data.date}
+				{post.data.draft && <>&middot; Draft</>}
+				&middot;
+				<a href='/writing'>All posts</a>
+			</div>
 
-		<Content />
-	</main>
+			<Content />
+		</main>
+	</div>
+
+	<div class='toc-container'>
+		<button class='toc-toggle' aria-hidden='true'>
+			<Icon name='ion:list-sharp' class='icon-activate' />
+			<Icon name='ion:chevron-right' class='icon-collapse' />
+			<Icon name='ion:close-sharp' class='icon-x' />
+		</button>
+
+		<nav class='toc' aria-hidden='true'>
+			<h2>Table of Contents</h2>
+			
+			<TOCList headings={[
+				{ depth: 2, text: 'Intro', slug: '__top__' },
+				...headings
+			]} />
+		</nav>
+	</div>
+
+	<script lang='javascript'>
+		// Scrollspy
+		const leeway = 10
+		const container = document.querySelector('.container')
+		const headings = [ ...document.querySelectorAll('h1, h2, h3, h4, h5, h6') ]
+			.filter(el => !!el.id)
+		headings.reverse()
+
+		let current = '__top__'
+		const updateScrollspy = () => {
+			for (const el of document.querySelectorAll('[data-scrollspy]')) {
+				el.classList.toggle('scrollspy-active', el.dataset.scrollspy === current)
+			}
+		}
+		
+		container.addEventListener('scroll', () => {
+			let next = '__top__'
+			for (const heading of headings) {
+				if (container.scrollTop >= heading.offsetTop - leeway) {
+					next = heading.id
+					break
+				}
+			}
+			if (next !== current) {
+				current = next
+				updateScrollspy()
+			}
+		}, { passive: true })
+
+		updateScrollspy()
+
+		// TOC toggle
+		if (window.innerWidth > 800) {
+			document.body.classList.toggle('toc-activated', sessionStorage.getItem('toc-activated') !== 'false')
+		}
+		const toggleToc = () => {
+			document.body.classList.toggle('toc-activated')
+			sessionStorage.setItem(
+				'toc-activated',
+				document.body.classList.contains('toc-activated')
+					? 'true'
+					: 'false'
+			)
+		}
+		document.querySelector('.toc-toggle').addEventListener('click', () => {
+			toggleToc()
+		})
+
+		// Close TOC on link click on mobile
+		document.body.addEventListener('click', (event) => {
+			const isOpenMobile = window.getComputedStyle(document.querySelector('.icon-x')).display !== 'none'
+			if (event.target.dataset.scrollspy && isOpenMobile) {
+				toggleToc()
+			}
+		}, { capture: true, passive: true })
+	</script>
 </body>
 </html>

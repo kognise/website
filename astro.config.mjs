@@ -24,7 +24,9 @@ export default defineConfig({
 			smartypants: true,
 			rehypePlugins: [ rehypeExternalLinksConfig, rehypePresetMinify ]
 		}),
-		sitemap(),
+		sitemap({
+			filter: (page) => !page.includes('--delist')
+		}),
 		react()
 	],
 	markdown: {

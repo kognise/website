@@ -9,7 +9,7 @@ banner:
 date: '2022-03-29'
 ---
 
-The other day I was sick and bored. With nothing better to do, I spent a day building [ArpChat](https://github.com/kognise/arpchat), a slightly-cursed chat app entirely running on ARP.
+The other day I was sick and bored. With nothing better to do, I spent a day building [ArpChat](https://github.com/kognise/arpchat), a slightly cursed chat app entirely running on ARP.
 
 Several people have asked me how ArpChat works behind the scenes, so I thought I would write a quick post. While building it wasn't particularly novel for me, you might learn something new if you're new to networking!
 
@@ -47,7 +47,7 @@ For the remaining fields, we include our source MAC address and specify that the
 
 <img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/iCwber.png' alt='Ethernet packet diagram' width='688' height='635' />
 
-### ARP Packet
+### ARP Packets
 
 We'll be sending what's known as a *gratuitous ARP* packet. When changing IPs or joining a new network, devices will often announce their presence to other devices on the network; due to their nature as good-faith announcements, gratuitous ARP packets tend to have high deliverability.
 
