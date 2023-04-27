@@ -214,6 +214,7 @@ code {
 
 		.toc-activated & {
 			opacity: 1;
+			background: #f1f3f5;
 		}
 	}
 
