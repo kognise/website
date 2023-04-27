@@ -109,7 +109,7 @@ const { Content, headings } = await post.render()
 		updateScrollspy()
 
 		// TOC toggle
-		if (sessionStorage.getItem('toc-activated')) {
+		if (window.innerWidth > 800) {
 			document.body.classList.toggle('toc-activated', sessionStorage.getItem('toc-activated') !== 'false')
 		}
 		const toggleToc = () => {
