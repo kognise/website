@@ -65,7 +65,7 @@ body {
 		}
 
 		&::before, &::after {
-			content: '';
+			content: none;
 			display: none;
 		}
 	}
@@ -181,11 +181,18 @@ h2 {
 
 code {
 	font-size: 0.9em;
+	font-family: 'IBM Plex Mono', monospace, sans-serif;
+}
+
+code:not(pre code) {
 	color: #8f310c;
 	background: #fff4e6;
 	padding: 1px 2px;
 	border-radius: 2px;
-	font-family: 'IBM Plex Mono', monospace, sans-serif;
+}
+
+pre code {
+	font-size: 0.85em;
 }
 
 @media (max-width: 1000px) {

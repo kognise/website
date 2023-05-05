@@ -12,7 +12,8 @@ export const collections = {
 				width: z.number(),
 				height: z.number()
 			}).optional(),
-			draft: z.boolean().optional()
+			draft: z.boolean().optional(),
+			'tab-size': z.number().optional()
 		})
 	})
 }

@@ -23,6 +23,7 @@
 	"dependencies": {
 		"astro-icon": "^0.8.0",
 		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"react-dom": "^18.0.0",
+		"shiki": "^0.14.2"
 	}
 }

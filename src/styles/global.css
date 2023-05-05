@@ -29,7 +29,7 @@ h2 {
 	line-height: 1.6;
 }
 
-p, ul:not(li ul), ol:not(li ol) {
+p, ul:not(li ul), ol:not(li ol), pre, .code-block {
 	margin: 20px 0;
 }
 

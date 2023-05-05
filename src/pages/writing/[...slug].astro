@@ -21,6 +21,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props
 const { Content, headings } = await post.render()
+const tabSize = post.data['tab-size'] || 4
 ---
 
 <html lang='en'>
@@ -77,7 +78,12 @@ const { Content, headings } = await post.render()
 		</nav>
 	</div>
 
+	<script lang='javascript' define:vars={{ dev: import.meta.env.DEV }}>
+		window.__ASTRO_DEV_MODE__ = dev
+	</script>
 	<script lang='javascript'>
+		const scrollRestoreKey = `scroll-restore-${window.location.pathname}`
+
 		// Scrollspy
 		const leeway = 10
 		const container = document.querySelector('.container')
@@ -103,6 +109,10 @@ const { Content, headings } = await post.render()
 			if (next !== current) {
 				current = next
 				updateScrollspy()
+			}
+
+			if (window.__ASTRO_DEV_MODE__) {
+				sessionStorage.setItem(scrollRestoreKey, container.scrollTop.toString())
 			}
 		}, { passive: true })
 
@@ -132,6 +142,19 @@ const { Content, headings } = await post.render()
 				toggleToc()
 			}
 		}, { capture: true, passive: true })
+
+		// Restore scroll for live reloading
+		setTimeout(() => {
+			if (window.__ASTRO_DEV_MODE__ && sessionStorage.getItem(scrollRestoreKey)) {
+				container.scrollTop = parseInt(sessionStorage.getItem(scrollRestoreKey))
+			}
+		}, 0)
 	</script>
+
+	<style define:vars={{ tabSize }}>
+		main :global(pre) {
+			tab-size: var(--tabSize);
+		}
+	</style>
 </body>
 </html>

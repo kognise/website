@@ -39,7 +39,7 @@ article a {
 		}
 	}
 
-	&::before, &::after { display: none; content: ''; }
+	&::before, &::after { display: none; content: none; }
 
 	& h2 {
 		font-size: 1.4rem;

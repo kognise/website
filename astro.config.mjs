@@ -21,7 +21,6 @@ export default defineConfig({
 	},
 	integrations: [
 		mdx({
-			smartypants: true,
 			rehypePlugins: [ rehypeExternalLinksConfig, rehypePresetMinify ]
 		}),
 		sitemap({
@@ -31,6 +30,9 @@ export default defineConfig({
 	],
 	markdown: {
 		smartypants: true,
-		rehypePlugins: [ rehypeExternalLinksConfig ]
+		rehypePlugins: [ rehypeExternalLinksConfig ],
+		shikiConfig: {
+			theme: 'one-dark-pro'
+		}
 	}
 });
