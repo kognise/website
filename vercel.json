@@ -1,3 +1,10 @@
 {
-	"trailingSlash": false
+	"trailingSlash": false,
+	"redirects": [
+		{
+			"source": "/writing/you-in-cpu--delist",
+			"destination": "/writing/putting-the-you-in-cpu",
+			"permanent": true
+		}
+	]
 }

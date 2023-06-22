@@ -27,9 +27,9 @@ Historically, computer scientists have organized all these "layers" of communica
 	- [Wireless access points](https://en.wikipedia.org/wiki/Wireless_access_point) serve to allow devices to connect to a wired network through radio waves.
 3. One abstraction up from the data link layer is the *network layer*. This creates a conceptual "network" of nodes (devices) by providing a convenient way to route messages. *IP*, the internet protocol, is by far the most common standard for the network layer.
 
-The main identifier for nodes on the network layer is an *IP address*. IP addresses can change, and aren't assigned to any specific piece of hardware— if you switch the network your computer is on, your IP address will probably change as well. Meanwhile, *[MAC addresses](https://en.wikipedia.org/wiki/MAC_address)* are the main identifier on the data link layer. They're assigned to a specific network chip in a computer and don't change.
+The main identifier for nodes on the network layer is an *IP address*. IP addresses can change, and aren't assigned to any specific piece of hardware — if you switch the network your computer is on, your IP address will probably change as well. Meanwhile, *[MAC addresses](https://en.wikipedia.org/wiki/MAC_address)* are the main identifier on the data link layer. They're assigned to a specific network chip in a computer and don't change.
 
-When sending a message on the network layer, your computer needs to drop down to the data link layer to make sure packets reach the right device. That means there must be a way to find a MAC address for a given IP address— we call this protocol *ARP*, an initialism for address resolution protocol.
+When sending a message on the network layer, your computer needs to drop down to the data link layer to make sure packets reach the right device. That means there must be a way to find a MAC address for a given IP address — we call this protocol *ARP*, an initialism for address resolution protocol.
 
 With ARP, Computer A can send a request to every computer in the area with an IP address. If another computer recognizes the IP as its own, it can respond with the corresponding MAC address. When Computer A receives the response, it knows how to send its original message along the data link layer.
 
@@ -41,7 +41,7 @@ Now, what if we sent nonsense instead? Well, the packet will still go through bu
 
 ARP is a "layer 3" protocol. This means a layer 2 (physical layer) packet has to wrap every ARP packet; we'll include our data in an "ethernet" packet format designed for both Wi-Fi and wired ethernet.
 
-Our ethernet packet will be super simple. First, we include the destination MAC address— since we want to send our packet to everyone, this will be a special value called the broadcast address, `ff:ff:ff:ff:ff:ff`. Switches should forward broadcast packets to every device they know about.
+Our ethernet packet will be super simple. First, we include the destination MAC address — since we want to send our packet to everyone, this will be a special value called the broadcast address, `ff:ff:ff:ff:ff:ff`. Switches should forward broadcast packets to every device they know about.
 
 For the remaining fields, we include our source MAC address and specify that the packet contained is of the ARP [EtherType](https://en.wikipedia.org/wiki/EtherType). At the end, we append our ARP data. We can leave the remaining optional fields empty.
 
@@ -55,7 +55,7 @@ The standard requires that ARP packets have the following fields:
 
 - Hardware and Protocol Type: the kind of data link and network layer our ARP message relates to. In our case, these are ethernet and IPv4 respectively.
 - Hardware Address Length: we're complying with this aspect of ARP so we'll specify the length of a MAC address, 6 bytes.
-- Protocol Address Length: this would normally be 4 bytes, the length of an IP address. Instead, we're going to deviate from "proper" ARP— since we want to send more information than just an IP address, we'll specify the length of our data instead.
+- Protocol Address Length: this would normally be 4 bytes, the length of an IP address. Instead, we're going to deviate from "proper" ARP — since we want to send more information than just an IP address, we'll specify the length of our data instead.
 - Operation: this designates the packet as either request or a reply. According to one convention, gratuitous ARP packets are requests.
 - We'll fill the Sender Hardware Address with our MAC address, and the Sender Protocol Address with our data.
 - For the Target Hardware Address we'll specify an all-zero MAC address, `00:00:00:00:00:00`, and we'll include a duplicate of our data in the last field, Target Protocol Address. These are both conventions of gratuitous ARP messages.
@@ -74,7 +74,7 @@ Any grade-schooler would know that creating a rudimentary transport protocol on 
 
 ### "Protocol" & Chunking
 
-Every packet we send over ARP first consists of a prefix— in ArpChat, this is `uwu`. This is convenient for ArpChat receivers, as they can cheaply discard ARP data that doesn't start with this prefix.
+Every packet we send over ARP first consists of a prefix — in ArpChat, this is `uwu`. This is convenient for ArpChat receivers, as they can cheaply discard ARP data that doesn't start with this prefix.
 
 Next, we'll include three bytes: a tag, a sequence number, and a total count. The tag identifies the kind of data; in a chat app, this could be a text message or a status update.
 
@@ -88,7 +88,7 @@ Right before passing the chunk data, we include a unique identifier that varies 
 
 With a bit more Rust code, I created a nice abstraction over this system that automatically chunks messages and deduplicates and gathers them on the receiving side.
 
-Using [Cursive](https://crates.io/crates/cursive), I built a terminal user interface and implemented a small chat app over ARP. On the second day that I was sick, I did some polishing and implemented a presence system for requesting who's online and gratuitously broadcasting when you connect or disconnect. This is, in an ironic fashion, close to ARP itself— one could run ARP *on top of ARP* for some true ARPception!
+Using [Cursive](https://crates.io/crates/cursive), I built a terminal user interface and implemented a small chat app over ARP. On the second day that I was sick, I did some polishing and implemented a presence system for requesting who's online and gratuitously broadcasting when you connect or disconnect. This is, in an ironic fashion, close to ARP itself — one could run ARP *on top of ARP* for some true ARPception!
 
 The internet somehow found ArpChat's GitHub repository and it gained some popularity, reaching the top 6 on GitHub Trending with 300 stars in one day! I never expected that a tiny project I made while I was sick would garner so much attention, but here we are. With the exposure that comes from 1.1k new GitHub stars, I even ended up making a couple of new friends.
 
@@ -98,7 +98,7 @@ I'm basically done with this project, but you may [try out the latest release](h
 
 As you might've noticed, ARP feels a bit flimsy. Any device can claim association with a certain IP address and everyone else on the network will believe them. When done maliciously, this is well-known in the security world as an [ARP spoofing](https://en.wikipedia.org/wiki/ARP_spoofing) attack. The potential for danger is partially shown by how trivial running ArpChat is!
 
-Meanwhile, the number of devices on the public internet continues to increase as we grow closer and closer to reaching the limit of used IP addresses— there are only so many possible combinations.
+Meanwhile, the number of devices on the public internet continues to increase as we grow closer and closer to reaching the limit of used IP addresses — there are only so many possible combinations.
 
 The answer to these and other problems is IPv6, a new version of IP with longer addresses, more sophisticated routing, and more modern protocols than IPv4. IPv6 also replaces ARP with a new protocol. [NDP](https://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol), which stands for neighbor discovery protocol, features security-conscious features such as cryptographic message verification, rendering it much better than ARP.
 
@@ -112,7 +112,7 @@ Saying that MAC addresses don't change was a bit of a white lie. Your computer c
 
 I mentioned specifying IPv4 as the Protocol Type for our ARP packets. It turns out that IANA [designates](https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml) two alternate types for "experimental" use, which ArpChat now defaults to for the sake of being nicer to other networking equipment. IPv4 is still a configurable option.
 
-I also described ARP as a layer 3 protocol. There's some contention on this— while I think this is the most accurate and easiest explanation, networking is more nuanced than the OSI model might convey. Some would describe ARP as a level 2 or even level 2.5 protocol. For our purposes, I believe calling it level 3 makes the most sense.
+I also described ARP as a layer 3 protocol. There's some contention on this — while I think this is the most accurate and easiest explanation, networking is more nuanced than the OSI model might convey. Some would describe ARP as a level 2 or even level 2.5 protocol. For our purposes, I believe calling it level 3 makes the most sense.
 
 Two minor self-nitpicks: I claimed you're using HTTP on top of TCP to access this website. If your browser (and my server) supports HTTP/3, you might be using QUIC over UDP instead! I also left out a field of the ethernet packet containing a [checksum](https://en.wikipedia.org/wiki/Checksum). The networking library I used autogenerates this, and I don't think it's important in an explanation of ARP.
 
