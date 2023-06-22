@@ -46,7 +46,17 @@ const tabSize = post.data['tab-size'] || 4
 		<main>
 			<div id='__top__' />
 			
-			<h1>{post.data.title}</h1>
+			<h1>
+				{post.data.title === 'Putting the "You" in CPU'
+					? <>
+						<span style='color: #e03131'>Putting</span>{' '}
+						<span style='color: #f59f00'>the</span>{' '}
+						<span style='color: #2f9e44'>&ldquo;You&rdquo;</span>{' '}
+						<span style='color: #1971c2'>in</span>{' '}
+						<span style='color: #9c36b5'>CPU</span>
+					</>
+					: post.data.title}
+			</h1>
 				
 			<div class='meta'>
 				By Lexi Mattick
