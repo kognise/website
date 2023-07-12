@@ -4,6 +4,7 @@ import '../../styles/writing-index.css'
 
 import { getCollection } from 'astro:content'
 import SEO from '../../components/SEO.astro'
+import NewsletterScript from '../../components/NewsletterScript.astro'
 
 const posts = await getCollection('writing', post => import.meta.env.DEV || !post.data.draft)
 posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
@@ -30,6 +31,16 @@ posts.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
 				<br />
 				&ndash; Lexi
 			</p>
+
+			<aside id='newsletter'>
+				<p>Sign up to be notified when I write stuff:</p>
+	
+				<form id='newsletter-form'>
+					<input id='newsletter-email' type='text' name='email' placeholder='real.human@website.com' required>
+					<input type='submit'>
+				</form>
+			</aside>
+			<NewsletterScript source='writing-index' />
 
 			<p><a href='/'>Visit my homepage</a></p>
 		</section>

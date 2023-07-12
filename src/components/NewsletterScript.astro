@@ -1,0 +1,33 @@
+---
+export interface Props {
+	source: string
+}
+---
+
+<script lang='javascript' define:vars={{ source: Astro.props.source }}>
+	const form = document.getElementById('newsletter-form')
+	const email = document.getElementById('newsletter-email')
+
+	let loading = false
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault()
+		if (loading) return
+		loading = true
+
+		const res = await fetch(
+			`/api/newsletter/register?email=${encodeURIComponent(email.value)}&source=${encodeURIComponent(source)}`,
+			{ method: 'POST' }
+		)
+		const text = await res.text()
+
+		if (res.ok) {
+			form.innerHTML = `
+				<strong>It worked!</strong>
+			`
+		} else {
+			form.innerHTML = `
+				<strong>It did not worked.</strong> ${text}
+			`
+		}
+	})
+</script>

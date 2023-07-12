@@ -54,3 +54,12 @@ article a {
 		color: #868e96;
 	}
 }
+
+#newsletter {
+	margin: 24px 0;
+
+	& p {
+		margin: 0;
+		margin-bottom: 4px;
+	}
+}

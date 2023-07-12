@@ -2,24 +2,22 @@
 import '../../styles/global.css'
 import '../../styles/writing-post.css'
 
-import { CollectionEntry, getCollection } from 'astro:content'
+import { CollectionEntry, getEntryBySlug } from 'astro:content'
 import { Icon } from 'astro-icon'
 import SEO from '../../components/SEO.astro'
 import TOCList from '../../components/TOCList.astro'
+import NewsletterScript from '../../components/NewsletterScript.astro'
 
-interface Props {
-	post: CollectionEntry<'writing'>
+export interface Params {
+	slug: CollectionEntry<'writing'>['slug']
 }
 
-export async function getStaticPaths() {
-	const posts = await getCollection('writing')
-	return posts.map(post => ({
-		params: { slug: post.slug },
-		props: { post }
-	}))
-}
+// export async function getStaticPaths() {
+// 	const posts = await getCollection('writing')
+// 	return posts.map(post => ({ params: { slug: post.slug } }))
+// }
 
-const { post } = Astro.props
+const post = await getEntryBySlug('writing', Astro.params.slug)
 const { Content, headings } = await post.render()
 const tabSize = post.data['tab-size'] || 4
 ---
@@ -68,6 +66,18 @@ const tabSize = post.data['tab-size'] || 4
 			</div>
 
 			<Content />
+
+			<aside id='newsletter'>
+				<h2>Kognise Newsletter</h2>
+			
+				<p>Think this stuff is interesting? Put your email address in this funny little box and I will email you if I ever write something again.</p>
+			
+				<form id='newsletter-form'>
+					<input id='newsletter-email' type='text' name='email' placeholder='real.human@website.com' required>
+					<input type='submit'>
+				</form>
+			</aside>
+			<NewsletterScript source={Astro.params.slug} />
 		</main>
 	</div>
 

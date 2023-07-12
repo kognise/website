@@ -224,6 +224,21 @@ pre code {
 	}
 }
 
+#newsletter {
+	background: #e5dbff;
+	padding: 40px;
+	margin-top: 80px;
+
+	& h2 {
+		margin: 0;
+		margin-bottom: -6px;
+	}
+
+	& p {
+		margin: 20px 0;
+	}
+}
+
 @media (max-width: 1000px) {
 	body {
 		--toc-width: 280px;
