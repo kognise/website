@@ -9,6 +9,20 @@ body {
 	--toc-width: 320px;
 }
 
+.toc a, a.undecorated {
+	color: inherit;
+
+	&:hover, &:visited {
+		color: inherit;
+		background: inherit;
+	}
+
+	&::before, &::after {
+		content: none;
+		display: none;
+	}
+}
+
 .toc {
 	font-family: 'IBM Plex Sans', sans-serif;
 	background: #f1f3f5cc;
@@ -69,20 +83,6 @@ body {
 			color: #6741d9;
 			background: inherit;
 		}
-	}
-}
-
-.toc a, a.undecorated {
-	color: inherit;
-
-	&:hover, &:visited {
-		color: inherit;
-		background: inherit;
-	}
-
-	&::before, &::after {
-		content: none;
-		display: none;
 	}
 }
 
@@ -185,6 +185,14 @@ h1 {
 h2 {
 	margin: 0;
 	margin-top: 120px;
+}
+
+h3 {
+	margin-top: 60px;
+}
+
+h4 {
+	margin-top: 40px;
 }
 
 code {

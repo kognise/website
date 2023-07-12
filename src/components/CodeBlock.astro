@@ -30,7 +30,7 @@ const lineNumbers = theme.colors['editorLineNumber.foreground']
 
 	<div class='pre-container'>
 		{startLine ? (
-			<pre class='line-numbers'><code>{
+			<pre class='line-numbers' aria-hidden='true'><code>{
 				new Array(lineCount).fill(0).map((_, i) => i + startLine).join('\n')
 			}</code></pre>
 		) : null}

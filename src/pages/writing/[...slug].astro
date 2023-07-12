@@ -105,6 +105,24 @@ const tabSize = post.data['tab-size'] || 4
 		const updateScrollspy = () => {
 			for (const el of document.querySelectorAll('[data-scrollspy]')) {
 				el.classList.toggle('scrollspy-active', el.dataset.scrollspy === current)
+
+				if (el.dataset.scrollspy === current) {
+					// Scroll the top-level block in the TOC into view
+					const block = el.closest('.toc > ul > li')
+					const scroller = el.offsetParent
+
+					let newScrollTop = null
+					if (block.offsetTop < scroller.scrollTop) {
+						newScrollTop = block.offsetTop
+						if (newScrollTop < 150) newScrollTop = 0
+					} else if (block.offsetTop + block.offsetHeight > scroller.scrollTop + scroller.offsetHeight) {
+						newScrollTop = block.offsetTop + block.offsetHeight - scroller.offsetHeight
+						const maxScrollTop = scroller.scrollHeight - scroller.offsetHeight
+						if (newScrollTop > maxScrollTop - 150) newScrollTop = maxScrollTop
+					}
+
+					if (newScrollTop !== null) scroller.scrollTop = newScrollTop
+				}
 			}
 		}
 		

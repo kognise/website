@@ -2,8 +2,8 @@
 title: Building a Transport Protocol on ARP
 abstract: 'An overview of the OSI model, some benefits and shortcomings of the ARP protocol, and the story of how I hijacked ARP to built the most evil (coolest) chat app ever!'
 banner:
-  url: https://doggo.ninja/T6XEy6.png
-  alt: 'A drawing of a stick figure with long hair. Text at the end of an arrow pointing towards the figure reads "me, insane."'
+  url: https://kognise.dev/writing-images/arp/me-insane-drawing-banner.png
+  alt: 'A scrawled drawing of someone with long hair holding a computer labeled "me, insane."'
   width: 1000
   height: 420
 date: '2022-03-29'
@@ -33,7 +33,7 @@ When sending a message on the network layer, your computer needs to drop down to
 
 With ARP, Computer A can send a request to every computer in the area with an IP address. If another computer recognizes the IP as its own, it can respond with the corresponding MAC address. When Computer A receives the response, it knows how to send its original message along the data link layer.
 
-<img src='https://doggo.ninja/2nFU8H.png' alt='ARP exchange example' width='935' height='356' />
+<img src='/writing-images/arp/arp-protocol-exchange.png' alt='Fake iMessage conversation between a rubber duck labeled "computer A (looks like a rubber duck)" and a coke can labeled "computer B (coke can form factor)." Computer A asks for the MAC address for whoever has the IP 123.45.67.89. Computer B responds, "It&apos;s ab:cd:ef:12:34, you can trust me."' width='935' height='356' />
 
 Now, what if we sent nonsense instead? Well, the packet will still go through but every computer on the network will ignore it. Imagine the things one could do...
 
@@ -45,7 +45,7 @@ Our ethernet packet will be super simple. First, we include the destination MAC 
 
 For the remaining fields, we include our source MAC address and specify that the packet contained is of the ARP [EtherType](https://en.wikipedia.org/wiki/EtherType). At the end, we append our ARP data. We can leave the remaining optional fields empty.
 
-<img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/iCwber.png' alt='Ethernet packet diagram' width='688' height='635' />
+<img style='max-width: 500px; margin: 0 auto;' src='/writing-images/arp/example-ethernet-packet.png' alt='An ethernet packet configured with the broadcast address as the destination.' width='688' height='635' />
 
 ### ARP Packets
 
@@ -62,7 +62,7 @@ The standard requires that ARP packets have the following fields:
 
 Now we can pull out the good ol' Rust compiler and write [a bit of networking code](https://github.com/kognise/arpchat/blob/main/src/net.rs#L215-L238) to send arbitrary data over ARP!
 
-<img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/HPvMK4.png' alt='ARP packet diagram' width='688' height='831' />
+<img style='max-width: 500px; margin: 0 auto;' src='/writing-images/arp/example-arp-packet.png' alt='An example ARP packet. Our message is included in the Sender Protocol Address and Target Protocol Address fields. The Target Hardware Address field is all zeroes.' width='688' height='831' />
 
 ## Building a Layer on Top of ARP
 
@@ -70,7 +70,7 @@ Now that we can send stuff to other devices on the network, how do we make somet
 
 Any grade-schooler would know that creating a rudimentary transport protocol on top of ARP is the necessary next step, so that's exactly what I did!
 
-<img src='https://doggo.ninja/o3EuXa.png' alt='Me, insane' width='369' height='280' style='max-width: 320px;' />
+<img src='/writing-images/arp/me-insane-drawing.png' alt='A scrawled drawing of someone with long hair holding a computer labeled "me, insane."' width='369' height='280' style='max-width: 320px;' />
 
 ### "Protocol" & Chunking
 
@@ -82,7 +82,7 @@ To enable sending messages longer than 255 bytes, we can split them up into smal
 
 Right before passing the chunk data, we include a unique identifier that varies between each message. The first of two purposes is for deduplication: we ignore a packet if it's received twice by maintaining a [ringbuffer](https://en.wikipedia.org/wiki/Circular_buffer#Overview) of recently received identifiers. The second purpose is to provide a simple key for identifying message chunks as part of a group.
 
-<img style='max-width: 500px; margin: 0 auto;' src='https://doggo.ninja/rpG07u.png' alt='ArpChat packet diagram' width='688' height='397' />
+<img style='max-width: 500px; margin: 0 auto;' src='/writing-images/arp/example-arpchat-packet.png' alt='An example ArpChat packet. The packet starts with "uwu" as a prefix. Following: one byte tag, one byte sequence number, one byte total count, 8 byte identtifier. Finally, the content of the chunk, the length of which depends on the data.' width='688' height='397' />
 
 ### Internet Fame™
 
@@ -108,7 +108,7 @@ While the world gradually migrates to IPv6 and NDP, ARP is here to stay for year
 
 I simplified a couple of things for the sake of practicality. I believe in accuracy as well, so I'd like to provide some small clarifications. You can also click on linked words throughout the article for in-depth information on the technology I've brought up.
 
-Saying that MAC addresses don't change was a bit of a white lie. Your computer can simulate ("spoof")  a different address, and modern operating systems such as macOS are introducing features to randomize your MAC address every time you connect to a new network. These features can help prevent fingerprinting but don't practically change how ARP and the rest of the networking stack works.
+Saying that MAC addresses don't change was a bit of a white lie. Your computer can simulate ("spoof") a different address, and modern operating systems such as macOS are introducing features to randomize your MAC address every time you connect to a new network. These features can help prevent fingerprinting but don't practically change how ARP and the rest of the networking stack works.
 
 I mentioned specifying IPv4 as the Protocol Type for our ARP packets. It turns out that IANA [designates](https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml) two alternate types for "experimental" use, which ArpChat now defaults to for the sake of being nicer to other networking equipment. IPv4 is still a configurable option.
 
@@ -118,4 +118,4 @@ Two minor self-nitpicks: I claimed you're using HTTP on top of TCP to access thi
 
 Feel free to [email hi@kognise.dev](mailto:hi@kognise.dev) with any questions or corrections, and you're welcome to [check out ArpChat's Rust networking code](https://github.com/kognise/arpchat/blob/main/src/net.rs)!
 
-<img src='https://doggo.ninja/fH9GKt.png' alt='ArpChat&apos;s banner image, drawn in a cartoonish style. In the center is large text saying ArpChat, and in the bottom right is text set in Comic Sans reading "routers love him!" In the top left is a scrawled ARP packet diagram.' width='1280' height='640' />
+<img src='/writing-images/arp/crazy-arpchat-banner.png' alt='ArpChat&apos;s banner image, drawn in a crass cartoonish style. In the center is large text saying ArpChat, and in the bottom right is text set in Comic Sans reading "routers love him!" In the top left is a scrawled ARP packet diagram.' width='1280' height='640' />
