@@ -3,7 +3,12 @@
 	"redirects": [
 		{
 			"source": "/writing/you-in-cpu--delist",
-			"destination": "/writing/putting-the-you-in-cpu",
+			"destination": "https://cpu.land/",
+			"permanent": true
+		},
+		{
+			"source": "/writing/putting-the-you-in-cpu",
+			"destination": "https://cpu.land/",
 			"permanent": true
 		}
 	]
