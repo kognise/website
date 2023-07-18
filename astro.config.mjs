@@ -23,10 +23,10 @@ export default defineConfig({
 		mdx({
 			rehypePlugins: [ rehypeExternalLinksConfig, rehypePresetMinify ]
 		}),
+		react(),
 		sitemap({
-			filter: (page) => !page.includes('--delist')
-		}),
-		react()
+			filter: (page) => !page.includes('--delist') && !page.includes('putting-the-you-in-cpu')
+		})
 	],
 	markdown: {
 		smartypants: true,

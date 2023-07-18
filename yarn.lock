@@ -95,10 +95,10 @@
     "@babel/core" ">=7.0.0-0 <8.0.0"
     "@babel/plugin-transform-react-jsx" "^7.17.12"
 
-"@astrojs/sitemap@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/sitemap/-/sitemap-1.2.1.tgz#ddacc8a56cfe45d18b9872e178e269b419ea8af9"
-  integrity sha512-nlKP1qc1ENZ61w+ep5RdsObjYWso4QdLGC5WyzssnKkgVDijHT61s/tHFfBWHhxqdjcw4x1V1um/eSQZPDTR3Q==
+"@astrojs/sitemap@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/sitemap/-/sitemap-2.0.0.tgz#a3576535a8c924360d3fb468b163b88ee24a5928"
+  integrity sha512-hcemuFigv05sdXNiw0U23VO+6Duj9nq9xhINw4ZPWAQEhS/F4EiNvd9IUXb4XJ7pG93MWAnQKF9lP8EtwP6paA==
   dependencies:
     sitemap "^7.1.1"
     zod "^3.17.3"
