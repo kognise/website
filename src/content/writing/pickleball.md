@@ -11,7 +11,7 @@ date: '2023-09-06'
 
 *Alternate title: Putting the "Ball" in Pickle*
 
-I had a blast playing pickleball for the first time yesterday. While I still can barely hit the ball, my friends did a great job getting me into the game. However, I could not for the life of me figure out how the turn ordering or player numbering worked! Nobody managed to cohesively explain this to me, and I left the game infuriated and confused.
+I had a blast playing pickleball for the first time yesterday. While I can still barely hit the ball, my friends did a great job getting me into the game. However, I could not for the life of me figure out how the turn ordering or player numbering worked! Nobody managed to cohesively explain this to me, and I left the game infuriated and confused.
 
 Today, still frustrated, I did some online research and didn't find a satisfactory explanation anywhere. I've also never played tennis or any other racquet sport, so I'm not familiar with terms like "rally" and found a lot of resources assumed similar prior knowledge.
 
@@ -21,7 +21,7 @@ If you scroll down to the bottom, you'll also find a helpful flowchart.
 
 > **Hey, this isn't a programming article!**
 >
-> My blog is a place to put writing I wrote, no topics barred. [The first thing on it](/writing/familiarity-in-electroacoustic-music) is actually about electroacoustic music! I did, however, choose not to email this out to all my lovely new newsletter subscribers.
+> My blog is a place to put anything I write, no topics barred. [The first post on here](/writing/familiarity-in-electroacoustic-music) is actually about electroacoustic music, not tech! I did, however, choose not to email this out to all  of my lovely new newsletter subscribers.
 
 ## Serves, Rallies, and Faults
 
@@ -36,7 +36,7 @@ The serving player announces before each rally:
 
 <img style='max-width: 480px; margin: 0 auto;' src='/writing-images/pickleball/player-shouting-score.png' alt='A scrawled drawing of a woman holding a pickleball paddle shouting "0-5-2!"' width='1920' height='1080' />
 
-The player on the right (player 1) begins by serving diagonally. They call out "0-0-1." Now, only the serving team can ever win a point. Two things can happen:
+The player on the right (player 1) of the serving team begins the game by calling out "0-0-1" and then serving the ball diagonally across the court. Now, only the serving team can ever win a point. Two things can happen:
 
 - If the serving team commits a fault (either a failed serve or the opposing team "scores") all positions and labels stay the same and player 2, on the left at the start, serves next. No points are earned by any team.
 - If the serving team scores (in other words, the receiving team commits a fault) the serving team wins a point. Then, the members of the serving team switch positions, **keeping server numbers the same**, and *the player who served last time serves*.
