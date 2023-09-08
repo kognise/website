@@ -38,7 +38,7 @@ The serving player announces before each rally:
 
 The player on the right (player 1) of the serving team begins the game by calling out "0-0-1" and then serving the ball diagonally across the court. Now, only the serving team can ever win a point. Two things can happen:
 
-- If the serving team commits a fault (either a failed serve or the opposing team "scores") all positions and labels stay the same and player 2, on the left at the start, serves next. No points are earned by any team.
+- If the serving team commits a fault (either a failed serve or the opposing team "scores") all positions and server numbers stay the same and player 2, on the left at the start, serves next. No points are earned by any team.
 - If the serving team scores (in other words, the receiving team commits a fault) the serving team wins a point. Then, the members of the serving team switch positions, **keeping server numbers the same**, and *the player who served last time serves*.
 
 > **Wait, so when you switch sides you keep your number?**
@@ -59,9 +59,9 @@ Let's look at a simple example game. The court starts like this, with the servin
 
 <img style='max-width: 280px;' src='/writing-images/pickleball/court-1.png' alt='Pickleball court, score 0 0 1' width='737' height='954' />
 
-*(Steve is outside the court because you have to always serve from behind the outer line. Eve is a little bit close to the center because this is a common strategy to make it easier to hit the ball.)*
+*(Steve is outside the court because you always have to serve from behind the outer line. Eve is also a little closer to the center than Bob; this is a common strategy to make it easier to hit the ball.)*
 
-Player 1 on the serving team serves the ball diagonally across the court (shouting, "0-0-1"). Let's say the receiving team hits it back, the serving team hits it back, and the receiving team misses the ball — committing a fault. The serving team wins a point, and players 1 and 2 on the serving team *physically switch positions*, (keep the same labels). Since player 1 served last time, they serve again ("1-0-1"):
+Player 1 on the serving team serves the ball diagonally across the court (shouting, "0-0-1"). Let's say the receiving team hits it back, the serving team hits it back, and the receiving team misses the ball — committing a fault. The serving team wins a point, and players 1 and 2 on the serving team *physically switch positions*, (keeping the same server numbers). Since player 1 served last time, they serve again ("1-0-1"):
 
 <img style='max-width: 280px;' src='/writing-images/pickleball/court-2.png' alt='Pickleball court, score 1 0 1' width='737' height='954' />
 
@@ -69,7 +69,7 @@ This time, player 1 screws up their serve. Just like the opposing team missing t
 
 <img style='max-width: 280px;' src='/writing-images/pickleball/court-3.png' alt='Pickleball court, score 1 0 2' width='737' height='954' />
 
-Now, player 2 does a great serve, the receiving team hits the ball back, and player 2's team screws up and misses the ball, or maybe hits it out of the court. The serving team committed a fault again. The receiving team still can't score a point, but the serving player needs to change because player 2 screwed up. However, this time it was player 2 and not player 1 — so the ball needs to go to the opposing team! So, all the labels reset. The receiving team becomes the serving team, the serving team becomes the receiving team, and the rightmost players become the player 1s:
+Now, player 2 does a great serve, the receiving team hits the ball back, and player 2's team screws up and misses the ball, or maybe hits it out of the court. The serving team committed a fault again. The receiving team still can't score a point, but the serving player needs to change because player 2 screwed up. However, this time it was player 2 and not player 1 — so the ball needs to go to the opposing team! So, all the server numbers reset. The receiving team becomes the serving team, the serving team becomes the receiving team, and the rightmost players become the player 1s:
 
 <img style='max-width: 280px;' src='/writing-images/pickleball/court-4.png' alt='Pickleball court, score 0 1 1' width='737' height='954' />
 
