@@ -30,7 +30,7 @@ const render = (event) => {
 	const column = Math.floor((x * columns) / window.innerWidth);
 
 	const cellIndex =
-		row < rows || column > columns ? row * rows + column : -1;
+		row < rows || column > columns ? row * columns + column : -1;
 	const hovered = grid.children[cellIndex];
 
 	if (cellIndex >= 0) {
@@ -124,6 +124,7 @@ document.addEventListener(
 
 		&.hovered {
 			background: #e9ecef;
+			animation: pulse 1s ease-in-out infinite;
 		}
 
 		&.hovered-fast-trans {
@@ -133,6 +134,24 @@ document.addEventListener(
 		&.clicked {
 			background: var(--click-bg);
 			transition: 10ms background linear;
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			transform: scale(1);
+			/* border-radius: 50%; */
+			/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
+		}
+		50% {
+			transform: scale(1.1);
+			/* border-radius: 50%; */
+			/* box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); */
+		}
+		100% {
+			transform: scale(1);
+			/* border-radius: 50%; */
+			/* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
 		}
 	}
 </style>
