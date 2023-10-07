@@ -1,52 +1,106 @@
-<div id='bg-grid' aria-hidden='true'>
-	{new Array(25).fill(<div />)}
+<div id="bg-grid" aria-hidden="true">
+	<!-- {new Array(25).fill(<div />)} -->
 </div>
 
-<script lang='javascript'>
-	const grid = document.getElementById('bg-grid')
-	const [ rows, columns ] = [ 5, 5 ]
+<script lang="javascript">
+const grid = document.getElementById("bg-grid");
+// const [rows, columns] = [5, 5];
+const rows = 5;
+const rowHeight = window.innerHeight / rows;
+const columns = Math.ceil(window.innerWidth / rowHeight);
+grid.style.setProperty("--columns", columns);
+const gridClass = grid.className;
 
-	let lastHovered = -1
-	let mouseDown = false
-	let lastHue = 0
-	const prevDown = {}
+for (let i = 0; i < rows * columns; i++) {
+	const cell = document.createElement("div");
+	cell.className = gridClass;
+	if (i === 0)
+		cell.classList.add("hovered", "hovered-fast-trans", "clicked");
+	grid.appendChild(cell);
+}
 
-	const render = (event) => {
-		const [ x, y ] = [ event.clientX, event.clientY ]
-		const row = Math.floor(y * rows / window.innerHeight)
-		const column = Math.floor(x * columns / window.innerWidth)
+let lastHovered = -1;
+let mouseDown = false;
+let lastHue = 0;
+const prevDown = {};
 
-		const cellIndex = row < rows || column > columns
-			? row * rows + column
-			: -1
-		const hovered = grid.children[cellIndex]
+const render = (event) => {
+	const [x, y] = [event.clientX, event.clientY];
+	const row = Math.floor((y * rows) / window.innerHeight);
+	const column = Math.floor((x * columns) / window.innerWidth);
 
-		if (cellIndex >= 0) {
-			if (!prevDown[cellIndex] && (mouseDown || window.rainbowMode)) {
-				const hue = (lastHue + 12 + Math.floor(Math.random() * 16)) % 360
-				hovered.style.setProperty('--click-bg', `hsl(${hue}deg, 100%, 50%, 0.5)`)
-				lastHue = hue
-			}
+	const cellIndex =
+		row < rows || column > columns ? row * rows + column : -1;
+	const hovered = grid.children[cellIndex];
 
-			hovered.classList.add('hovered')
-			hovered.classList.toggle('clicked', (mouseDown || window.rainbowMode))
-			hovered.classList.toggle('hovered-fast-trans', !prevDown[cellIndex] && !(mouseDown || window.rainbowMode))
+	if (cellIndex >= 0) {
+		if (!prevDown[cellIndex] && (mouseDown || window.rainbowMode)) {
+			const hue =
+				(lastHue + 12 + Math.floor(Math.random() * 16)) % 360;
+			hovered.style.setProperty(
+				"--click-bg",
+				`hsl(${hue}deg, 100%, 50%, 0.5)`
+			);
+			lastHue = hue;
 		}
-		
-		if (lastHovered >= 0 && lastHovered !== cellIndex) {
-			grid.children[lastHovered].classList.remove('hovered', 'hovered-fast-trans', 'clicked')
-			prevDown[lastHovered] = false
-		}
-		
-		lastHovered = cellIndex
-		prevDown[cellIndex] = mouseDown || window.rainbowMode
+
+		hovered.classList.add("hovered");
+		hovered.classList.toggle(
+			"clicked",
+			mouseDown || window.rainbowMode
+		);
+		hovered.classList.toggle(
+			"hovered-fast-trans",
+			!prevDown[cellIndex] && !(mouseDown || window.rainbowMode)
+		);
 	}
 
-	document.addEventListener('mousemove', render, { capture: true, passive: true })
-	document.addEventListener('mouseleave', () => render({ clientX: -1, clientY: -1 }), { passive: true })
-	document.addEventListener('mousedown', (event) => { mouseDown = true; render(event) }, { capture: true, passive: true })
-	document.addEventListener('mouseup', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
-	document.addEventListener('dragend', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
+	if (lastHovered >= 0 && lastHovered !== cellIndex) {
+		grid.children[lastHovered].classList.remove(
+			"hovered",
+			"hovered-fast-trans",
+			"clicked"
+		);
+		prevDown[lastHovered] = false;
+	}
+
+	lastHovered = cellIndex;
+	prevDown[cellIndex] = mouseDown || window.rainbowMode;
+};
+
+document.addEventListener("mousemove", render, {
+	capture: true,
+	passive: true,
+});
+document.addEventListener(
+	"mouseleave",
+	() => render({ clientX: -1, clientY: -1 }),
+	{ passive: true }
+);
+document.addEventListener(
+	"mousedown",
+	(event) => {
+		mouseDown = true;
+		render(event);
+	},
+	{ capture: true, passive: true }
+);
+document.addEventListener(
+	"mouseup",
+	(event) => {
+		mouseDown = false;
+		render(event);
+	},
+	{ capture: true, passive: true }
+);
+document.addEventListener(
+	"dragend",
+	(event) => {
+		mouseDown = false;
+		render(event);
+	},
+	{ capture: true, passive: true }
+);
 </script>
 
 <style>
@@ -60,12 +114,13 @@
 		z-index: -2;
 		pointer-events: none;
 		filter: blur(10px);
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(var(--columns), 1fr);
 	}
 
 	#bg-grid div {
 		background: #f8f9fa;
 		transition: 800ms background linear;
+		border-radius: 50%;
 
 		&.hovered {
 			background: #e9ecef;
