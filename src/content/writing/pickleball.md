@@ -19,10 +19,6 @@ So, after grilling my friends about various permutations of possible moves, I de
 
 If you scroll down to the bottom, you'll also find a helpful flowchart.
 
-> **Hey, this isn't a programming article!**
->
-> My blog is a place to put anything I write, no topics barred. [The first post on here](/writing/familiarity-in-electroacoustic-music) is actually about electroacoustic music, not tech! I did, however, choose not to email this out to all  of my lovely new newsletter subscribers.
-
 ## Serves, Rallies, and Faults
 
 Breaking pickleball down into digestible units helped me a lot.
@@ -31,12 +27,16 @@ A *rally* starts when a player serves the ball and ends when one team commits a 
 
 One team is the *serving team*, and the other team is always the *receiving team*. At the start of the game and whenever the serving team changes sides, *server numbers* reset and are assigned to all players. The players on the right (from the perspective of each team) receive server number 1 and the left players receive server number 2.
 
+There's one exception to this: only one fault is allowed for the first serve of the game, so the first round starts with the right player receiving server number 2.
+
 The serving player announces before each rally:  
 "&lt;serving team's score&gt; &lt;receiving team's score&gt; &lt;serving player's server number&gt;"
 
 <img style='max-width: 480px; margin: 0 auto;' src='/writing-images/pickleball/player-shouting-score.png' alt='A scrawled drawing of a woman holding a pickleball paddle shouting "0-5-2!"' width='1920' height='1080' />
 
-The player on the right (player 1) of the serving team begins the game by calling out "0-0-1" and then serving the ball diagonally across the court. Now, only the serving team can ever win a point. Two things can happen:
+The player on the right — player 2 at the start of the game, normally player 1 at the start of a round — of the serving team begins the game by calling out "0-0-2" and then serving the ball diagonally across the court. Only the serving team can ever win a point.
+
+In a normal round, two things can happen:
 
 - If the serving team commits a fault (either a failed serve or the opposing team "scores") all positions and server numbers stay the same and player 2, on the left at the start, serves next. No points are earned by any team.
 - If the serving team scores (in other words, the receiving team commits a fault) the serving team wins a point. Then, the members of the serving team switch positions, **keeping server numbers the same**, and *the player who served last time serves*.
@@ -49,7 +49,7 @@ The player on the right (player 1) of the serving team begins the game by callin
 >
 > Nope, of course not, this game can't be *reasonable!*
 
-When the serving team screws up after player served, player 2 gets to serve. When player 2 eventually screws up, sides switch and the receiving team becomes the serving team and the ball switches sides. *Nobody changes position,* but now all the server numbers are reassigned based on *current positions*. 1 is assigned to whoever is on the right, and 2 is assigned to whoever is on the left. Again, this only happens when the serving side changes and at the start of the game.
+After the first round, if the serving team screws up after player 1 served, player 2 gets to serve. When player 2 eventually screws up, sides switch and the receiving team becomes the serving team and the ball switches sides. *Nobody changes position,* but now all the server numbers are reassigned based on *current positions*. 1 is assigned to whoever is on the right, and 2 is assigned to whoever is on the left. Again, this only happens when the serving side changes.
 
 As long as the serving team *doesn't* screw up, the servers keep their numbers and the same person keeps serving, alternating sides every point.
 
@@ -61,19 +61,17 @@ Let's look at a simple example game. The court starts like this, with the servin
 
 *(Steve is outside the court because you always have to serve from behind the outer line. Eve is also a little closer to the center than Bob; this is a common strategy to make it easier to hit the ball.)*
 
-Player 1 on the serving team serves the ball diagonally across the court (shouting, "0-0-1"). Let's say the receiving team hits it back, the serving team hits it back, and the receiving team misses the ball — committing a fault. The serving team wins a point, and players 1 and 2 on the serving team *physically switch positions*, (keeping the same server numbers). Since player 1 served last time, they serve again ("1-0-1"):
+The first player on the serving team serves the ball diagonally across the court (shouting, "0-0-2"). Let's say the receiving team hits it back, the serving team hits it back, and the receiving team misses the ball — committing a fault. The serving team wins a point, and players 1 and 2 on the serving team *physically switch positions*, (keeping the same server numbers). Since player 2 served last time (because this is the first round), they serve again from the left position ("1-0-2"):
 
 <img style='max-width: 280px;' src='/writing-images/pickleball/court-2.png' alt='Pickleball court, score 1 0 1' width='737' height='954' />
 
-This time, player 1 screws up their serve. Just like the opposing team missing the ball last turn, this counts as committing a fault. Since this time it was the serving team's fault, it is now player 2's time to serve ("1 0 2"). The receiving team doesn't win a point because the receiving team can *never* win a point. Here's the current state of the game:
+Next, Steve does another great serve, the receiving team hits the ball back, and Steve's team screws up and misses the ball, or perhaps hits it out of the court. Whatever happened, the serving team committed a fault. The receiving team still can't score a point, but, because player 2 screwed up, it's time for the ball to go to the opposing team!
 
-<img style='max-width: 280px;' src='/writing-images/pickleball/court-3.png' alt='Pickleball court, score 1 0 2' width='737' height='954' />
+All the server numbers reset. The receiving team becomes the serving team, the serving team becomes the receiving team, and the rightmost players become player 1s:
 
-Now, player 2 does a great serve, the receiving team hits the ball back, and player 2's team screws up and misses the ball, or maybe hits it out of the court. The serving team committed a fault again. The receiving team still can't score a point, but the serving player needs to change because player 2 screwed up. However, this time it was player 2 and not player 1 — so the ball needs to go to the opposing team! So, all the server numbers reset. The receiving team becomes the serving team, the serving team becomes the receiving team, and the rightmost players become the player 1s:
+<img style='max-width: 280px;' src='/writing-images/pickleball/court-3.png' alt='Pickleball court, score 0 1 1' width='737' height='954' />
 
-<img style='max-width: 280px;' src='/writing-images/pickleball/court-4.png' alt='Pickleball court, score 0 1 1' width='737' height='954' />
-
-Player 1 of the opposing team calls out the score ("0-1-1") and serves the ball. The play continues!
+Player 1 of the opposing team calls out the score ("0-1-1") and serves the ball. The play continues.
 
 ## Additional Rules
 
