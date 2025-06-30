@@ -57,3 +57,9 @@ h2 {
 	cursor: pointer;
 	color: #d9480f;
 }
+
+#newsletter {
+	& p {
+		margin-bottom: 5px;
+	}
+}

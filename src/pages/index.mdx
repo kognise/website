@@ -2,6 +2,7 @@ import HomepageLayout from '../components/HomepageLayout.astro'
 import LogoHeading from '../components/LogoHeading.astro'
 import BookCard from '../components/BookCard.astro'
 import BackgroundEffect from '../components/BackgroundEffect.astro'
+import NewsletterScript from '../components/NewsletterScript.astro'
 
 <HomepageLayout>
 	<LogoHeading />
@@ -11,9 +12,19 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 	Reach out: [hi@kognise.dev](mailto:hi@kognise.dev) or @kognise on Discord  
 	Find me:&nbsp;&nbsp;
 	[GitHub](https://github.com/kognise)
-	[Twitter](https://twitter.com/kognise7)
+	[X, The Everything App](https://x.com/kognise7)
 	[LinkedIn](https://www.linkedin.com/in/kognise/)
 	[Resume](https://media.kognise.dev/resume.pdf)
+
+	<aside id='newsletter'>
+		Sign up to get very rare emails about interesting things:
+
+		<form id='newsletter-form'>
+			<input id='newsletter-email' type='email' name='email' placeholder='real.human@website.com' required />
+			<input type='submit' value='Submit' />
+		</form>
+	</aside>
+	<NewsletterScript source='index' />
 
 	On this page:
 
@@ -25,7 +36,7 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 		- [Projects!](#projects)
 	</nav>
 
-	I am currently an engineer at [Neuralink](https://neuralink.com/). In the past, I've worked at [Hack Club](https://hackclub.com/), [Replit](https://replit.com/), and [Redwood Research](https://www.redwoodresearch.org/).
+	I recently quit my job to explore some projects of my own. In the past, I've worked at [Neuralink](https://neuralink.com/), [Hack Club](https://hackclub.com/), [Replit](https://replit.com/), and [Redwood Research](https://www.redwoodresearch.org/).
 
 	<label>
 		<input type='checkbox' id='rainbow-toggle' />
@@ -36,23 +47,25 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 
 	I spend a significant portion of my time writing code and creating with technology. I believe in having passion for your craft and attention to detail. Since I just adore building things, I have a huge amount of side projects that I don't really know what to do with! You can [see an abridged list of stuff I've done](#projects) if you're interested.
 
-	I use TypeScript, Rust, and Next.js on a daily basis and love them. I used to daily drive NixOS with KDE Plasma (you can [check out my dotfiles](https://github.com/kognise/dotfiles/), they're not half bad) but now just use macOS and reserve NixOS for my desktop at home. I design everything for myself and for others using Figma.
+	I use TypeScript, Rust, and React on a daily basis and love them. I used to daily drive NixOS with KDE Plasma (you can [check out my dotfiles](https://github.com/kognise/dotfiles/), they're not half bad) but now just use macOS and reserve NixOS for my desktop at home. I design everything for myself and for others using Figma.
 
-	I'm often asked, "hey Lexi, what kind of programming do you do?", and I never quite know how to answer. I do everything. Frontend! Backend! Embedded hardware! Mobile apps! Compilers! I find it immensely enjoyable to learn how shit works and go down rabbit holes, and I pick up whatever's needed to build what I'm excited about.
+	I'm often asked, "hey Lexi, what kind of programming do you do?", and I never quite know how to answer. I do everything. Frontend! Backend! Embedded hardware! Mobile apps! Compilers! Infrastructure! I find it immensely enjoyable to learn how shit works and go down rabbit holes, and I pick up whatever's needed to build what I'm excited about.
 
-	In the summer of 2021 I rode across the country with a bunch of other cool programmers on a literal freaking [superdome train](https://en.wikipedia.org/wiki/Super_Dome_(railcar)), and that was pretty cool. Recently, I've been traveling a lot to meet developer friends in person. This has even taken me to Kalamazoo, which I didn't previously realize was a real city in Michigan.
+	A consistent thread through my recent life has been meeting my online programmer friends in person. Now, many of those closest to me and even some roommates have been people I've known for years, but only online! In the summer of 2021 I rode across the country on a hackathon on a [superdome train](https://en.wikipedia.org/wiki/Super_Dome_(railcar)), and since then, I've met friends as far as Europe and, perhaps more exotically, Kalamazoo, which I didn't previously realize was a real city in Michigan.
 
 	9-year-old me making friends with a cool robot I made:
 
-	<img src='/photos/robot.jpg' alt='A young girl holding hands with a robot made mostly out of cardboard and covered in tinfoil. The face of the robot has lit LEDs and some electronics can be seen inside. A desk with wires and a roll of tinfoil can be seen in the background.' width='1200' height='1148' loading='lazy' style='width: min(400px, 100%);' />
+	<img src='/photos/robot.jpg' alt='A young girl holding hands with a robot made mostly out of cardboard and covered in tinfoil. The face of the robot has lit LEDs and some electronics can be seen inside. A desk with wires and a roll of tinfoil can be seen in the background.' width='800' height='765' loading='lazy' style='width: min(400px, 100%);' />
 
 	## Airplanes!
 
-	I think aviation is pretty cool. I soloed about a year ago and am planning on finishing my license soon!
+	I think aviation is pretty cool. Over the pandemic I got really into flight simming and [VATSIM](https://vatsim.net/), and then I realized, hey, I can do this in real life.
+	
+	I started training for my Private Pilot License, first out of [KSSF](https://en.wikipedia.org/wiki/Stinson_Municipal_Airport) and later [KBTV](https://en.wikipedia.org/wiki/Patrick_Leahy_Burlington_International_Airport), but got peskily interrupted. But now I've un-interrupted myself, and I'm hopefully going to finish my license very soon!
 
-	I'm currently learning to fly the good ol' [Cessna 172](https://en.wikipedia.org/wiki/Cessna_172) for my Private Pilot License. I also enjoy playing flight simulators; I use Microsoft Flight Simulator in VR  as well as FlightGear, and occasionally pilot or control on VATSIM. I mentioned travelling earlier: when I have the chance, I love flying as a passenger.
+	I'm currently learning to fly the good ol' [Cessna 172](https://en.wikipedia.org/wiki/Cessna_172). I pinned a [VFR wall planning chart](https://www.faa.gov/air_traffic/flight_info/aeronav/productcatalog/planningcharts/vfrwall/) to my wall and I'm sticking pins in every airport I land at, and I'm hoping to visit as many airports in the U.S. as I can. I mentioned travelling earlier: when I have the chance, I also love flying as a passenger and I've spent many, many hours in coach visiting new horizons and making new friends.
 
-	Here are some neat pictures I took from the air:
+	Here are some neat pictures I took while out flying:
 
 	<div class='grid-twos'>
 		<img src='/photos/plane-tunnel.jpg' alt='The parking area of a small airport, with two visible small planes. In the background is the runway and air traffic conctrol. The photograph is taken from the perspective of standing at the door, and is partially obscured by a brown ceiling held up by columns.' width='1400' height='788' loading='lazy' />
@@ -64,11 +77,17 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 		<img src='/photos/plane-cockpit.jpg' alt='The analog cockpit of a Cessna 172, with the plane rolling slightly to the left.' width='1400' height='788' loading='lazy' />
 	</div>
 
+	(This used to say "some neat pictures I took from the air" but two of them are clearly taken from the ground, so, that's fixed now.)
+
+	In the spirit of ending these sections with pictures of young me, the oldest picture I have of myself is actually in a cockpit, in 2010. Perhaps an old Boeing 737? I must've been like 4 years old; clearly, my love of the skies isn't new.
+
+	<img src='/photos/cockpit.jpg' alt='An airliner cockpit filled with analog gauges. Sitting in the pilot seat, a blurry child with a blond ponytail, red cowboy hat, and overalls.' width='800' height='1067' loading='lazy' style='width: min(350px, 100%);' />
+
 	## Music!
 
-	When I'm not programming, flying, or slacking off, I'm probably doing something music-related. I've been playing classical, jazz, and contemporary music on cello for almost 12 years. I compose music for acoustic instruments and create electronic bleep bloop sounds in a variety of styles using [Ableton](https://www.ableton.com/en/live/), [REAPER](https://www.reaper.fm/), [Pd](https://puredata.info/), and [Max](https://cycling74.com/products/max/). Perhaps I'll release an album eventually.
+	When I'm not programming, flying, or slacking off, I'm probably doing something music-related. I've been playing classical, jazz, folk, Balkan, and contemporary music on cello for almost 14 years. I compose music for acoustic instruments and create electronic bleep bloop sounds in a variety of styles using [Ableton](https://www.ableton.com/en/live/), [REAPER](https://www.reaper.fm/), [Pd](https://puredata.info/), and [Max](https://cycling74.com/products/max/). Perhaps I'll release an album eventually.
 
-	The large portion of my time awake is spent listening to music. <span id='song'>In fact, I'm probably listening to some music right now!</span> My taste is very multifaceted, but I primarily listen to upbeat songs. I also used to [play Beat Saber badly](https://scoresaber.com/u/4470475412964296) and loved it, although I haven't had that much time recently.
+	The large portion of my time awake is spent listening to music. My taste is very multifaceted, but I primarily listen to upbeat music, across EDM, hyperpop, hip hop, orchestral, chamber, rock, pop, K-pop, J-pop, and more.
 
 	Here are my favorite albums of all time, in no particular order:
 
@@ -79,13 +98,24 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 	- [How to Tune a Fish by Beoga](https://album.link/us/i/1340253425) (irish music?)
 	- [Wallsocket by underscores](https://album.link/us/i/1693478262) (amazing rock-hyperpop-edm blend)
 
-	I also recently discovered that some modern country is actually quite catchy. Here's a [Spotify playlist of country music](https://open.spotify.com/playlist/3pSyDUogiueIx4s10NrELs?si=69b7970b8a574330) I made, love it or hate it.
+	Here are some Spotify playlists I made:
+	
+	- [Some music that I think goes together](https://open.spotify.com/playlist/2QmZKRwfy8FdBhaHfypfiG?si=cf889fce41a741a1)
+	- [Turns out country music is actually... good?](https://open.spotify.com/playlist/3pSyDUogiueIx4s10NrELs?si=69b7970b8a574330)
+	- [Songs on a CD I made for my dad](https://open.spotify.com/playlist/3meYnidcSYQkKMZOMJw38S?si=babe56a44eaf424a)
+	- [The secular solstice tradition has some bangers](https://open.spotify.com/playlist/6SNfyPElCn0muG6Xjjaxsd?si=6bdf61bb0bf74fd0)
+	- [Catchy acoustic tunes](https://open.spotify.com/playlist/7IEf7UPsvGcfAAJsJKkpBJ?si=1dffa8dee8124e26)
+	- [Tons of old hyperpop](https://open.spotify.com/playlist/2dhCAwEgT6U3ZZ18gsvZh1?si=168b68a723864647)
+
+	I also used to [play Beat Saber badly](https://scoresaber.com/u/4470475412964296) and loved it, although I haven't had that much time recently. (For some reason, I was unusually good at one-handed mode. I could destroy even some top ranked players.) 
 
 	## Other things!
 
-	I've been getting into rock climbing. While I suck, it's the first physical activity that I've actually taken pleasure in. I learned how to solve a Rubik's cube and got down to 40 seconds but have stopped practicing. I enjoy building mediocre furniture out of wood.
+	For the first time in my life, I've started taking pleasure in physical activity. I enjoy rock climbing and I've been getting into Brazilian jiu-jitsu. I wouldn't call myself a runner, but I ran a 15k and that felt pretty cool... some day I might even do a marathon.
+	
+	I love cooking, I'm a fan of the mise en place mindset, and I especially love hosting parties where we cook tons of food and I get to boss around a small army of sous chefs. I enjoy building mediocre furniture out of wood. I learned how to solve a Rubik's cube and got down to 40 seconds but stopped practicing.
 
-	Almost as much as I like engulfing myself in books, I like watching beautiful movies. Many of my favorite films are anime-style, including almost everything by Studio Ghibli as well as CoMix Wave Films; my favorite Ghibli movie is probably [Nausicaä of the Valley of the Wind](https://www.imdb.com/title/tt0087544/). Live-action movies that stuck out to me as really great are [Dr. Strangelove](https://www.imdb.com/title/tt0057012/), [Memento](https://www.imdb.com/title/tt0209144/), and [Lady Bird](https://www.imdb.com/title/tt4925292/). I'm also a die-hard fan of the How to Train Your Dragon trilogy.
+	Almost as much as I like engulfing myself in books, I like watching beautiful movies. Many of my favorite films are anime-style, including almost everything by Studio Ghibli as well as CoMix Wave Films; my favorite Ghibli movie is probably [Nausicaä of the Valley of the Wind](https://www.imdb.com/title/tt0087544/). Live-action movies that stuck out to me as really great are [Dr. Strangelove](https://www.imdb.com/title/tt0057012/), [Memento](https://www.imdb.com/title/tt0209144/), and [Black Bag](https://www.imdb.com/title/tt30988739/). I'm also a die-hard fan of the How to Train Your Dragon trilogy. I consume actions flicks with great enjoyment, too, and I actually recently started tracking all the movies I'm watching in theaters on a site I built called [koggerboxd](https://tv.kognise.dev/).
 
 	Some of my favorite books that I can 100% recommend:
 
@@ -140,7 +170,7 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 		/>
 	</div>
 
-	You mightor enjoy a piece of [writing](/writing) I synergized, or perhaps get a kick out of reading some [brand guidelines](/brand).
+	You might enjoy a piece of [writing](/writing) I synergized, or perhaps get a kick out of reading some [brand guidelines](/brand).
 
 	And as always, feel free to shoot me an email or direct message anytime and for any reason :)
 
@@ -148,8 +178,10 @@ import BackgroundEffect from '../components/BackgroundEffect.astro'
 
 	Now that I am more so In The Industry, there are fewer projects I can publicize! It is kind of sad to me that I can't share as much as I used to, but hey, I suppose it pays off for me.
 
-	Here's a semi-complete and unordered list of tech projects I've worked on over the course of my life, with links provided for the ones that are more consumable:
+	Here's a semi-complete and unordered list of tech projects I've can share that I've worked on over the course of my life, with links provided for the ones that are more consumable:
 
+	- **[koggerboxd](https://tv.kognise.dev/):** I'm watching a lot of movies in theaters this year and I'm tracking them all.
+	- **[datarepo](https://data-repo.io/):** Made web UI and otherwise worked on Neuralink's open source data querying library.
 	- **[Lamb](https://github.com/kognise/lamb):** A very shitty lambda calculus that treats church encodings as first-class citizens.
 	- **[tsui](https://neuralink.com/tsui):** Neuralink's first open source project, an elegant TUI for configuring Tailscale. 
 	- **[Unreal EngJam](https://devpost.com/software/unreal-engjam):** A cursed programming language and game engine inside of Figma.
