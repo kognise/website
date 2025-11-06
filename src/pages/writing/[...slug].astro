@@ -2,7 +2,7 @@
 import '../../styles/global.css'
 import '../../styles/writing-post.css'
 
-import { CollectionEntry, getEntryBySlug } from 'astro:content'
+import { type CollectionEntry, getEntry } from 'astro:content'
 import { Icon } from 'astro-icon'
 import SEO from '../../components/SEO.astro'
 import TOCList from '../../components/TOCList.astro'
@@ -17,7 +17,10 @@ export interface Params {
 // 	return posts.map(post => ({ params: { slug: post.slug } }))
 // }
 
-const post = await getEntryBySlug('writing', Astro.params.slug)
+const post = await getEntry({
+	collection: 'writing',
+	slug: Astro.params.slug,
+})
 const { Content, headings } = await post.render()
 const tabSize = post.data['tab-size'] || 4
 ---
