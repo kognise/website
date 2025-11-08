@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 
-export const post: APIRoute = async (ctx) => {
+export const POST: APIRoute = async (ctx) => {
 	try {
 		const url = new URL(ctx.request.url)
 		
