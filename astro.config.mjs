@@ -5,6 +5,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypePresetMinify from 'rehype-preset-minify'
 import react from '@astrojs/react'
 import vercelServerless from '@astrojs/vercel/serverless'
+import yaml from '@rollup/plugin-yaml'
 
 const rehypeExternalLinksConfig = [
 	rehypeExternalLinks,
@@ -34,5 +35,8 @@ export default defineConfig({
 		shikiConfig: {
 			theme: 'one-dark-pro'
 		}
+	},
+	vite: {
+		plugins: [yaml()]
 	}
-});
+})

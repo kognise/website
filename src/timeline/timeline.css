@@ -1,0 +1,30 @@
+html {
+	background: oklch(0.1974 0.0081 281.5);
+	color: #ffffff;
+}
+
+#timeline {
+	position: relative;
+	margin-top: 50dvh;
+	font-family: 'IBM Plex Sans', monospace;
+	font-size: 0.9em;
+	user-select: none;
+
+	.line, .label {
+		background: oklch(0.3232 0.0081 281.5);
+	}
+
+	.cursor {
+		background: oklch(0.4273 0.0081 281.5);
+	}
+
+	.stamp {
+		color: oklch(0.7 0.0081 281.5);
+	}
+
+	.now {
+		background: oklch(0.6235 0.2763 18);
+	}
+}
+
+
