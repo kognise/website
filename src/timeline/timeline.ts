@@ -3,6 +3,143 @@ import './timeline.css'
 
 // @ts-expect-error
 import timeline from './timeline.yml'
+import friends from './friends.json'
+import { Sprite, SpriteMaterial, TextureLoader } from 'three'
+import ForceGraph3D, { type ForceGraph3DInstance, type LinkObject, type NodeObject } from '3d-force-graph'
+
+const sizes: Record<string, number> = {}
+const getSize = (id) => {
+	if (!sizes[id]) {
+		sizes[id] = 10 + Math.log(friends.connections.filter(({ sourceId }) => sourceId === id).length + 1) * 6.1
+	}
+	return sizes[id]
+}
+
+const avatars: Record<string, Sprite> = {}
+for (const { id, avatar } of Object.values(friends.users)) {
+	const map = new TextureLoader().load(avatar
+		? `https://cdn.discordapp.com/avatars/${id}/${avatar}.png`
+		: `/discord-default/${Number(BigInt(id) >> 22n) % 6}.png`)
+	const material = new SpriteMaterial({map})
+	const sprite = new Sprite(material)
+
+	const size = getSize(id)
+	sprite.scale.set(size, size, size)
+
+	avatars[id] = sprite
+}
+
+type GraphNode = NodeObject & typeof friends.users[number] & { name: string }
+type GraphLink = LinkObject<GraphNode> & { source: GraphNode, target: GraphNode }
+
+const highlightNodes: Set<string> = new Set()
+const highlightLinks: Set<GraphLink> = new Set()
+let hoverNode: string | null = null
+
+const updateHighlight = () => {
+	for (const node of highlightNodes) {
+		if (node) avatars[node]?.material.color.setHex(hoverNode === node ? 0xff0000 : 0xffa500)
+	}
+
+	graph
+		.nodeColor(graph.nodeColor())
+		.linkWidth(graph.linkWidth())
+		.linkDirectionalParticles(graph.linkDirectionalParticles())
+}
+
+const graph = (new ForceGraph3D(document.getElementById('graph')!) as ForceGraph3DInstance<GraphNode, GraphLink>)
+	.backgroundColor('rgba(0, 0, 0, 0)')
+	.linkWidth((link) => highlightLinks.has(link) ? 4 : 1)
+	.linkDirectionalParticles((link) => highlightLinks.has(link) ? 8 : 0)
+	.linkDirectionalParticleWidth(2)
+	.onNodeHover((node) => {
+		for (const node of highlightNodes) {
+			if (node) avatars[node].material.color.setHex(0xffffff)
+		}
+		highlightNodes.clear()
+		highlightLinks.clear()
+
+		if (node) {
+			highlightNodes.add(node.id)
+			friends.connections
+				.filter((relationship) => relationship.sourceId === node.id)
+				.forEach((relationship) => highlightNodes.add(relationship.targetId))
+			graph.graphData().links
+				.filter((link) => link.source.id === node.id)
+				.forEach((link) => highlightLinks.add(link))
+		}
+		hoverNode = node ? node.id : null
+		updateHighlight()
+	})
+	.onLinkHover((link) => {
+		for (const node of highlightNodes) {
+			if (node) avatars[node]?.material.color.setHex(0xffffff)
+		}
+		highlightNodes.clear()
+		highlightLinks.clear()
+
+		if (link) {
+			highlightLinks.add(link)
+			highlightNodes.add(link.source.id)
+			highlightNodes.add(link.target.id)
+		}
+		updateHighlight()
+	})
+	.onNodeDragEnd(node => {
+		node.fx = node.x
+		node.fy = node.y
+		node.fz = node.z
+	})
+	.nodeThreeObject(({ id }) => avatars[id])
+
+window.addEventListener('resize', () => {
+	graph.width(window.innerWidth / 2)
+	graph.height(window.innerHeight)
+})
+graph.width(window.innerWidth / 2)
+graph.height(window.innerHeight)
+
+function updateGraphData(date: number) {
+	const graphData = {
+		nodes: [ ...graph.graphData().nodes ],
+		links: [ ...graph.graphData().links ],
+	}
+
+	const enabledNodes = Object.values(friends.users).filter((info) => info.date <= date)
+	const enabledLinks = friends.connections.filter((conn) => enabledNodes.some((node) => node.id === conn.sourceId) && enabledNodes.some((node) => node.id === conn.targetId))
+
+	const isNodeEnabled = (node: GraphNode) => enabledNodes.some((enabledNode) => enabledNode.id === node.id)
+	const isLinkEnabled = (link: GraphLink) => enabledLinks.some((enabledLink) => enabledLink.sourceId === link.source.id && enabledLink.targetId === link.target.id)
+	const isNodeInGraph = (node: GraphNode) => graphData.nodes.some((graphNode) => graphNode.id === node.id)
+	const isLinkInGraph = (link: GraphLink) => graphData.links.some((graphLink) => graphLink.source.id === link.source.id && graphLink.target.id === link.target.id)
+
+	console.log(`updating graph data: ${enabledNodes.length} visible nodes and ${enabledLinks.length} visible links`)
+
+	for (const node of graphData.nodes) {
+		if (!isNodeEnabled(node)) graphData.nodes.splice(graphData.nodes.indexOf(node), 1)
+	}
+	for (const node of enabledNodes) {
+		const graphNode = {
+			...node,
+			name: `${node.globalName ?? node.username} (...)`
+		}
+		if (!isNodeInGraph(graphNode)) graphData.nodes.push(graphNode)
+	}
+
+	for (const link of graphData.links) {
+		if (!isLinkEnabled(link)) graphData.links.splice(graphData.links.indexOf(link), 1)
+	}
+	for (const link of enabledLinks) {
+		const graphLink = {
+			source: graphData.nodes.find((node) => node.id === link.sourceId)!,
+			target: graphData.nodes.find((node) => node.id === link.targetId)!,
+		}
+		if (!isLinkInGraph(graphLink)) graphData.links.push(graphLink)
+	}
+
+	graph.graphData(graphData)
+	// graph.refresh()
+}
 
 interface Range {
 	from: Stamp
@@ -324,6 +461,7 @@ const label = el({
 function onScroll() {
 	const stamp = sxp(window.scrollY)
 	label.innerText = `${stamp.year.toString().padStart(4, '0')}-${stamp.month.toString().padStart(2, '0')}-${stamp.day.toString().padStart(2, '0')}`
+	updateGraphData(new Date(stamp.year, stamp.month - 1, stamp.day).getTime())
 }
 
 window.addEventListener('scroll', onScroll, { passive: true })

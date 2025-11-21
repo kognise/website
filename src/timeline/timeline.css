@@ -9,6 +9,7 @@ html {
 	font-family: 'IBM Plex Sans', monospace;
 	font-size: 0.9em;
 	user-select: none;
+	isolation: isolate;
 
 	.line, .label {
 		background: oklch(0.3232 0.0081 281.5);
@@ -27,4 +28,9 @@ html {
 	}
 }
 
-
+#graph {
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	right: 0;
+}
