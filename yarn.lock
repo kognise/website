@@ -1236,6 +1236,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/audioworklet@npm:^0.0.91":
+  version: 0.0.91
+  resolution: "@types/audioworklet@npm:0.0.91"
+  checksum: 10c0/4206adb59e81bdccd316b9d415d0c9b32fdb17e401d6fe8863bfa9b4af5e855bacb40f1c55ede9c6ca63a74d739794a5ecbd8be34e611f3e05fa577b77592b7b
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.20.5":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
@@ -6349,6 +6356,7 @@ __metadata:
     "@astrojs/react": "npm:^4.4.2"
     "@astrojs/sitemap": "npm:^3.6.0"
     "@astrojs/vercel": "npm:^9.0.0"
+    "@types/audioworklet": "npm:^0.0.91"
     "@types/konami-code-js": "npm:^0"
     "@types/react": "npm:^19.2.2"
     "@types/react-dom": "npm:^19.2.2"

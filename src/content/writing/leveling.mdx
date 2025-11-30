@@ -1,0 +1,187 @@
+---
+title: The Ultimate Handbook of Loudness
+abstract: 'An overview of the OSI model, some benefits and shortcomings of the ARP protocol, and the story of how I hijacked ARP to built the most evil (coolest) chat app ever!'
+date: '2024-11-29'
+---
+
+import Meter from '../../components/Meter'
+
+Volume metering is very confusing and most articles acknowledging that don't actually help. I hope to.
+
+<Meter client:load />
+
+## Units
+
+### dB
+
+Always a ratio. When applied to a single track it's just how you're multiplying the volume.
+
+Before we talk about analog audio units, remember that voltage is always a relative unit, measuring the electrical potential between two points. In unbalanced audio cables, this is the difference between the ground and signal wires. Voltage can also be negative, which just represents a potential in the other way. Audio is usually centered around 0\.
+
+### Physical Air Movement
+
+#### dBSPL: 20 μPa RMS in Air
+
+What's RMS? .........
+
+When you see a dB it's probably RMS unless it's clearly a peak value or something else.
+A measurement of actual air displacement. 0 dBSPL is about the quietest sound a human ear can detect.
+
+#### dBA
+
+Sometimes written as dBa, which is incorrect.
+
+When discussing the volume of sounds heard by humans, like when discussing noise pollution or hearing damage from concerts, raw dBSPL is rarely used. Instead, dBA applies a frequency-dependent weighting curve to dBSPL measurements. The A-weighting curve was designed to approximate the inverse of the 40-phon equal-loudness contour (how sensitive human hearing is to different frequencies at moderate-to-quiet levels). It also happens to correlate well with the relationship between sound level meter microphone response and human hearing damage, which led to dBA's widespread use in regulatory contexts.
+
+Often, if you see just "dB" in the context of sound volume, this is implied to mean dBA. Many large concert venues will have limits on maximum volume that the mixing engineer must follow. These are usually specified in dBA.
+
+#### dBC
+
+Occasionally, dBC is used as an alternative to dBA. Sometimes written as dBc, which is incorrect, and also confusing because dBc is actually a real unit used in telecommunications.
+
+The dBC unit represents C-weighted dBSPL. It has a flatter curve that includes more bass and might be more useful in some contexts for quantifying the audible volume of modern loud music. Some classes of sound level meter are required to support dBC.
+
+#### dBZ
+
+You might see this unit used sometime. The "Z" means Z-weighted, which means… zero-weighted. How is it different from dBSPL? dBZ has a specified frequency range that it has a flat response over and an error tolerance. In practice, that isn't very different, but it matters in some industries.
+
+dBZ is also used to represent reflectivity in weather radars, but if you're reading this article, that's probably not relevant to you.
+
+#### dBB/dBD
+
+Other weighting curves that aren't used anymore. (Something something LUFS.)
+
+### Analog Audio
+
+#### dBW: 1 W
+
+Not really used in audio production contexts but you will see it in the context of speaker and amplification power.
+
+#### dBm: 1 mW
+
+Often erroneously used to mean 0.775 V, because old telephone systems ran at 600 Ω and if you do the math you get that voltage. Instead, dBu is the correct unit to use.
+
+Since power = V²/R, the voltage is squared in the calculation. That means that (at 600 Ω) both +0.775 V and -0.775 V represent the same power level of 0 dBm.
+
+#### dBu/dBv: 0.775 V RMS
+
+Instead of using dBm incorrectly, you can use dBu, which is actually defined as the RMS voltage that would dissipate 1 mW in a 600 Ω load — in other words, 0.775 V.
+
+The original name for dBu was dBv. It's no longer used because it confusingly conflicts with dBV. You might see dBv written when dBV is actually meant.
+
+#### dBV: 1 V
+
+It's a bit silly to use 0.775 V as a reference, so lots of people are moving to dBV which is simply defined as relative to 1 V. Can be RMS or peak, depending on the context, but by default you should assume it means RMS.
+
+#### VU/dBVU: Sometimes +4&nbsp;dBu
+
+The VU unit is a bit weirder than the others here, since it refers to the reading on an VU meter — archetypically, an analog device — and not a fixed reference value. While VU meters can be set to different target levels, they're traditionally set to a reference of +4 dBu and have an integration time (the window of time to smooth over) of 300 ms. The screen readouts are on a logarithmic scale, so VU is another decibel unit; you'll even sometimes see dBVU used.
+
+VU meters have a specific physical response, usually called a ballistic response, with unique attack and decay characteristics responding to changes over their integration time. They approximate but don't precisely match either simple averaging or true RMS measurement of power, although they are proportionally closer to a flat average than RMS. Many people think VU means RMS; traditionally, it does not.
+
+Many DAW plugins are available that simulate analog VU meters. Of course, it's not possible to set the reference value in dBu because there is no voltage in digital audio, so the calibration setting is often set in dBFS RMS. What value is used, then? Typically the dBFS value corresponding to +4 dBu, which depends on your preferred digital-to-analog alignment level. Conventions for this vary by country and standard (film vs. broadcast vs. CD) between -12 dBFS and -20 dBFS. What's dBFS? Glad you asked!
+
+### Digital Audio
+
+#### dBFS/dBO/dBov
+
+Depends on the digital audio format, but refers to the maximum representable amplitude. For example, in floating-point formats, 0 dBFS is 1.0/-1.0.
+
+Interestingly, that means you can actually go greater than 0 dBFS without clipping, which is why floating-point audio is typically discussed as having better headroom than fixed-point audio, which clips above 0 dBFS. This also means it's generally completely fine to go above 0 dBFS in floating-point formats — it might be uglier in waveform displays, but until you're converting to a non-floating-point format (like playing it through your speakers, or directly converting to fixed-point) you won't lose information and can always scale it down.
+
+When DAWs display dBFS RMS meters, the calculation is typically done over a period of 300 ms. It's not a coincidence that this is the same as the integration period of traditional analog VU meters!
+
+While dBFS peak is well-defined, dbFS RMS can be more ambiguous. Sometimes dbFS refers to the mathematical definition of RMS, where the RMS of a full-scale square wave is 0 dBFS and the RMS of a full-scale sine wave is around -3 dBFS. However, the AES17 standard for audio engineering dictates that dbFS RMS should actually have a built-in 3 dB offset so a full-scale sine wave is 0 dBFS and the square wave is +3 dBFS. I don't have a good answer for you on how to tell which is being used, but in my experience, the +3 dB system is more common in physical equipment, DAW faders, and spec sheets.
+
+The units dBO and dBov are rarely used, but when they are, they refer to the standard where RMS follows the mathematical definition with no offset (in other words, a full-scale square wave is 0 dBov).
+
+#### dBTP
+
+Maybe you mastered your track and the audio never peaks above 0 dBFS. That means you can encode your audio without any single sample clipping. However, reconstructing a continuous (or just supersampled) waveform from these discrete samples — whether for a compression codec or for digital-analog-conversion before playback — can yield a waveform with "inter-sample peaks" louder than the samples themselves. Tools that can accurately calculate the volume of these inter-sample peaks use dBTP.
+
+Some DAW meters will say they're dBFS but actually supersample to provide something closer to dBTP. For example, I noticed that Ableton Live 10 renders dBTP in the visual meter but dBFS in the peak value display. After upgrading to Ableton Live 12, the peak value display now also displays dBTP.
+
+Why do these inter-sample peaks occur? You likely know that the Nyquist-Shannon sampling theorem tells us that, given a sample rate greater than the maximum frequency of a signal, you can always perfectly reconstruct the original signal. However, this doesn't guarantee that there won't be peaks in the original signal that are higher than the highest discrete samples. Perfect reconstruction of the discrete signal can be achieved with Whittaker-Shannon interpolation (also known as sinc interpolation), which is achieved in many DACs by applying a low-pass filter to the stepwise samples. It then follows that if the original signal had peaks louder than the resultant samples, then reconstructing those original signals will also reconstruct the peaks; therefore, inter-sample peaks are possible and dBTP matters.
+
+Another example that I found intuitive is the Gibbs phenomenon caused by band limiting (necessary for digital audio due to Nyquist-Shannon) discontinuous signals like square waves.
+
+#### LUFS/LKFS/dBK
+
+The International Telecommunication Union, an agency of the United Nations, defined LKFS to provide a good unit for measuring the perceived loudness of digital audio, especially for broadcast normalization. An alternate name, LUFS, was later introduced. LUFS is one of the most important units of loudness to understand nowadays because all streaming and on-demand video services including Spotify, Apple Music, and YouTube normalize tracks and videos based on their overall LUFS volume.
+
+LUFS is dBFS but compensated for the K-weighting curve, which is a standardized model that does a much better job at matching how humans perceive loudness at different frequencies than either A-weighting or C-weighting. LUFS is based on an RMS measurement without the +3 dB offset, and the algorithms for calculating it for different channel configurations (for example, surround sound) is highly standardized. LUFS is also gated: chunks of audio below a volume provided by the specification are ignored for a better representation of the loudness of the audio.
+
+Overall, LUFS is a holistic standard for specifying the perceived loudness of a piece of audio content, and it's crucial to understand when distributing your audio. When mixing for broadcast contexts, you must adhere to strict LUFS limits. When mixing for music streaming releases, each platform has an LUFS target that your music will be scaled to hit — that means if you don't use your dynamic range well, your music can end up being scaled down to sound quieter and lower-quality than other songs. Even when you're not distributing to a platform that cares about LUFS, it's plain useful to know how loud your song sounds!
+
+Rarely, dBK is used. It means the same thing as LUFS but it's weird, nonstandard, and super uncommon.
+
+#### LU
+
+You might see LU used as a relative unit when discussing the world of LUFS. Just like you might say something at -12 dB is 2 dB louder than -14 dBm, you can say that something -8 LUFS is 3 LU louder than -11 LUFS.
+
+#### dBr
+
+Some documentation, plugin manuals, and papers might mention dBr. This unit means decibels relative to *some reference*, which is probably specified by your plugin settings or the context of what you're reading.
+
+## Leveling in the Real World
+
+Now that we have a grasp of the insane system of units we use in the audio world, we can begin to examine the most common standards for audio leveling in the real world.
+
+### Line Level
+
+Audio devices that connect to each other benefit from a common reference level to simplify leveling and compatibility. The standard line level for consumer audio devices like CD players and home stereo systems is -10 dBV. It's different for professional audio at +4 dBu. Don't you love how it's a different unit?
+
+It's useful to keep this in mind when connecting consumer audio devices to professional equipment — you might have to boost the level more than expected, and noise begins to be a concern.
+
+By the way, the line level for professional audio is also why, as mentioned earlier, +4 dBu is the standard for VU meters.
+
+### Alignment Levels
+
+Until now, we've had two separate worlds: the digital world where dBFS, DAWs, and effect plugins power your workflows, and the analog world, where dBu, line level devices, and speaker systems let you bring your sounds to the real world. At some point though, you might want a way to relate your digital levels to analog levels, and so it's probably a good idea to pick a fixed reference point between dBFS and dBu. This is an example of an "alignment level," a defined anchor point across a signal chain.
+
+Having such a conversion on hand means when working in your digital world, each volume corresponds to an analog voltage in a way that's consistent throughout your entire recording, production, mixing, and mastering process. You can use this reference when recording line in audio from your keyboard. You can use it when you need to calibrate your digital VU meter. If you need to share your track with someone in the professional world or to play on a fancy calibrated audio setup, it'll have an expected level. Here's where I get opinionated: even if you're just going to work in your DAW and release straight to streaming or Soundcloud, picking an alignment level gives you plenty of headroom, a consistent framework to work inside, and compatibility with a world built on decades of assumptions about audio engineering.
+
+What alignment level should I use? Is there a standard choice across the globe? Of course not. But, at least in the United States where I live, SMPTE defined +4 dBu as -20 dBFS. This standard of -24 dBFS = 0 dBu (which would be -4 VU) is by far the most common among producers and audio engineers and matches the headroom that practically every piece of professional analog equipment can handle. While I recommend using that, it's worth noting that you will often come across -18 dBFS = 0 dBu used, which is the European standard set by EBU R 68.
+
+### Looking Backward: K-system
+
+In 2000, at the peak of the [loudness wars](https://en.wikipedia.org/wiki/Loudness_war), mixing engineer Bob Katz had enough and published a proposal for a solution to the problem: a standard set of levels and headroom for mixing called the K-system (no relation to K-weighting). The system had three configurations: K-20, K-14, and K-12.
+
+The K-system had you put a VU meter on your master track and use a sound level meter to set your speaker gain so 0 VU = 85 dBSPL at the listener's position. The only difference between the different configurations is the setting of the VU meter and therefore the headroom. K-20 had the VU meter set to -20 dBFS, K-14 was -14 dBFS, and, as I'm sure you can guess, K-12 was -12 dBFS.
+
+Audio engineering has progressed a lot since then and, while it's useful to know about the K-system and some modern DAWs like Bitwig have support for it, Bob Katz himself has said that it's largely obsolete. After all, why unnecessarily limit your headroom or tie yourself to a VU meter?
+
+### Looking Forward: EBU R 128
+
+10 years after Katz introduced the K-system, he joined a committee to create EBU R 128, an international standard for the loudness normalization of audio. R 128 requires a target loudness of -23 LUFS and a maximum true peak of -1 dBTP. "EBU mode" meters use units of LU where 0 LU = -23 LUFS.
+
+You might notice that this is very similar to where you'll likely already end up when mastering at -20 dBFS = +4 dBu = 0 VU, which is going to be close to the EBU standard of -18 dBFS = 0 dBu = -4 VU as well. That makes this a very easy standard to follow by accident, and if you're just making music or other audio for digital distribution, you probably shouldn't ever care or think about this again!
+
+The only part missing is what you set your speakers to. The best answer is whatever sounds good to your ears. The standard for cinema is still typically +4 dBu = 85 dBC, and as low as +4 dBu = 73 dBC is common for music production.
+
+## Meters
+
+In your time spent with digital and analog music tools, you will often stare at colorful boxes pulsing up and down.
+
+* **Peak meter:** Shows the instantaneous peak level. In DAWs, these are typically relative to 0 dBFS. Digital peak meters will sometimes oversample to show inter-sample peaks. Some peak meters have a hold feature or hold display that keep the maximum peak visible for some delay.
+* **BBC PPM:** The British style of analog peak program meter displays the true peak level of audio using a scale from 1-7, where 4 is the alignment level, 6 is the permitted maximum level, and the ticks are spaced by 4 dB.
+* **EBU PPM:** European PPMs are essentially the same as British PPMs, except instead of unitless tick marks they display dB relative to the alignment level, which is marked "TEST" in the center of the meter.
+* **RMS meter:** Shows the RMS level over some integration period, often 300 ms due to historical context from VU meters. Many digital RMS meters have a +3 dB offset as provided by AES17 so full-scale sine waves register as 0 dBFS RMS.
+* **VU meter:** Originally an analog device that electromechanically displays audio levels smoothed over 300ms, where 0 VU was calibrated to +4 dBu. Has digital replicas that must be calibrated to some reference value in dBFS RMS, which is usually AES17 RMS.
+* **LUFS meter:** A display of LUFS. Measurements are often available in multiple time intervals: integrated, taken over the whole song, short-term, taken over 3 seconds, and momentary, taken over 400 ms. Some meters show LRA, or loudness range, which is a statistical measure of the dynamic range of your mix. Some LUFS meters use RMS + 3 dB as a basis, but this is incorrect.
+* **EBU mode meter:** Displays loudness in LU where 0 LU = -23 LUFS.
+* **Hybrid meter:** Many DAWs and mixers will combine multiple meter types. A common combination is RMS, instantaneous peak, and peak hold.
+* **K-meter:** Some metering systems support a K-20, K-14, and/or K-12 display. These are VU meters where 0 VU is set to the K-system offset; for example, a K-20 meter would go from 0 VU (-20 dBFS) to +20 VU (0 dBFS). Even if you aren't using the 85 dBC calibrated K-system, it can be useful to use a K-20 meter if you're mixing around a -20 dBFS alignment level.
+
+## Conclusion and Application
+
+By now, you know there are a lot of choices, and you should be well-equipped to make them yourself. However, here's some general advice:
+
+* Just mix at -20 dBFS. This doesn't mean your output is expected to *peak* at -20 dBFS — that would be much too quiet. Your peaks can and should be a lot higher, around -12 dBFS is typical but it depends a lot on your genre.
+* If you're using a VU meter, calibrate it so -20 dBFS = 0 VU. You can also target -23 LUFS for mastering.
+* It's totally fine to run a bit hot. Lots of amazing musicians don't pay attention to this at all and still make great music.
+* If you care about calibrating your speaker volume, calibrate them one channel at a time so pink noise at +4 dBu (-20 dBFS RMS or 0 VU) is anything between 73 dBC and 85 dBC. You probably don't need to shill out for a sound level meter, it turns out an app on your phone is almost as accurate. Your ears are pretty good, too.
+* When mastering for louder volumes (for example, Spotify's target is -14 LUFS, CDs can be pushed to like -10 LUFS) you'll probably need to bump your gain about 10-15 dB. Depending on how peaky your mix is, this is what limiters is for.
+* When mastering for louder volumes (for example, Spotify's target is -14 LUFS, CDs can be pushed to like -10 LUFS) you'll probably need to bump your gain about 10-15 dB. Depending on how peaky your mix is, this is what limiters are for.
+
+There are a lot of people on the internet with terrible mixing advice, and I might be one of them. There are a lot of people on the internet with great mixing advice, and I'm probably not one of them. I hope after reading this you'll be better at telling which is which and making choices in your own mixes. If you have any questions or comments, I'm happy to help or hear at [hi@kognise.dev](mailto:hi@kognise.dev).

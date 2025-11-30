@@ -23,6 +23,7 @@
 		"rehype-preset-minify": "^7.0.1"
 	},
 	"dependencies": {
+		"@types/audioworklet": "^0.0.91",
 		"astro-icon": "^0.8.2",
 		"konami-code-js": "^0.8.3",
 		"react": "^19.2.0",
