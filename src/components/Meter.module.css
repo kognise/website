@@ -1,0 +1,145 @@
+.container {
+	display: flex;
+	flex-direction: column-reverse;
+	background: #e9ecef;
+	height: 700px;
+
+	button {
+		padding: 10px 20px;
+		border: none;
+		color: inherit;
+		background: none;
+		font-size: inherit;
+		font-family: 'IBM Plex Sans', sans-serif;
+		cursor: pointer;
+	}
+	
+	.controls {
+		flex: 1;
+		display: flex;
+
+		.tabs {
+			background: #dfe2e5;
+			width: 200px;
+
+			.tab {
+				width: 100%;
+				color: #000000;
+				text-align: left;
+
+				&:hover {
+					background: #6741d939;
+				}
+
+				&.isActive {
+					background: #6741d9;
+					color: #ffffff;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.metadata {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 20px 30px;
+
+			h3, p {
+				margin: 0;
+			}
+
+			h3 {
+				font-size: 1.5rem;
+				line-height: 1.5;
+			}
+
+			button {
+				align-self: flex-start;
+			}
+		}
+	}
+
+	.playback {
+		background: #0a0a0a;
+		padding: 10px;
+		display: flex;
+		flex-direction: row;
+		padding-left: 15px;
+		gap: 15px;
+
+		.controls {
+			flex: 1;
+			color: #ffffff;
+			font-family: 'IBM Plex Sans', sans-serif;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+
+			h3 {
+				margin: 0;
+				font-size: 1.1rem;
+			}
+
+			.buttons {
+				display: flex;
+				gap: 5px;
+
+				button {
+					background: #333333;
+					font-size: 1rem;
+					padding: 10px;
+
+					&:hover {
+						background: #444444;
+					}
+						
+					&.isActive {
+						background: #555555;
+						font-weight: 600;
+					}
+				}
+
+				.play {
+					svg {
+						display: block;
+						width: 1lh;
+						height: 1lh;
+					}
+				}
+
+				.options {
+					flex: 1;
+					display: flex;
+					flex-wrap: wrap;
+					gap: 2px;
+					
+					.option {
+						flex: 1;
+						padding: 10px 0;
+					}
+				}
+			}
+		}
+
+		.meterContainer {
+			position: relative;
+
+			.meter {
+				display: block;
+				width: 100%;
+				max-width: 400px;
+				height: auto;
+			}
+
+			.meterOverlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+	}
+}

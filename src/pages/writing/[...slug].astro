@@ -3,10 +3,10 @@ import '../../styles/global.css'
 import '../../styles/writing-post.css'
 
 import { type CollectionEntry, getEntry } from 'astro:content'
-import { Icon } from 'astro-icon'
 import SEO from '../../components/SEO.astro'
 import TOCList from '../../components/TOCList.astro'
 import NewsletterScript from '../../components/NewsletterScript.astro'
+import { IoChevronForwardSharp, IoCloseSharp, IoListSharp } from 'react-icons/io5'
 
 export interface Params {
 	slug: CollectionEntry<'writing'>['slug']
@@ -86,9 +86,9 @@ const tabSize = post.data['tab-size'] || 4
 
 	<div class='toc-container'>
 		<button class='toc-toggle' aria-hidden='true'>
-			<Icon name='ion:list-sharp' class='icon-activate' />
-			<Icon name='ion:chevron-right' class='icon-collapse' />
-			<Icon name='ion:close-sharp' class='icon-x' />
+			<IoListSharp className='icon-activate' />
+			<IoChevronForwardSharp className='icon-collapse' />
+			<IoCloseSharp className='icon-x' />
 		</button>
 
 		<nav class='toc' aria-hidden='true'>
