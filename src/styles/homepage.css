@@ -63,3 +63,11 @@ h2 {
 		margin-bottom: 5px;
 	}
 }
+
+.marina {
+	position: fixed;
+	bottom: -65px;
+	right: 0;
+	width: 500px;
+	height: auto;
+}

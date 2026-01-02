@@ -1327,6 +1327,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/konami-code-js@npm:^0":
+  version: 0.8.3
+  resolution: "@types/konami-code-js@npm:0.8.3"
+  checksum: 10c0/7920547e80297fed460086c4151adc352b4efab113dcd3bc036dfd8599d8eff9029be5137617fb58dba9208cb48e8463a7c127429944248d69c3104fe9035b67
+  languageName: node
+  linkType: hard
+
 "@types/mdast@npm:^4.0.0":
   version: 4.0.4
   resolution: "@types/mdast@npm:4.0.4"
@@ -3436,6 +3443,13 @@ __metadata:
   version: 3.0.3
   resolution: "kleur@npm:3.0.3"
   checksum: 10c0/cd3a0b8878e7d6d3799e54340efe3591ca787d9f95f109f28129bdd2915e37807bf8918bb295ab86afb8c82196beec5a1adcaf29042ce3f2bd932b038fe3aa4b
+  languageName: node
+  linkType: hard
+
+"konami-code-js@npm:^0.8.3":
+  version: 0.8.3
+  resolution: "konami-code-js@npm:0.8.3"
+  checksum: 10c0/b50ae9a9e0b6dc3afd40fab38bbb07e419a5c96ab30bb6209f4f4447de688682b915f14a09adabc8d610de7e0b3f999eac11201d2a116fb499c6ede90b43b292
   languageName: node
   linkType: hard
 
@@ -6335,10 +6349,12 @@ __metadata:
     "@astrojs/react": "npm:^4.4.2"
     "@astrojs/sitemap": "npm:^3.6.0"
     "@astrojs/vercel": "npm:^9.0.0"
+    "@types/konami-code-js": "npm:^0"
     "@types/react": "npm:^19.2.2"
     "@types/react-dom": "npm:^19.2.2"
     astro: "npm:^5.15.4"
     astro-icon: "npm:^0.8.2"
+    konami-code-js: "npm:^0.8.3"
     postcss-nesting: "npm:^13.0.2"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"

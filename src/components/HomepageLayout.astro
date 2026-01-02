@@ -29,7 +29,10 @@ import SEO from '../components/SEO.astro'
 		<slot />
 	</main>
 
-	<script lang='javascript'>
+	<script>
+		// @ts-nocheck
+		import KonamiCode from 'konami-code-js'
+
 		const rainbowToggle = document.getElementById('rainbow-toggle')
 		window.rainbowMode = rainbowToggle.checked
 		rainbowToggle.addEventListener('input', () => window.rainbowMode = rainbowToggle.checked)
@@ -38,6 +41,13 @@ import SEO from '../components/SEO.astro'
 		document.getElementById('ipa').addEventListener('click', () => {
 			kognise.currentTime = 0
 			kognise.play()
+		})
+
+		new KonamiCode(() => {
+			const img = document.createElement('img')
+			img.className = 'marina'
+			img.src = '/marina-the-turtle.gif'
+			document.body.appendChild(img)
 		})
 	</script>
 
