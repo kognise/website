@@ -19,3 +19,5 @@ yarn-error.log*
 
 .vercel
 .astro
+
+.yarn/install-state.gz
