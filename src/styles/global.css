@@ -1,3 +1,12 @@
+:root {
+	--font-heading-family: 'Overpass', sans-serif;
+	--font-heading-weight: 800;
+
+	--font-prose-family: 'IBM Plex Serif', serif;
+	--font-ui-family: 'IBM Plex Sans', sans-serif;
+	--font-mono-family: 'IBM Plex Mono', monospace;
+}
+
 * {
 	box-sizing: border-box;
 }

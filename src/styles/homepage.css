@@ -1,5 +1,5 @@
 main {
-	font-family: 'IBM Plex Mono', monospace, sans-serif;
+	font-family: var(--font-mono-family);
 	margin: 0 auto;
 	padding: 20px;
 	padding-top: 0;

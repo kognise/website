@@ -9,7 +9,7 @@
 		color: inherit;
 		background: none;
 		font-size: inherit;
-		font-family: 'IBM Plex Sans', sans-serif;
+		font-family: var(--font-ui-family);
 		cursor: pointer;
 	}
 	
@@ -72,7 +72,7 @@
 		.controls {
 			flex: 1;
 			color: #ffffff;
-			font-family: 'IBM Plex Sans', sans-serif;
+			font-family: var(--font-ui-family);
 			display: flex;
 			flex-direction: column;
 			gap: 8px;

@@ -24,7 +24,7 @@ body {
 }
 
 .toc {
-	font-family: 'IBM Plex Sans', sans-serif;
+	font-family: var(--font-ui-family);
 	background: #f1f3f5cc;
 	overflow: auto;
 	line-height: 1.4;
@@ -159,7 +159,7 @@ body {
 }
 
 main {
-	font-family: 'IBM Plex Serif', serif;
+	font-family: var(--font-prose-family);
 	font-size: 1.1rem;
 	margin: 0 auto;
 	padding: 80px 20px;
@@ -168,9 +168,10 @@ main {
 }
 
 h1 {
-	font-family: 'Red Hat Display', sans-serif;
-	font-weight: 900;
-	font-size: 2.2rem;
+	font-family: var(--font-heading-family);
+	font-weight: var(--font-heading-weight);
+	font-size: 2.3rem;
+	line-height: 1.1;
 	margin: 0;
 	margin-bottom: 12px;
 	text-align: center;
@@ -197,7 +198,7 @@ h4 {
 
 code {
 	font-size: 0.9em;
-	font-family: 'IBM Plex Mono', monospace, sans-serif;
+	font-family: var(--font-mono-family);
 }
 
 code:not(pre code) {

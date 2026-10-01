@@ -1,5 +1,5 @@
 main {
-	font-family: 'IBM Plex Serif', serif;
+	font-family: var(--font-prose-family);
 	font-size: 1.1rem;
 	text-align: center;
 	padding: 100px 10px;
