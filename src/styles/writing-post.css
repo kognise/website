@@ -242,6 +242,16 @@ pre code {
 	}
 }
 
+.float-right {
+	float: right;
+	margin-left: 20px;
+}
+
+.float-left {
+	float: left;
+	margin-right: 20px;
+}
+
 @media (max-width: 1000px) {
 	body {
 		--toc-width: 280px;
@@ -309,5 +319,10 @@ pre code {
 		.toc-activated & .icon-x {
 			display: block;
 		}
+	}
+
+	.float-right, .float-left {
+		float: none;
+		margin: 0 auto;
 	}
 }

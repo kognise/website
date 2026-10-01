@@ -40,8 +40,12 @@ blockquote {
 	padding: 10px 10px;
     padding-left: 30px;
 
-	& p, & ul:not(li ul), & ol:not(li ol) {
+	& p, & ul:not(li ul), & ol:not(li ol), & h5 {
 		margin: 14px 0;
+	}
+
+	& h5 {
+		font-size: inherit;
 	}
 }
 
