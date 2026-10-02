@@ -4,7 +4,7 @@
 
 	--font-prose-family: 'IBM Plex Serif', serif;
 	--font-ui-family: 'IBM Plex Sans', sans-serif;
-	--font-mono-family: 'IBM Plex Mono', monospace;
+	--font-mono-family: 'IBM Plex Mono', monospace, sans-serif;
 }
 
 * {
