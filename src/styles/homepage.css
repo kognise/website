@@ -53,6 +53,12 @@ h2 {
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+.dj-grid {
+	display: grid;
+	gap: 14px;
+	grid-template-columns: 1.33333fr 0.75fr;
+}
+
 #ipa {
 	cursor: pointer;
 	color: #d9480f;
