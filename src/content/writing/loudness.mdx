@@ -52,7 +52,7 @@ While this is the reference point in air, it is different in other fluids, like 
 >
 > <em>Root mean square</em> (RMS) is how you average an audio signal over time. To calculate it from digital samples, for example, you take the amplitude of each sample, square each one, add them all together, and take the square root of that sum.
 >
-> <img loading='lazy' style='max-width: 480px;' src='/writing-images/loudness/rms.png' width='1000' height='563' />
+> <img loading='lazy' style='max-width: 480px;' src='/writing-images/loudness/rms.png' width='1000' height='563' alt='Different measurements of a sine wave&apos;s amplitude shown on a graph: peak, RMS, average, and peak-to-peak.' />
 >
 > Why not just take a plain, [arithmetic average](https://en.wikipedia.org/wiki/Arithmetic_mean) of the amplitudes? Well, an arithmetic average gives you a level that follows the *trends of the signal's amplitude*, but RMS calculates the *power of the signal* as [defined by physics](https://en.wikipedia.org/wiki/Power_(physics)). Because sound ultimately ends as physical vibrations in our eardrums and the objects around us, power, a physical property, is much more useful for assessing how loudly we perceive things and how sound affects the world around us. For this reason, we use RMS exclusively.
 >
@@ -74,7 +74,7 @@ We need a better, objective unit to discuss the volume of sounds as heard by hum
 
 Instead, *A-weighted dBSPL* (dBA) is the typical unit of choice, applying a frequency-dependent weighting curve to dBSPL. If you see just "dB" used in the context of the volume of audible sounds, that is universally implied to mean dBA.
 
-<img loading='lazy' style='max-width: 250px;' className='float-right' src='/writing-images/loudness/sound-level-meter.jpg' width='800' height='800' />
+<img loading='lazy' style='max-width: 250px;' className='float-right' src='/writing-images/loudness/sound-level-meter.jpg' width='800' height='800' alt='A sound level meter held out to measure the volume of a windmill in a field.' />
 
 The A-weighting curve was designed to approximate the *inverse of a 40-phon [equal-loudness contour](https://en.wikipedia.org/wiki/Equal-loudness_contour)*. This contour was determined by finding the volume offset relative to 40 dBSPL for sine waves across the frequency spectrum, such that, across study participants, each sine wave had a perceived volume of 40 phons. In other words, the A-weighting curve is designed to compensate for our brain's inconsistent perception of the intensity of different pitches, based on the results of having test subjects compare various sine waves to a 1000 Hz reference sine wave.
 
@@ -84,7 +84,7 @@ Many large concert venues require the touring mixing engineer to limit themselve
 
 #### dBC
 
-<img loading='lazy' style='max-width: 250px;' className='float-left' src='/writing-images/loudness/weighting-curves.png' width='500' height='560' />
+<img loading='lazy' style='max-width: 250px;' className='float-left' src='/writing-images/loudness/weighting-curves.png' width='500' height='560' alt='The A-weighting curve has much lower volume for the low frequencies than the C-weighting curve.' />
 
 Sometimes, *C-weighted dBSPL* (dBC) is used instead of dBA. This unit is sometimes written as dBc, which is incorrect and confusing — dBc is [a real unit](https://en.wikipedia.org/wiki/DBc) in telecommunications that means something different altogether!
 
@@ -104,7 +104,7 @@ These units are *B-weighted* and *D-weighted*, respectively. These two weighting
 
 Psychoacoustics discussions need a unit that can intuitively represent *ratios*. The *sone* was created to be that unit: a 2-sone vacuum cleaner is designed to be half the perceived volume of a 4-sone one.
 
-<img loading='lazy' style='max-width: 480px; margin: 0 auto;' src='/writing-images/loudness/sones.png' width='1000' height='427' />
+<img loading='lazy' style='max-width: 480px; margin: 0 auto;' src='/writing-images/loudness/sones.png' width='1000' height='427' alt='' />
 
 > **Sones versus decibels:**
 >
@@ -120,7 +120,7 @@ The sone is largely unused in the context of audio engineering for a similar rea
 
 Sound needs to get to your ears somehow, so we have speakers that vibrate the air in response to electrical voltage. *Voltage* is a measure of the electric potential between two points in a circuit: 0 volts (V) sent to a speaker means there's no electrical pressure and is generally the center of the audio signal, and positive and negative voltages move the speaker diaphragm in opposing directions.
 
-<img loading='lazy' style='max-width: 420px; margin: 0 auto;' src='/writing-images/loudness/speaker-voltage.png' width='800' height='506' />
+<img loading='lazy' style='max-width: 420px; margin: 0 auto;' src='/writing-images/loudness/speaker-voltage.png' width='800' height='506' alt='The voltage moves the speaker diaphragm, which moves your ears.' />
 
 Until computers and digital audio revolutionized sound production, only analog audio, where the amount of voltage traveling through a wire corresponds the amplitude of the sound wave, was relevant to electronic musicians.
 
@@ -154,7 +154,7 @@ Since sound is created by constantly varying the voltage (electric potential) th
 
 #### VU/dBVU: +4&nbsp;dBu... Sometimes!
 
-<img loading='lazy' style='width: 300px;' className='float-right' src='/writing-images/loudness/vu-meter.jpg' width='960' height='562' />
+<img loading='lazy' style='width: 300px;' className='float-right' src='/writing-images/loudness/vu-meter.jpg' width='960' height='562' alt='A classic analog VU meter.' />
 
 The *VU* unit is a bit of an odd one out. Rather than a measurement of air pressure or electric potential, it refers to the reading on an VU meter — archetypically, a physical analog device. For VU readings to be comparable to other units, you need to know, among other things, what level the VU meter was calibrated to.
 
@@ -168,13 +168,13 @@ What's dBFS? Glad you asked!
 
 ### Digital Audio
 
-<img loading='lazy' src='/writing-images/loudness/ableton.png' width='2294' height='776' />
+<img loading='lazy' src='/writing-images/loudness/ableton.png' width='2294' height='776' alt='A screenshot of an Ableton Live mixing view showing tracks playing audio.' />
 
 #### dBFS/dBO/dBov
 
 This unit, called either *decibels full scale* (dBFS) or *decibels overload* (dBO/dBov), specifies volume relative to the maximum representable amplitude in the digital format being used. For example, in 8-bit signed fixed-point formats, 0 dBFS is 127/−127. In floating-point formats, 0 dBFS is 1.0/−1.0.
 
-<img loading='lazy' style='max-width: 270px;' className='float-right' src='/writing-images/loudness/clipping.png' width='600' height='504' />
+<img loading='lazy' style='max-width: 270px;' className='float-right' src='/writing-images/loudness/clipping.png' width='600' height='504' alt='A overdriven audio clip, captioned: even though it&apos;s clipping, the audio can be flawlessly recovered by lowering its volume.' />
 
 Because [floating-point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) can represent values larger than 1.0, floating-point audio can store audio louder than 0 dBFS without clipping. This is why floating-point audio is typically described as having better headroom than fixed-point audio, which, by nature, clips above 0 dBFS. This means that, when working in floating-point formats, it's generally completely fine to go above 0 dBFS — it might be uglier in waveform displays, but until you convert to a non-floating-point medium (like playing it through your speakers, or directly converting to fixed-point) you won't lose information and can always scale it back down.
 
@@ -188,7 +188,7 @@ A track mastered with audio never going above 0 dBFS means no single sample will
 
 Some meters will be labeled as dBFS but actually supersample to a higher sample rate to approximate the dBTP. For example, I noticed that Ableton Live 10 renders dBTP in the visual volume meter, but dBFS in the peak value window. After upgrading to Ableton Live 12, the peak value window now also displays dBTP.
 
-<img loading='lazy' style='max-width: 400px;' className='float-right' src='/writing-images/loudness/gibbs.svg' width='335' height='196' />
+<img loading='lazy' style='max-width: 400px;' className='float-right' src='/writing-images/loudness/gibbs.svg' width='335' height='196' alt='True-peak overshoot on a square wave, caused by the Gibbs phenomenon. Overshoot peaks are visible at the discontinuities in the square wave.' />
 
 Why do these inter-sample peaks occur? If you've studied how digital audio works, you may know that the [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) tells us that, if recording at sample rate greater than the maximum frequency of an audio signal, you can always *perfectly* reconstruct the original signal. Indeed, *because* modern DACs can perfectly reconstruct an analog audio signal from a digital audio file — using [Whittaker–Shannon interpolation](https://en.wikipedia.org/wiki/Whittaker%E2%80%93Shannon_interpolation_formula), also called sinc interpolation — if the original analog signal had peaks louder than the resulting digital samples, then the perfect reconstruction will include those peaks. These inter-sample peaks are why dBTP matters.
 
@@ -202,7 +202,7 @@ LUFS is one of the most important units of loudness to understand today, because
 
 LUFS is defined as dBFS compensated for the *K-weighting curve*, which is a standardized curve that is better at approximating humans' frequency-dependent perception of loudness than either the A-weighting or C-weighting curves. LUFS is calculated with an RMS measurement (without the AES17 +3 dB offset), and algorithms for calculating it for multi-channel configurations like surround sound are highly standardized by the ITU and EBU. Longer-term measurements of LUFS are also gated: chunks of audio below a certain volume are ignored, better representing the overall loudness of the audio track.
 
-<img loading='lazy' style='max-width: 600px; margin: 0 auto;' src='/writing-images/loudness/youlean.png' width='1200' height='562' />
+<img loading='lazy' style='max-width: 600px; margin: 0 auto;' src='/writing-images/loudness/youlean.png' width='1200' height='562' alt='A screenshot of the Youlean Loudness Meter plugin showing the LUFS level of some music.' />
 
 Overall, LUFS is a holistic standard for approximating the perceived loudness of audio content, and it's crucial to understand when distributing your audio. When mixing programs for broadcast, you have strict LUFS limits to adhere to. When mixing music for streaming, each platform has an LUFS target that your music will be scaled to hit — that means if you don't use your dynamic range well, your music can end up being scaled down to sound quieter and lower-quality than other songs. Even when you're not distributing to a platform that cares about LUFS, it's useful to know how loud your track sounds!
 
@@ -220,7 +220,7 @@ Now that we've grasped the vast collection of units we use, we can examine the m
 
 ### Line Level
 
-<img loading='lazy' style='max-width: 300px;' className='float-right' src='/writing-images/loudness/instruments.jpg' width='800' height='516' />
+<img loading='lazy' style='max-width: 300px;' className='float-right' src='/writing-images/loudness/instruments.jpg' width='800' height='516' alt='Assorted guitars and an electric keyboard.' />
 
 Audio devices that connect to each other benefit from a common *line level*: a reference level shared across different analog devices to simplify leveling and compatibility. The standard line level for consumer audio devices like CD players and home stereo systems is −10 dBV. This is notably different from professional audio equipment, which uses a line level of +4 dBu. (Don't you love how it's a different unit?)
 
@@ -238,7 +238,7 @@ Until now, we've separated the digital world, where dBFS, DAWs, and effect plugi
 
 Choosing an alignment level is useful because it allows each digital amplitude to correspond to an analog voltage in a way that is consistent throughout your entire recording, production, mixing, and mastering process. You can use the same reference when recording line in audio from your keyboard, calibrating your digital VU meter, and sharing your track with a mastering engineer. Here's where I get opinionated: even if you're just going to work in your DAW and release straight to streaming or Soundcloud, you should pick an alignment level because it will give you plenty of headroom, a consistent framework to work inside, and compatibility with a world built on decades of the assumption that you will have one.
 
-<img loading='lazy' style='max-width: 300px; margin-top: 10px;' className='float-left' src='/writing-images/loudness/smpte.png' width='1807' height='982' />
+<img loading='lazy' style='max-width: 300px; margin-top: 10px;' className='float-left' src='/writing-images/loudness/smpte.png' width='1807' height='982' alt='SMPTE logo.' />
 
 What alignment level should you use, then? Is there a standard choice across the globe? Of course not. But, at least in the United States where I live, the Society of Motion Picture and Television Engineers (SMPTE) defined +4 dBu — the professional line level in the United States, and also equivalent to 0 VU — as −20 dBFS. This is by far the most common standard among producers and audio engineers and matches the headroom that practically every piece of professional analog equipment can handle.
 
@@ -248,7 +248,7 @@ While I recommend using that, it's worth noting that you will sometimes come acr
 
 In 2000, at the peak of the [loudness wars](https://en.wikipedia.org/wiki/Loudness_war), mixing engineer Bob Katz had enough of musicians making louder and louder music while decreasing dynamic range, and he published a proposed solution to the problem: a standard set of levels and headroom for mixing called the K-system (no relation to K-weighting). The system had three configurations: K-20, K-14, and K-12.
 
-<img loading='lazy' style='max-width: 400px; margin: 0 auto;' src='/writing-images/loudness/k-system.png' width='800' height='720' />
+<img loading='lazy' style='max-width: 400px; margin: 0 auto;' src='/writing-images/loudness/k-system.png' width='800' height='720' alt='The K-System: loudness and headroom-based. 0 VU always equals 85 dBC SPL with pink noise. K-20 is for large theater, daring home theater, and wide-range music, K-14 is for home theater and pop music, and K-12 is for broadcast.' />
 
 The K-system had you put a VU meter on your master track and use a sound level meter to set your speaker gain so 0 VU = 85 dBSPL at the listener's position. The only difference between the different configurations is the setting of the VU meter and therefore the headroom. K-20 had the VU meter set to −20 dBFS, K-14 was −14 dBFS, and, as I'm sure you can guess, K-12 was −12 dBFS.
 
