@@ -1,4 +1,6 @@
-import { BinnedRMS, Biquad, dbFromLinear, linearFromDb, PolyphaseUpsampler, type BiquadConfig } from './util'
+/// <reference types="@types/audioworklet" />
+
+import { BinnedRMS, Biquad, dbFromLinear, linearFromDb, PolyphaseUpsampler, type BiquadConfig } from './dsp'
 
 const MIN_AMPLITUDE = linearFromDb(-130)
 const MIN_PEAK_HOLD_AMPLITUDE = linearFromDb(-100)

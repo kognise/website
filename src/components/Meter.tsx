@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { MeterKind } from '../meter/worklet'
-import { createSquareWave, linearFromDb, useMediaSession } from '../meter/util'
+import { createSquareWave, useMediaSession } from '../meter/util'
+import { linearFromDb } from '../meter/dsp'
 import { height, render, startMeter, width, type Controls, type SharedState } from '../meter/display'
 import styles from './Meter.module.css'
 import { IoPauseSharp, IoPlaySharp } from 'react-icons/io5'

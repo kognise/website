@@ -1,6 +1,7 @@
-import { map, dbFromLinear, circleLine, circleLabel, clamp, linearFromDb, circleDot } from './util'
+import { map, circleLine, circleLabel, clamp, circleDot } from './util'
+import { dbFromLinear, linearFromDb } from './dsp'
 import type { MeterKind, PortMessage } from './worklet'
-import meterWorkletUrl from '../meter/worklet?url'
+import meterWorkletUrl from '../meter/worklet?worker&url'
 
 const LUFS_CHART_UPDATE_RATE = 60
 const LUFS_CHART_SECONDS = 10
@@ -48,6 +49,7 @@ async function getPatternSource() {
 	destCanvas.width = size
 	destCanvas.height = size
 	const destCtx = destCanvas.getContext('2d')
+	if (!destCtx) return null
 
 	destCtx.drawImage(image, 0, 0, size, size)
 
@@ -685,12 +687,14 @@ export function render(ctx: CanvasRenderingContext2D, sharedState: SharedState):
 	}
 
 
-	if (sharedState.meterKind === 'ebu_ppm' || sharedState.meterKind === 'uk_ppm' || sharedState.meterKind === 'vu') {
+	if ((sharedState.meterKind === 'ebu_ppm' || sharedState.meterKind === 'uk_ppm' || sharedState.meterKind === 'vu') && patternSource) {
 		const pattern = ctx.createPattern(patternSource, 'repeat')
-		ctx.fillStyle = pattern
-		ctx.globalAlpha = sharedState.meterKind === 'vu' ? 1 : 0.2
-		ctx.fillRect(0, 0, width, height)
-		ctx.globalAlpha = 1
+		if (pattern) {
+			ctx.fillStyle = pattern
+			ctx.globalAlpha = sharedState.meterKind === 'vu' ? 1 : 0.2
+			ctx.fillRect(0, 0, width, height)
+			ctx.globalAlpha = 1
+		}
 	}
 	
 	sharedState.isPeakRendered = true
