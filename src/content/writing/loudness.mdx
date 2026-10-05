@@ -6,9 +6,9 @@ date: '2026-10-01'
 
 import Meter from '../../components/Meter'
 
-I make music, and in doing so, I interact every day with a myriad representations of loudness. In one day of work, I've slid a mixer fader to lower an instrument's volume, glanced at a VU meter to monitor an analog compressor's output, recalibrated my speakers with a sound level meter, and mastered my track while referencing an LUFS plugin.
+I make music, and in doing so, I interact every day with a myriad of representations of loudness. In a single day of work, I have slid a mixer fader to lower an instrument's volume, glanced at a VU meter to monitor an analog compressor's output, recalibrated my speakers with a sound level meter, and mastered my track while referencing an LUFS plugin.
 
-Our field has dozens of meters and units that we have to remember the specifics of. In seeking to document them all, I've found a shocking amount of subtle misinformation, plain falsehoods, and steep assumptions of what is "obvious" and what "everyone" knows.
+Our field features dozens of meters and units whose specifics we have to remember. In seeking to document them all, I've found a shocking amount of subtle misinformation, plain falsehoods, and steep assumptions of what is "obvious" and what "everyone" knows.
 
 This article is my attempt to create a comprehensive taxonomy of loudness meters, units, and reference levels, including where they come from and how to use them.
 
@@ -114,7 +114,7 @@ Psychoacoustics discussions need a unit that can intuitively represent *ratios*.
 
 Sones are defined in terms of phons, where 1 sone = 40 phons, and after that the loudness in sones doubles for each increase of 10 phons. Below 40 phons, the relative volume of sounds is less consistent, so different, specialized formulas are used based on our knowledge of psychoacoustics.
 
-The sone is largely unused in the context of audio engineering for a similar reason to why the phon is avoided. They are both subjective units that cannot be quantitatively measured or converted to other unit systems.
+The sone is largely unused in the context of audio engineering for a reason similar to why the phon is avoided. They are both subjective units that cannot be quantitatively measured or converted to other unit systems.
 
 ### Analog Audio
 
@@ -124,7 +124,7 @@ Sound needs to get to your ears somehow, so we have speakers that vibrate the ai
 
 Until computers and digital audio revolutionized sound production, only analog audio, where the amount of voltage traveling through a wire corresponds the amplitude of the sound wave, was relevant to electronic musicians.
 
-Analog audio remains critical to deeply understand even as a digital-only producer, because all sound that is recorded or played back must pass through the analog world to travel between the digital and physical worlds. Historical context from analog audio also shapes many of the digital tools and conventions we use today.
+It remains critical to deeply understand analog audio even as a digital-only producer, because all sound that is recorded or played back must pass through the analog world to travel between the digital and physical worlds. Historical context from analog audio also shapes many of the digital tools and conventions we use today.
 
 #### dBW: 1 W
 
@@ -144,7 +144,7 @@ However, dBm often (erroneously?) means decibels relative to 0.775 V. This is a 
 
 Because dBm became ambiguous, a new unit was created, *unloaded decibels* (dBu), which is officially defined as "the RMS voltage that would dissipate 1 mW in a 600 Ω load" — in other words, 0.775 V.
 
-dBu was originally named dBv, but dBv is now avoided because it the name can be easily confused with the next unit we'll discuss, dBV. In some cases, you might even see dBv written when dBV is actually intended, so watch out!
+dBu was originally named dBv, but dBv is now avoided because the name can be easily confused with the next unit we'll discuss, dBV. In some cases, you might even see dBv written when dBV is actually intended, so watch out!
 
 #### dBV: 1 V
 
@@ -160,7 +160,7 @@ The *VU* unit is a bit of an odd one out. Rather than a measurement of air press
 
 While VU meters can be calibrated differently, they are traditionally set to a reference of 0 VU = +4 dBu, and have an integration time (the window of time the needle smoothes the signal over) of 300 ms. Because VU meters are marked with a decibel scale, you will sometimes see *decibels VU* (dBVU) used to mean the same thing as VU.
 
-VU meters have characteristic physical behaviors, usually collectively called the *ballistic response*, that cause certain needle movements and damping in response to changes in volume. VU meters' ballistic responses are a product of their analog circuitry, the construction of which is relatively standardized, and gives them the personality that helped lead to their popularity. The typical ballistic response precisely matches neither the simple average, nor the true RMS power measurement, over the integration period, although it is proportionally closer to a flat average than the RMS. A common misconception is that VU is a measurement of RMS. Traditionally, it is not.
+VU meters have characteristic physical behaviors, usually collectively called the *ballistic response*, that cause certain needle movements and damping in response to changes in volume. VU meters' ballistic responses are a product of their analog circuitry, the construction of which is relatively standardized, and gives them the personality that helped lead to their popularity. The typical ballistic response precisely matches neither the simple average nor the true RMS power measurement over the integration period, although it is proportionally closer to a flat average than the RMS. A common misconception is that VU is a measurement of RMS. Traditionally, it is not.
 
 Many DAW plugins are available that simulate analog VU meters. Of course, it's not possible to calibrate a DAW plugin's VU meter with a reference value in dBu — digital audio works in bits, not voltage — so the calibration is often configured in dBFS RMS. What value is used, then? Typically, the dBFS value corresponding to +4 dBu of analog output. This value depends on your preferred alignment level, which has conventions varying by country and standard (film vs. broadcast vs. CD) between −12 dBFS and −20 dBFS.
 
@@ -242,7 +242,7 @@ Choosing an alignment level is useful because it allows each digital amplitude t
 
 What alignment level should you use, then? Is there a standard choice across the globe? Of course not. But, at least in the United States where I live, the Society of Motion Picture and Television Engineers (SMPTE) defined +4 dBu — the professional line level in the United States, and also equivalent to 0 VU — as −20 dBFS. This is by far the most common standard among producers and audio engineers and matches the headroom that practically every piece of professional analog equipment can handle.
 
-While I recommend using that, it's worth noting that you will sometimes come across −18 dBFS = 0 dBu used, which is the European standard set by EBU R 68, and has 6dB less headroom than the SMPTE alignment level. European broadcasting bodies traditionally used a reference of 0 dBu for analog audio and peak programme meters.
+While I recommend using the SMPTE standard, it's worth noting that you will sometimes come across −18 dBFS = 0 dBu used, which is the European standard set by EBU R 68, and has 6dB less headroom than the SMPTE alignment level. European broadcasting bodies traditionally used a reference of 0 dBu for analog audio and peak programme meters.
 
 ### Looking Backward: K-system
 
@@ -262,7 +262,7 @@ In the United States and Canada, the common standard is instead Advanced Televis
 
 Both of these standards are very relevant to broadcast and cinema, but much less so for music. However, you might notice that the target numbers are very similar to where you'll likely already end up at when mastering to the SMPTE alignment level of −20 dBFS = +4 dBu, which is also going to be close to the EBU alignment level of −18 dBFS = 0 dBu. That makes these very easy standards to accidentally follow, and if you're just making music or other audio for digital distribution, you probably shouldn't ever care or think about them again!
 
-The only part specified by Bob Katz but missing in these modern standards is what you set your speakers to. The best answer nowadays is whatever sounds good to your ears. The standard for cinema is still typically +4 dBu = 85 dBC, but as low as +4 dBu = 73 dBC is common for music production.
+The only part specified by Katz but missing in these modern standards is what you set your speakers to. The best answer nowadays is whatever sounds good to your ears. The standard for cinema is still typically +4 dBu = 85 dBC, but as low as +4 dBu = 73 dBC is common for music production.
 
 ## Conclusion and Application
 
@@ -276,7 +276,7 @@ However, if you want prescriptivism, here is some of that:
 * If you care about calibrating your speaker volume, calibrate them one channel at a time such that band-limited pink noise at +4 dBu (−20 dBFS RMS or 0 VU, here are some [test files](https://media.kognise.dev/audio-test-files/)) is anything between 73 dBC and 85 dBC. You probably don't need to shill out for a sound level meter, it turns out an app on your phone is almost as accurate. Your ears are pretty good, too.
 * When mastering for louder volumes (for example, Spotify's target is −14 LUFS, and CDs can be pushed to like −10 LUFS) you'll probably need to bump your gain about 10−15 dB. Depending on how peaky your mix is, this is what limiters is for.
 
-There are a lot of people on the internet with terrible mixing advice, and I might be one of them. There are a lot of people on the internet with great mixing advice, and I'm probably not one of them. I hope after reading this article you'll be better at making your own choices for your mixes. If you have any questions, comments, or corrections, I'm happy to help or hear at [hi@kognise.dev](mailto:hi@kognise.dev).
+There are a lot of people on the internet with terrible mixing advice, and I might be one of them. There are a lot of people on the internet with great mixing advice, and I'm probably not one of them. I hope after reading this article, you'll be better equipped to make your own, intentional, and informed choices for your mixes. If you have any questions, comments, or corrections, I'm happy to help or hear at [hi@kognise.dev](mailto:hi@kognise.dev).
 
 Toodles!
 
