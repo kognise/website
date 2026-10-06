@@ -161,6 +161,8 @@ body {
 .article-image {
 	opacity: 0.5;
 	transition: opacity 300ms ease;
+	min-height: 250px;
+    object-fit: cover;
 
 	&:hover {
 		opacity: 1;
