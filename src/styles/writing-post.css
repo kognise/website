@@ -158,13 +158,28 @@ body {
 	overflow: auto;
 }
 
+.article-image {
+	opacity: 0.5;
+	transition: opacity 300ms ease;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
 main {
 	font-family: var(--font-prose-family);
 	font-size: 1.1rem;
 	margin: 0 auto;
-	padding: 80px 20px;
+	padding: 0 20px;
+	padding-top: 30px;
+	padding-bottom: 80px;
 	max-width: 800px;
 	overflow-wrap: break-word;
+
+	&.no-image {
+		padding-top: 80px;
+	}
 }
 
 h1 {

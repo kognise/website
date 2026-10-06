@@ -17,10 +17,7 @@ export interface Params {
 // 	return posts.map(post => ({ params: { slug: post.slug } }))
 // }
 
-const post = await getEntry({
-	collection: 'writing',
-	slug: Astro.params.slug,
-})
+const post = await getEntry('writing', Astro.params.slug!)!
 const { Content, headings } = await post.render()
 const tabSize = post.data['tab-size'] || 4
 ---
@@ -44,7 +41,18 @@ const tabSize = post.data['tab-size'] || 4
 </head>
 <body>
 	<div class='container'>
-		<main>
+		{post.data.image && (
+			<img
+				role='presentation'
+				alt=''
+				src={post.data.image.url}
+				width={post.data.image.width}
+				height={post.data.image.height}
+				class='article-image'
+			/>
+		)}
+
+		<main class={post.data.image ? '' : 'no-image'}>
 			<div id='__top__' />
 			
 			<h1>
