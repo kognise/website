@@ -22,7 +22,7 @@ const EBU_PPM_DECAY_RATE_DB_PER_SECOND = UK_PPM_DECAY_RATE_DB_PER_SECOND
 const RMS_WINDOW_SECONDS = 0.6
 const HYBRID_RMS_WINDOW_SECONDS = 0.01
 const LUFS_MOMENTARY_SECONDS = 0.4
-const LUFS_SHORT_TERM_SECONDS = 2
+const LUFS_SHORT_TERM_SECONDS = 3
 
 export type PortMessage =
 	| { kind: 'peak', peak: number }
