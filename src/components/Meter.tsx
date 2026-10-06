@@ -71,7 +71,7 @@ const meterInfoMap: Record<MeterKind, MeterInfo> = {
 		name: 'True Peak Meter',
 		description: <>
 			<p>
-				Typical digital peak meters only show the maximum <em>sampled</em> amplitutude of the <em>digital</em> signal, but the corresponding <em>analog</em> signal might actually have higher peaks. This is explained in greater depth later in this article.
+				Typical digital peak meters only show the maximum <em>sampled</em> amplitude of the <em>digital</em> signal, but the corresponding <em>analog</em> signal might actually have higher peaks. This is explained in greater depth later in this article.
 			</p>
 			<p>
 				Some digital peak meters will oversample the signal to show these inter-sample peaks; these are called true peak meters. Often, digital peak meters will not identify themselves as true peak meters despite oversampling.
@@ -99,7 +99,7 @@ const meterInfoMap: Record<MeterKind, MeterInfo> = {
 		name: 'LUFS Meter',
 		description: <>
 			<p>
-				<a href='https://en.wikipedia.org/wiki/LUFS' target='_blank'>LUFS</a> is unit of loudness defined by ITU-R BS.1770.
+				<a href='https://en.wikipedia.org/wiki/LUFS' target='_blank'>LUFS</a> is a unit of loudness defined by ITU-R BS.1770.
 			</p>
 			<p>
 				LUFS meters often show measurements across multiple time intervals, specified by the EBU R 128 standard: <em>integrated</em>, taken over the whole song, <em>short-term</em>, taken over 3 seconds, and <em>momentary</em>, taken over 400 ms. The integrated measurement is <em>gated</em>, excluding quiet portions of the song. Some meters show <em>loudness range</em> (LRA), which is a measure of the dynamic range of your mix.
