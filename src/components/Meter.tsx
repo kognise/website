@@ -41,7 +41,7 @@ const meterInfoMap: Record<MeterKind, MeterInfo> = {
 		name: 'UK PPM',
 		description: <>
 			<p>
-				The British <a href='https://en.wikipedia.org/wiki/Peak_programme_meter' target='_blank'>peak programme meter</a> was another analog meter that displays the true peak level of audio on a scale from 1–7, with ticks spaced by 4 dB. They are often calibrated such that 4 represents the alignment level and 6 is the maximum permitted broadcast level.
+				The British <a href='https://en.wikipedia.org/wiki/Peak_programme_meter' target='_blank'>peak programme meter</a> was another analog meter that displays the true peak level of audio on a scale from 1–7, with ticks spaced by 4 dB (except for 1 and 2, which are spaced by 6 dB). They are often calibrated such that 4 represents the alignment level and 6 is the maximum permitted broadcast level.
 			</p>
 			<p>
 				Peak programme meters didn't catch on in the United States because VU meters were already prevalent and cheaper to manufacture.
@@ -88,7 +88,7 @@ const meterInfoMap: Record<MeterKind, MeterInfo> = {
 		name: 'RMS Meter',
 		description: <>
 			<p>
-				These meters show the root mean square (RMS) level over some time period (called the <em>integration period</em>). The most common integration period is 300 ms, matching that of traditional VU meters.
+				These meters show the root mean square (RMS) level over some time period (called the <em>integration period</em>). A common integration period is 300 ms, matching that of traditional VU meters. The meter above uses a 600 ms integration period.
 			</p>
 			<p>
 				Like digital VU meters, many digital RMS meters have a +3&nbsp;dB offset as provided by AES17, such that a sine wave reads 0 dBFS RMS.
@@ -135,10 +135,10 @@ const meterInfoMap: Record<MeterKind, MeterInfo> = {
 				Some tools, including <a href='https://en.wikipedia.org/wiki/Bitwig_Studio'>Bitwig</a>, include meters based on Bob Katz's K-system of loudness metering: K-20, K-14, and K-12 meters. A K-20 meter is shown above.
 			</p>
 			<p>
-				K-meters are VU meters where 0 VU is calibrated to the K-system offset. For example, on a K-20 meter, 0 VU would correspond to −20 dBFS and −10 VU to −30 dBFS. Even if you aren't using the 85 dBC calibrated K-system for your speakers, it can be useful to use a K-20 meter if you're mixing around a −20 dBFS alignment level.
+				The original K-meter was a VU meter where 0 VU is calibrated to the K-system offset. For example, on a K-20 meter, 0 VU would correspond to −20 dBFS and −10 VU to −30 dBFS. Even if you aren't using the 85 dBC calibrated K-system for your speakers, it can be useful to use a K-20 meter if you're mixing around a −20 dBFS alignment level.
 			</p>
 			<p>
-				Sometimes, these are actually AES17 RMS meters instead of VU meters, because it is easier to program a tool that calculates an RMS level than one that simulates the physical properties of a VU meter.
+				Often, these are actually AES17 RMS meters instead of VU meters. It is easier to program a tool that calculates an RMS level than one that simulates the physical properties of a VU meter. This was reflected in Katz's later publications.
 			</p>
 		</>
 	},

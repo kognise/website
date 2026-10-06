@@ -383,14 +383,12 @@ export function render(ctx: CanvasRenderingContext2D, sharedState: SharedState):
 		}
 		
 		const reference = -20
+		const relativeDb = dbFromLinear(sharedState.peak) - reference
+		const level = sharedState.meterKind === 'uk_ppm' && relativeDb < -8
+			? 2 + (relativeDb + 8) / 6
+			: 4 + relativeDb / 4
 		const needleAngle = clamp(
-			map(
-				dbFromLinear(sharedState.peak),
-				reference - 12,
-				reference + 12,
-				angleFirstTick,
-				angleLastTick,
-			),
+			map((level - 1) / 6, 0, 1, angleFirstTick, angleLastTick),
 			angleStart,
 			angleEnd,
 		)
