@@ -6,47 +6,122 @@
 	const grid = document.getElementById('bg-grid')
 	const [ rows, columns ] = [ 5, 5 ]
 
-	let lastHovered = -1
-	let mouseDown = false
-	let lastHue = 0
-	const prevDown = {}
+	let isMouseDown = false
+	const pointers = new Map([
+		[ 'mouse', { cell: -1, clicked: false, hue: 0 } ]
+	])
 
-	const render = (event) => {
-		const [ x, y ] = [ event.clientX, event.clientY ]
+	const cellAt = (x, y) => {
 		const row = Math.floor(y * rows / window.innerHeight)
 		const column = Math.floor(x * columns / window.innerWidth)
-
-		const cellIndex = row < rows || column > columns
-			? row * rows + column
-			: -1
-		const hovered = grid.children[cellIndex]
-
-		if (cellIndex >= 0) {
-			if (!prevDown[cellIndex] && (mouseDown || window.rainbowMode)) {
-				const hue = (lastHue + 12 + Math.floor(Math.random() * 16)) % 360
-				hovered.style.setProperty('--click-bg', `hsl(${hue}deg, 100%, 50%, 0.5)`)
-				lastHue = hue
-			}
-
-			hovered.classList.add('hovered')
-			hovered.classList.toggle('clicked', (mouseDown || window.rainbowMode))
-			hovered.classList.toggle('hovered-fast-trans', !prevDown[cellIndex] && !(mouseDown || window.rainbowMode))
-		}
-		
-		if (lastHovered >= 0 && lastHovered !== cellIndex) {
-			grid.children[lastHovered].classList.remove('hovered', 'hovered-fast-trans', 'clicked')
-			prevDown[lastHovered] = false
-		}
-		
-		lastHovered = cellIndex
-		prevDown[cellIndex] = mouseDown || window.rainbowMode
+		return row >= 0 && row < rows && column >= 0 && column < columns ? row * columns + column : -1
 	}
 
-	document.addEventListener('mousemove', render, { capture: true, passive: true })
-	document.addEventListener('mouseleave', () => render({ clientX: -1, clientY: -1 }), { passive: true })
-	document.addEventListener('mousedown', (event) => { mouseDown = true; render(event) }, { capture: true, passive: true })
-	document.addEventListener('mouseup', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
-	document.addEventListener('dragend', (event) => { mouseDown = false; render(event) }, { capture: true, passive: true })
+	const setColor = (cell, pointer) => {
+		pointer.hue = (pointer.hue + 12 + Math.floor(Math.random() * 16)) % 360
+		cell.style.setProperty('--click-bg', `hsl(${pointer.hue}deg, 100%, 50%, 0.5)`)
+	}
+
+	const highlightCell = (index) => {
+		const cell = grid.children[index]
+		if (!cell) return
+		const here = [ ...pointers.values() ].filter((pointer) => pointer.cell === index)
+		const clicked = here.some((pointer) => pointer.clicked)
+		cell.classList.toggle('hovered-fast-trans', here.length > 0 && !clicked && !cell.classList.contains('clicked'))
+		cell.classList.toggle('hovered', here.length > 0)
+		cell.classList.toggle('clicked', clicked)
+	}
+
+	// Highlight cells along the line from the pointer's current position to the target.
+	// For filling in gaps caused by touch event throttling.
+	const highlightPath = (pointerId, x, y) => {
+		const [ fromX, fromY ] = [ pointerId.renderedX, pointerId.renderedY ]
+		const steps = Math.ceil(Math.hypot(x - fromX, y - fromY) / 8)
+		const target = cellAt(x, y)
+		for (let step = 1; step < steps; step++) {
+			const index = cellAt(fromX + (x - fromX) * step / steps, fromY + (y - fromY) * step / steps)
+			const cell = grid.children[index]
+			if (!cell || index === pointerId.cell || index === target || cell.classList.contains('clicked')) continue
+			setColor(cell, pointerId)
+			cell.classList.add('clicked')
+			requestAnimationFrame(() => requestAnimationFrame(() => highlightCell(index)))
+		}
+	}
+
+	const onMove = (pointerId, index, clicked) => {
+		const pointer = pointers.get(pointerId)
+		const previous = pointer.cell
+		const cell = grid.children[index]
+		if (cell && clicked && !cell.classList.contains('clicked')) {
+			setColor(cell, pointer)
+		}
+		Object.assign(pointer, { cell: index, clicked })
+		if (previous !== index) {
+			highlightCell(previous)
+		}
+		highlightCell(index)
+	}
+
+	const addTouch = (pointerId) => {
+		const pointer = pointers.get(pointerId)
+		const dy = pointer.pageY - window.scrollY - pointer.y
+		const [ x, y ] = [ Math.min(Math.max(pointer.x + pointer.slope * dy, 0), window.innerWidth - 1), pointer.y + dy ]
+		if (window.rainbowMode && pointer.cell >= 0) {
+			highlightPath(pointer, x, y)
+		}
+		Object.assign(pointer, { renderedX: x, renderedY: y })
+		onMove(pointerId, cellAt(x, y), window.rainbowMode)
+	}
+
+	const removeTouch = (pointerId) => {
+		const pointer = pointers.get(pointerId)
+		if (!pointer || pointerId === 'mouse') return
+		pointers.delete(pointerId)
+		highlightCell(pointer.cell)
+	}
+
+	const onPointerEvent = (event) => {
+		if (event.pointerType === 'touch') return
+		if (event.type === 'pointerdown') isMouseDown = true
+		if (event.type === 'pointerup' || event.type === 'pointercancel' || event.type === 'dragend') isMouseDown = false
+		const index = event.type === 'pointerleave' || event.type === 'pointercancel' ? -1 : cellAt(event.clientX, event.clientY)
+		onMove('mouse', index, isMouseDown || window.rainbowMode)
+	}
+
+	const onTouchEvent = (event) => {
+		for (const touch of event.changedTouches) {
+			const id = touch.identifier
+
+			if (event.type === 'touchstart') {
+				removeTouch(id)
+				pointers.set(id, { cell: -1, clicked: false, hue: Math.floor(Math.random() * 360) })
+			}
+
+			if (event.type === 'touchend' || event.type === 'touchcancel') {
+				removeTouch(id)
+			} else if (pointers.has(id)) {
+				const pointer = pointers.get(id)
+				const [ dx, dy ] = [ touch.clientX - pointer.x, touch.clientY - pointer.y ]
+				const slope = event.type === 'touchmove' && dy ? Math.min(Math.max(dx / dy, -4), 4) : 0
+				Object.assign(pointer, { x: touch.clientX, y: touch.clientY, pageY: touch.pageY, slope })
+				addTouch(id)
+			}
+		}
+	}
+
+	const onScrollAndResize = () => {
+		for (const id of pointers.keys()) if (id !== 'mouse') addTouch(id)
+	}
+
+	for (const type of [ 'pointermove', 'pointerleave', 'pointerdown', 'pointerup', 'pointercancel', 'dragend' ]) {
+		document.addEventListener(type, onPointerEvent, { capture: type !== 'pointerleave', passive: true })
+	}
+	for (const type of [ 'touchstart', 'touchmove', 'touchend', 'touchcancel' ]) {
+		document.addEventListener(type, onTouchEvent, { capture: true, passive: true })
+	}
+	for (const type of [ 'scroll', 'resize' ]) {
+		window.addEventListener(type, onScrollAndResize, { passive: true })
+	}
 </script>
 
 <style>
